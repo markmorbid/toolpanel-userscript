@@ -84,9 +84,9 @@ bottom: 20px;
 right: 20px;
 width: 650px;
 max-width: 90vw;
-height: 400px;
-/* height: auto!important; */
-min-height: 250px;
+/*height: 400px;
+ height: auto!important; */
+min-height: 350px;
 background-color: var(--yss-panel-bg);
 color: var(--yss-panel-color);
 border: 1px solid var(--yss-panel-border);
@@ -161,7 +161,7 @@ transition: height 300ms ease;
     resize: none;
     --yss-header-bg: #1f1f1f;
     border-color: #424242;
-    width: 330px;
+    /*width: 330px;*/
     min-height: unset!important;
     height: 49px!important;
 }
@@ -1193,7 +1193,14 @@ input[type="radio"], input[type="checkbox"] {
     transform: translateY(-50%);
 }
 
-
+.yss-controls, .yss-log-wrapper {
+    height: max-content;
+    transition: height 300ms .2s;
+}
+.yss-panel.collapsed .yss-controls, .yss-panel.collapsed .yss-log-wrapper {
+    height: 0;
+    overflow: hidden;
+}
 
 .yss-controls .button_group {
     display: flex;
@@ -2095,6 +2102,7 @@ input#manualSelection, input#startFromSpecific {
 /* Video Selection Styles */
 .yss-selectable-video {
     cursor: pointer !important;
+    
 }
 
 .yss-selectable-video:hover {
