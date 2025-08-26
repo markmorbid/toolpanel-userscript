@@ -79,26 +79,24 @@ font-family: var(--yss-font-family);
 }
 
 .yss-panel {
-position: fixed;
-bottom: 20px;
-right: 20px;
-width: 650px;
-max-width: 90vw;
-/*height: 400px;
- height: auto!important; */
-min-height: 350px;
-background-color: var(--yss-panel-bg);
-color: var(--yss-panel-color);
-border: 1px solid var(--yss-panel-border);
-border-radius: var(--yss-border-radius);
-box-shadow: 0 5px 15px var(--yss-panel-shadow);
-z-index: 10001;
-display: flex;
-flex-direction: column;
-font-family: var(--yss-font-family);
-font-size: var(--yss-font-size);
-resize: vertical;
-transition: height 300ms ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 650px;
+    max-width: 90vw;
+    min-height: 350px;
+    background-color: var(--yss-panel-bg);
+    color: var(--yss-panel-color);
+    border: 1px solid var(--yss-panel-border);
+    border-radius: var(--yss-border-radius);
+    box-shadow: 0 5px 15px var(--yss-panel-shadow);
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--yss-font-family);
+    font-size: var(--yss-font-size);
+    resize: vertical;
+    transition: height 300ms ease;
 }
 
 
@@ -143,9 +141,9 @@ transition: height 300ms ease;
      opacity: 1;
 }
 #yss-panel:not(.collapsed) .yss-header:hover {
-    background-color: var(--yss-btn-stop-hover);
-    --yss-panel-border: #a31724;
-    border-color: var(--yss-panel-border);
+    background-color: #2a2a2a;
+    --yss-panel-border: #444444;
+    border-color: #444444;
 }
 #yss-panel.collapsed .yss-header {
     min-height: 30px;
@@ -543,10 +541,16 @@ border-color: var(--yss-btn-pause-border) !important;
     border-color: var(--yss-btn-green-bg);
 }
 .yss-log-wrapper {
-flex-grow: 1;
-position: relative;
-overflow: hidden;
-resize: vertical;
+    flex-grow: 1;
+    position: relative;
+    /* overflow: hidden; */
+    /* resize: vertical; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-between;
 }
 .yss-panel.collapsed .yss-header {
     border-radius: var(--yss-border-radius);
@@ -577,6 +581,12 @@ resize: vertical;
     border-radius: 0 0 var(--yss-border-radius) var(--yss-border-radius);
     scrollbar-color: var(--yss-btn-border) transparent;
     scrollbar-width: auto;
+    height: -webkit-fill-available;
+    min-height: 100%;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    resize: vertical;
 }
 
 .yss-log-entry {
