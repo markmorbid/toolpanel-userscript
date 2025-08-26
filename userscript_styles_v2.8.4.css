@@ -590,7 +590,6 @@ border-color: var(--yss-btn-pause-border) !important;
     /* resize: vertical; */
     max-height: 70vh;
     width: -webkit-fill-available;
-    padding-right: 0;
 }
 
 .yss-log-entry {
