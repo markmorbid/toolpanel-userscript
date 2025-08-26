@@ -552,6 +552,7 @@ border-color: var(--yss-btn-pause-border) !important;
     align-content: stretch;
     align-items: stretch;
     justify-content: space-between;
+    display: flex;
 }
 .yss-panel.collapsed .yss-header {
     border-radius: var(--yss-border-radius);
