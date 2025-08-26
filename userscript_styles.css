@@ -2007,7 +2007,6 @@ input#manualSelection, input#startFromSpecific {
 }
 .yss-modal-content.yss-sticky-modal .yss-form-group label {
     margin: 0;
-    pointer-events: none;
 }
 .yss-modal-content.yss-sticky-modal .yss-form-group, .yss-form-group {
     align-content: stretch;
@@ -2096,7 +2095,6 @@ input#manualSelection, input#startFromSpecific {
 /* Video Selection Styles */
 .yss-selectable-video {
     cursor: pointer !important;
-    transition: all 0.2s ease !important;
 }
 
 .yss-selectable-video:hover {
