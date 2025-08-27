@@ -8,8 +8,8 @@
     --yss-panel-shadow: rgba(0, 0, 0, 0.5);
 
     /* Header Colors */
-    --yss-header-bg: #333;
-    --yss-header-border: #555;
+    --yss-header-bg: #2e2e2e;
+    --yss-header-border: #424242;
 
     /* Button Colors */
     --yss-btn-bg: #444;
@@ -1107,16 +1107,22 @@ cursor: pointer;
 }
 /* FontAwesome icon styling */
 .yss-btn i {
-    width: 12px;
+    /* width: 12px; */
     text-align: center;
+    min-width: 12px;
+    max-width: 15px;
 }
 
 .yss-btn i:only-child {
     margin-right: 0;
+    width: auto;
+    text-align: center;
+    min-width: 12px;
+    max-width: 15px;
 }
 .yss-btn:has(i) {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
@@ -2315,12 +2321,14 @@ ytcp-video-row #contents.style-scope.ytcp-video-row {
     background-color: var(--yss-panel-bg-3);
 }
 .yss-header-nav select, .yss-header-nav .yss-select {
-    max-width: 200px;
+    /* max-width: 200px; */
     margin: 0;
-    font-size: 13px;
-    padding: 8px 0 8px 10px;
+    font-size: 12px;
+    padding: 8px 25px 8px 10px;
     height: 32px;
     background-size: 12px;
+    background-color: var(--yss-panel-bg);
+    color: #8d8d8d;
 }
 select.yss-select {
     margin: 0;
