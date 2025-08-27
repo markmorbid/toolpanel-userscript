@@ -115,6 +115,62 @@ font-family: var(--yss-font-family);
     transition: height 300ms, min-height 300ms, max-height 300ms, background-color 300ms, border-color 300ms;
     border-bottom: 1px solid var(--yss-header-border);
 }
+.yss-header-wrapper .yss-header-title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+.yss-header:has(.yss-header-wrapper) {
+    padding-right: 0;
+    padding-left: 0;
+    position: relative;
+}
+.yss-header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-right: 55px;
+    padding-left: 18px;
+    pointer-events: none;
+}
+.yss-header-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 4px;
+    pointer-events: all;
+    opacity: 1;
+    transition: opacity 300ms ease;
+}
+.yss-panel.collapsed .yss-header-nav {
+    opacity: 0;
+}
+.yss-panel.collapsed .yss-header:hover .yss-header-nav {
+    opacity: 1;
+}
+.yss-header-nav .yss-btn-icon, .yss-header-nav .yss-btn {
+    min-height: unset;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--yss-btn-border-radius);
+    opacity: 1!important;
+}
 .yss-header .yss-btn-icon.yss-help-btn {
     cursor: pointer;
     border: 1px solid rgba(255,255,255,.35);
