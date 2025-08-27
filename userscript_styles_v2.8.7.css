@@ -2286,7 +2286,7 @@ ytcp-video-row #contents.style-scope.ytcp-video-row {
     display: flex;
     align-items: center;
 }
-.yss-modal-content select {
+.yss-modal-content select, .yss-header-nav select, select.yss-select {
     width: 100%;
     background-color: var(--yss-log-bg);
     border: 1px solid var(--yss-panel-border);
@@ -2308,6 +2308,22 @@ ytcp-video-row #contents.style-scope.ytcp-video-row {
     background-position: right 10px center;
     background-size: 15px;
     cursor: pointer;
+}
+.yss-select:focus, .yss-select:focus-within, .yss-select:focus-visible {
+    outline: none;
+    border-color: var(--yss-log-success);
+    background-color: var(--yss-panel-bg-3);
+}
+.yss-header-nav select, .yss-header-nav .yss-select {
+    max-width: 200px;
+    margin: 0;
+    font-size: 13px;
+    padding: 8px 0 8px 10px;
+    height: 32px;
+    background-size: 12px;
+}
+select.yss-select {
+    margin: 0;
 }
 ytcp-video-row.style-scope.ytcp-video-section-content.yss-selectable-video .yss-selectable-video *, ytcp-video-row.style-scope.ytcp-video-section-content.yss-selectable-video .cell-body {
     pointer-events: none;
