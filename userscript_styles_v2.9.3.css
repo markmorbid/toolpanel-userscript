@@ -1322,7 +1322,7 @@ input[type="radio"], input[type="checkbox"] {
     position: relative;
     flex-direction: row;
     align-items: center;
-    flex: 1 1;
+   /*  flex: 1 1; */
     padding: 10px;
     position: relative;
 }
@@ -1369,7 +1369,7 @@ display: flex;
     flex: 1 1;
 }
 .yss-controls .button_group:has(#yss-start-stop-btn, #yss-disable-all-notifs-btn) {
-flex: 1 1;
+/* flex: 1 1; */
 border-right: 1px solid var(--yss-panel-border);
 margin-right: -1px;
 }
@@ -3169,8 +3169,15 @@ button#yss-clear-imported-btn:disabled {
     vertical-align: middle;
     line-height: initial;
     margin: 0!important;
+    max-width: unset;
 }
-
+.yss-button-with-dropdown:has(.yss-btn:disabled) > .yss-btn:after {
+    content: "";
+}
+.yss-button-with-dropdown:has(.yss-btn:disabled) .yss-button-options {
+    pointer-events: none;
+    display: none;
+}
 .button_group select.yss-select {
     height: 40px;
     font-size: 14px;
