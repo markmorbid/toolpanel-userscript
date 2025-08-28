@@ -100,7 +100,7 @@ font-family: var(--yss-font-family);
     font-family: var(--yss-font-family);
     font-size: var(--yss-font-size);
     resize: vertical;
-    transition: height 300ms ease;
+    transition: height 300ms ease, max-height 300ms ease, border-color 300ms ease, background-color 300ms ease;
     max-height: 80vh;
 }
 
@@ -1287,13 +1287,13 @@ input[type="radio"], input[type="checkbox"] {
 
 .yss-controls, .yss-log-wrapper {
     height: max-content;
-    transition: height 300ms;
+    transition: height 300ms, max-height 300ms;
 }
 .yss-panel.collapsed .yss-controls, .yss-panel.collapsed .yss-log-wrapper {
-    height: 0;
+    height: 0!important;
     overflow: hidden;
+    max-height: 0;
 }
-
 .yss-controls .button_group {
     display: flex;
     flex-wrap: nowrap;
@@ -1503,10 +1503,10 @@ top: 0;
 right: 0;
 height: 100%;
 }
-#yss-panel{
-opacity: 1;
-transform: translateY(0);
-transition: opacity 300ms ease, transform 300ms ease, height 300ms ease;
+#yss-panel {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms ease, transform 300ms ease, height 300ms ease, max-height 300ms ease;
 }
 #yss-panel.hidden{
 opacity: 0;
@@ -3010,9 +3010,9 @@ button#yss-clear-imported-btn:disabled {
 .yss-modal-content .yss-current-downloads.yss-videolist-container:has(.yss-current-downloads-list:empty) {
     display: none;
 }
-.yss-controls #yss-pause-resume-btn:disabled, .yss-controls:has(#yss-pause-resume-btn:not(:disabled)) #yss-rename-cb-container:has(input:disabled) {
+/* .yss-controls #yss-pause-resume-btn:disabled, .yss-controls:has(#yss-pause-resume-btn:not(:disabled)) #yss-rename-cb-container:has(input:disabled) {
     display: none;
-}
+} */
 /* --- START: NEW JAVASCRIPT TOOLTIP STYLES --- */
 #yss-tooltip-container {
     position: fixed;
@@ -3071,3 +3071,76 @@ button#yss-clear-imported-btn:disabled {
 #yss-tooltip-content a { color: var(--yss-breadcrumb-color); text-decoration: none; }
 #yss-tooltip-content a:hover { text-decoration: underline; color: var(--yss-breadcrumb-hover); }
 /* --- END: NEW JAVASCRIPT TOOLTIP STYLES --- */
+
+.yss-button-with-dropdown {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    position: relative;
+}
+
+.yss-button-with-dropdown .yss-button-options {
+    padding: 0;
+    background: #1f1f1f;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    border: 1px solid var(--yss-panel-border);
+    border-radius: 0 0 var(--yss-btn-border-radius) var(--yss-btn-border-radius);
+    transition: opacity 300ms, height 300ms .3s, transform 300ms;
+    border-radius: var(--yss-btn-border-radius);
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    z-index: 999;
+    min-width: max-content;
+    gap: 0;
+    box-shadow: 0 0 2px var(--yss-panel-shadow);
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.yss-button-with-dropdown:hover .yss-button-options {
+    height: max-content;
+    opacity: 1;
+    pointer-events: all;
+}
+.yss-button-with-dropdown > .yss-btn:after {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    width: 8px;
+    font-size: 75%;
+    color: inherit;
+}
+.yss-button-width-dropdown:has(.yss-button-options input:checked) > .yss-btn {
+    background-color: var(--yss-btn-green-bg)!important;
+    color: white;
+    border-color: var(--yss-btn-green-border)!important;
+}
+.yss-button-with-dropdown:has(.yss-button-options input:checked) > .yss-btn:after {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    width: 8px;
+    font-size: 75%;
+    color: inherit;
+}
+.yss-button-with-dropdown .yss-button-options .yss-button-option-item {
+    padding: 9px!important;
+    font-size: 13px;
+    gap: 6px;
+}
+.yss-button-with-dropdown .yss-button-options .yss-button-option-item:not(:last-child) {
+    border-bottom: 1px solid var(--yss-panel-border);
+}
+.yss-button-with-dropdown .yss-button-options .yss-button-option-item *:not(.yss-btn) {
+    font-size: inherit!important;
+    vertical-align: middle;
+    line-height: initial;
+    margin: 0!important;
+}
