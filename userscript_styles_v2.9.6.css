@@ -1323,12 +1323,18 @@ input[type="radio"], input[type="checkbox"] {
     position: relative;
     flex-direction: row;
     align-items: center;
-     flex: 1 1; 
+     /*flex: 1 1; */
     padding: 10px;
     position: relative;
 }
-.yss-controls .button_group .yss-btn {
+.yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span), .yss-controls .button_group .yss-btn:not(.yss-btn-icon) span {
+    flex: 1 1;
+    text-align: center;
+    display: flex;
+}
+.yss-controls .button_group .yss-btn span {
     flex: 1;
+    /* text-align: left; */
 }
 .button_group:has(#helpIcon_label) {
     padding-right: 50px;
@@ -1377,9 +1383,12 @@ border-right: 1px solid var(--yss-panel-border);
 margin-right: -1px;
 } */
 .yss-controls .button_group:not(:last-child) {
-   /*  flex: 1 1; */
-    border-right: 1px solid var(--yss-panel-border);
+/*   flex: 1 1; 
+*/    border-right: 1px solid var(--yss-panel-border);
     margin-right: -1px;
+}
+.yss-controls .button_group:not(:last-child,:has(.yss-btn-icon)) {
+    flex: 1 1;
 }
 .yss-controls .button_group:has(#yss-toggle-collapse-group) {
     padding-right: 40px;
@@ -3114,8 +3123,8 @@ button#yss-clear-imported-btn:disabled {
     align-items: stretch;
     position: relative;
     flex: 1;
+    /* max-width: fit-content; */
 }
-
 .yss-button-with-dropdown .yss-button-options {
     padding: 0;
     background: #1f1f1f;
@@ -3150,11 +3159,11 @@ button#yss-clear-imported-btn:disabled {
     content: "";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
-    width: 100%;
+    /* width: 100%; */
     font-size: 75%;
     color: inherit;
-    flex: 1 1 100%;
-    text-align: right;
+    /* flex: 1 1 100%; */
+    /* text-align: right; */
 }
 .yss-button-with-dropdown .yss-btn {
     display: flex;
