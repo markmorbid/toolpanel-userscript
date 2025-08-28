@@ -31,6 +31,10 @@
     --yss-btn-green-border: var(--yss-log-success);
     --yss-btn-purple-bg: #673ab7;
     --yss-btn-purple-border: #673ab7;
+    --yss-btn-lightgreen-bg: #009688;
+    --yss-btn-lightgreen-border: #047f73;
+    --yss-btn-orange-bg: #ff5722;
+    --yss-btn-orange-border: #f64813;
 
     --yss-btn-stop-bg: #dc3545;
     --yss-btn-stop-border: #dc3545;
@@ -598,6 +602,17 @@ border-color: var(--yss-btn-pause-border) !important;
     background-color: var(--yss-btn-green-bg);
     border-color: var(--yss-btn-green-bg);
 }
+.yss-btn-lightgreen, .yss-btn-lightgreen:hover {
+    background-color: var(--yss-btn-lightgreen-bg);
+     color: white; 
+    border-color: var(--yss-btn-lightgreen-border);
+}
+.yss-btn-orange, .yss-btn-orange:hover {
+   background-color: var(--yss-btn-orange-bg);
+    color: white; 
+   border-color: var(--yss-btn-orange-border);
+}
+    
 .yss-log-wrapper {
     flex-grow: 1;
     position: relative;
