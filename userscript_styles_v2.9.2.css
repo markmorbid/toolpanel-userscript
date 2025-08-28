@@ -3170,12 +3170,13 @@ button#yss-clear-imported-btn:disabled {
     line-height: initial;
     margin: 0!important;
 }
+
 .button_group select.yss-select {
-    height: 36px;
+    height: 40px;
     font-size: 14px;
     padding: 10px 0 10px 10px;
 }
-.button_group .yss-btn {
+.small_ui .button_group .yss-btn {
     padding-right: 7px;
     padding-left: 8px;
     gap: 4px;
@@ -3183,6 +3184,10 @@ button#yss-clear-imported-btn:disabled {
     padding-top: 8px;
     padding-bottom: 8px;
     min-height: 36px;
+}
+.small_ui .button_group select.yss-select {
+   height: 36px;
+   font-size: 13px!important;
 }
 .button_group .yss-btn-icon {
     width: 36px;
