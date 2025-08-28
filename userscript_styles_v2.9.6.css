@@ -1323,9 +1323,12 @@ input[type="radio"], input[type="checkbox"] {
     position: relative;
     flex-direction: row;
     align-items: center;
-   /*  flex: 1 1; */
+     flex: 1 1; 
     padding: 10px;
     position: relative;
+}
+.yss-controls .button_group .yss-btn {
+    flex: 1;
 }
 .button_group:has(#helpIcon_label) {
     padding-right: 50px;
@@ -3110,6 +3113,7 @@ button#yss-clear-imported-btn:disabled {
     align-content: stretch;
     align-items: stretch;
     position: relative;
+    flex: 1;
 }
 
 .yss-button-with-dropdown .yss-button-options {
@@ -3146,9 +3150,19 @@ button#yss-clear-imported-btn:disabled {
     content: "";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
-    width: 8px;
+    width: 100%;
     font-size: 75%;
     color: inherit;
+    flex: 1 1 100%;
+    text-align: right;
+}
+.yss-button-with-dropdown .yss-btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
 }
 .yss-button-width-dropdown:has(.yss-button-options input:checked) > .yss-btn {
     background-color: var(--yss-btn-green-bg)!important;
