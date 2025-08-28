@@ -1309,11 +1309,12 @@ input[type="radio"], input[type="checkbox"] {
 .yss-controls, .yss-log-wrapper {
     height: max-content;
     transition: height 300ms, max-height 300ms;
+    max-height: 70vh;
 }
 .yss-panel.collapsed .yss-controls, .yss-panel.collapsed .yss-log-wrapper {
     height: 0!important;
     overflow: hidden;
-    max-height: 0;
+    max-height: 0!important;
 }
 .yss-controls .button_group {
     display: flex;
@@ -1368,10 +1369,14 @@ display: flex;
 .yss-controls .button_group.fullwidth .yss-btn {
     flex: 1 1;
 }
-.yss-controls .button_group:has(#yss-start-stop-btn, #yss-disable-all-notifs-btn) {
-/* flex: 1 1; */
+/* .yss-controls .button_group:has(#yss-start-stop-btn, #yss-disable-all-notifs-btn) {
 border-right: 1px solid var(--yss-panel-border);
 margin-right: -1px;
+} */
+.yss-controls .button_group:not(:last-child) {
+   /*  flex: 1 1; */
+    border-right: 1px solid var(--yss-panel-border);
+    margin-right: -1px;
 }
 .yss-controls .button_group:has(#yss-toggle-collapse-group) {
     padding-right: 40px;
@@ -3113,17 +3118,19 @@ button#yss-clear-imported-btn:disabled {
     border: 1px solid var(--yss-panel-border);
     border-radius: 0 0 var(--yss-btn-border-radius) var(--yss-btn-border-radius);
     transition: opacity 300ms, height 300ms .3s, transform 300ms;
-    border-radius: var(--yss-btn-border-radius);
+    /* border-radius: var(--yss-btn-border-radius); */
     overflow: hidden;
     position: absolute;
-    top: 100%;
-    z-index: 999;
+    top: calc(100% - 2px);
+    z-index: 2;
     min-width: max-content;
     gap: 0;
     box-shadow: 0 0 2px var(--yss-panel-shadow);
     height: 0;
     opacity: 0;
     pointer-events: none;
+    width: -webkit-fill-available;
+    padding-top: 0px;
 }
 .yss-button-with-dropdown:hover .yss-button-options {
     height: max-content;
@@ -3153,7 +3160,7 @@ button#yss-clear-imported-btn:disabled {
 }
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item {
     padding: 10px!important;
-    font-size: 12px;
+    font-size: 13px;
     gap: 6px;
     display: flex;
     flex-direction: row;
@@ -3181,7 +3188,14 @@ button#yss-clear-imported-btn:disabled {
 .button_group select.yss-select {
     height: 40px;
     font-size: 14px;
-    padding: 10px 0 10px 10px;
+    padding: 10px 17px 10px 10px;
+    background-position: right 6px center;
+    background-size: 13px;
+    flex: 1 1;
+    background-color: #2f2f2f;
+    border-radius: var(--yss-btn-border-radius);
+    min-width: 13ch;
+    margin: 0!important;
 }
 .small_ui .button_group .yss-btn {
     padding-right: 7px;
