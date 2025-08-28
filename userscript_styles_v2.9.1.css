@@ -1265,7 +1265,7 @@ input[type="radio"], input[type="checkbox"] {
     font-size: 30px !important;
     border-left: 1px solid var(--yss-panel-border);
 }
-#yss-toggle-collapse-group {
+/* #yss-toggle-collapse-group {
     width: 20px;
     height: 20px;
     text-align: center;
@@ -1283,8 +1283,29 @@ input[type="radio"], input[type="checkbox"] {
     top: 50%;
     right: 14px;
     transform: translateY(-50%);
+} */
+#yss-toggle-collapse-group {
+    width: 20px;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    font-size: 9px !important;
+    align-items: flex-end;
+    padding: 0 5px;
+    border-left: 1px solid var(--yss-panel-border);
+    border-radius: 0;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
 }
-
+#yss-toggle-collapse-group i.fa-solid {
+    font-size: 14px!important;
+}
 .yss-controls, .yss-log-wrapper {
     height: max-content;
     transition: height 300ms, max-height 300ms;
@@ -1353,7 +1374,7 @@ border-right: 1px solid var(--yss-panel-border);
 margin-right: -1px;
 }
 .yss-controls .button_group:has(#yss-toggle-collapse-group) {
-    padding-right: 50px;
+    padding-right: 40px;
     position: relative;
 }
 .yss-form-group:has(input[type="date"], input[type="time"]) {
@@ -3131,9 +3152,14 @@ button#yss-clear-imported-btn:disabled {
     color: inherit;
 }
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item {
-    padding: 9px!important;
-    font-size: 13px;
+    padding: 10px!important;
+    font-size: 12px;
     gap: 6px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
 }
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item:not(:last-child) {
     border-bottom: 1px solid var(--yss-panel-border);
@@ -3143,4 +3169,29 @@ button#yss-clear-imported-btn:disabled {
     vertical-align: middle;
     line-height: initial;
     margin: 0!important;
+}
+.button_group select.yss-select {
+    height: 36px;
+    font-size: 14px;
+    padding: 10px 0 10px 10px;
+}
+.button_group .yss-btn {
+    padding-right: 7px;
+    padding-left: 8px;
+    gap: 4px;
+    font-size: 13px!important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 36px;
+}
+.button_group .yss-btn-icon {
+    width: 36px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
 }
