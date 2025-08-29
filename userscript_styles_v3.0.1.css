@@ -1383,13 +1383,13 @@ border-right: 1px solid var(--yss-panel-border);
 margin-right: -1px;
 } */
 .yss-controls .button_group:not(:last-child) {
-/*   flex: 1 1; 
-*/    border-right: 1px solid var(--yss-panel-border);
+  
+    border-right: 1px solid var(--yss-panel-border);
     margin-right: -1px;
 }
-.yss-controls .button_group:not(:last-child,:has(.yss-btn-icon)) {
-    /*flex: 1 1;*/
-}
+/* .yss-controls .button_group:not(:last-child,:has(.yss-btn-icon)) {
+    flex: 1 1;
+} */
 .yss-controls .button_group:has(#yss-toggle-collapse-group) {
     padding-right: 40px;
     position: relative;
@@ -2781,8 +2781,9 @@ button#yss-clear-imported-btn:disabled {
     margin-right: -14px;
 }
 #yss-scraper-modal .yss-modal-content .yss-modal-title{
-    padding-top: 10px;
+      padding-top: 12px;
     padding-bottom: 10px;
+    padding-right: 10px;
 }
 #yss-scraper-modal .yss-videolist-container table {
     border-collapse: separate;
@@ -3155,15 +3156,46 @@ button#yss-clear-imported-btn:disabled {
     opacity: 1;
     pointer-events: all;
 }
-.yss-button-with-dropdown > .yss-btn:after {
-    content: "";
+/* .yss-button-with-dropdown > .yss-btn:after {
+    content: "\f0d7";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
-    /* width: 100%; */
-    font-size: 75%;
+    width: 100%;
+    font-size: inherit;
     color: inherit;
     flex: 1 1 100%;
     text-align: right;
+} */
+ .yss-button-with-dropdown > .yss-btn:after {
+    content: "\f0d7";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 700;
+    width: 100%;
+    font-size: inherit;
+    color: inherit;
+    flex: 1 1 100%;
+    text-align: right;
+    /* content: "\f142"; */
+    font-weight: 600;
+    content: "\f14a";
+    font-weight: 400;
+    width: 8px;
+}
+.yss-button-with-dropdown:has(.yss-button-options input:checked) > .yss-btn:after {
+    content: "\f14a";
+    font-weight: 900;
+    width: 8px;
+    font-size: 110%;
+}
+.yss-button-with-dropdown:has(.yss-button-options input:disabled:not(:checked)) > .yss-btn:after, .yss-button-with-dropdown:has(.yss-btn:disabled) > .yss-btn:after {
+    /* display: none; */
+    /* content: "\f2d3"; */
+    content: "";
+    font-weight: 600;
+    font-weight: 900;
+    width: 8px;
+    font-size: 100%;
+    
 }
 .yss-button-with-dropdown .yss-btn {
     display: flex;
@@ -3178,17 +3210,10 @@ button#yss-clear-imported-btn:disabled {
     color: white;
     border-color: var(--yss-btn-green-border)!important;
 }
-.yss-button-with-dropdown:has(.yss-button-options input:checked) > .yss-btn:after {
-    content: "";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    width: 8px;
-    font-size: 75%;
-    color: inherit;
-}
+
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item {
     padding: 10px!important;
-    font-size: 13px;
+    font-size: 12px;
     gap: 6px;
     display: flex;
     flex-direction: row;
@@ -3248,4 +3273,10 @@ button#yss-clear-imported-btn:disabled {
     justify-content: center;
     align-items: center;
     height: 36px;
+}
+.yss-button-with-dropdown:has(.yss-button-options input:disabled:checked) .yss-button-options {
+    display: none;
+}
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input {
+    margin-right: 4px!important;
 }
