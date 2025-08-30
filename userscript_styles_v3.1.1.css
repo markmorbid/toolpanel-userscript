@@ -3448,7 +3448,7 @@ border-color: var(--yss-btn-stop-border) !important;
 .yss-controls:has(#yss-bulk-downloader-btn.yss-btn-stop) select,
 .yss-controls:has(#yss-bulk-downloader-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-bulk-downloader-btn)),
 
-.yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) .yss-btn:not(#yss-disable-all-notifs-btn),
+.yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) .yss-btn:not(#yss-disable-all-notifs-btn,#yss-pause-notifs-btn),
 .yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) select,
 .yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-disable-all-notifs-btn)),
 
@@ -3460,7 +3460,7 @@ border-color: var(--yss-btn-stop-border) !important;
 .yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) select,
 .yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-csv-scrape-btn)),
 
-.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-btn:not(#yss-start-stop-btn),
+.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-btn:not(#yss-start-stop-btn, #yss-pause-resume-btn),
 .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) select,
 .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-start-stop-btn))
 {
