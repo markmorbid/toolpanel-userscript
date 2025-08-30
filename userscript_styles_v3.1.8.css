@@ -3784,3 +3784,30 @@ transform: translateY(0);
     opacity: 0!important;
     pointer-events: none;
 }
+
+.yss-buttons-notext #yss-csv-status-block .status-item {
+    flex: 1 1 34%;
+    padding: 12px!important;
+    border: 1px solid var(--yss-panel-border);
+    margin: -1px -1px -1px -1px;
+    background-color: var(--yss-panel-bg-3);
+}
+
+.yss-buttons-notext  #yss-csv-status-block.visible {
+    padding: 0;
+    gap: 0;
+    background-color: var(--yss-panel-bg-3);
+}
+
+.yss-buttons-notext button#yss-csv-download-btn {
+    position: static;
+    transform: none;
+    margin: 0;
+    flex: 1 1 84px;
+    /* height: -webkit-fill-available; */
+    aspect-ratio: unset;
+    /* width: 70px; */
+    min-height: -webkit-fill-available;
+    min-width: -webkit-fill-available;
+    border-radius: 0;
+}
