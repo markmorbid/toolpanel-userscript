@@ -390,7 +390,7 @@ justify-content: space-evenly;
     border-bottom: none!important;
 }
 .yss-videolist-container tbody tr:nth-child(odd) {
-    background: #3b3b3b!important;
+    background: #292929 !important;
 }
 .yss-videolist-container td a.yss-video-link.yss-btn {
     padding: 0;
@@ -1324,6 +1324,9 @@ input[type="radio"], input[type="checkbox"] {
     flex: 1;
     /* text-align: left; */
 }
+.yss-btn-icon span, .yss-btn-icon span:empty {
+    display: none!important;
+}
 .button_group:has(#helpIcon_label) {
     padding-right: 50px;
 }
@@ -2031,6 +2034,7 @@ border-end-end-radius: 0;
     top: 0;
     z-index: 99;
     box-shadow: 0 0 10px -3px var(--yss-panel-shadow);
+    font-size: 15px;
 }
 .yss-modal-content.yss-sticky-modal .yss-modal-actions {
     margin-top: 15px;
@@ -2410,10 +2414,16 @@ ytcp-video-row.style-scope.ytcp-video-section-content.yss-selectable-video .yss-
 .yss-videolist-container td.yss-index-cell, .yss-videolist-container td.yss-index-cell:not(:has(button.yss-btn-primary)) {
     text-align: center;
     width: 20px!important;
+    padding: 7px!important;
 }
 .yss-videolist-container td.yss-status-cell, .yss-videolist-container td.yss-status-cell:not(:has(button.yss-btn-primary)) {
     width: 50px!important;
     text-align: center;
+}
+.yss-videolist-container td.yss-button-cell button.yss-btn {
+    padding: 8px;
+    aspect-ratio: 1;
+    min-height: unset;
 }
 .yss-videolist-container td.yss-button-cell, .yss-videolist-container td.yss-button-cell:has(button.yss-btn-primary) {
     text-align: center;
