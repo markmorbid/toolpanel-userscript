@@ -102,6 +102,7 @@ font-family: var(--yss-font-family);
     resize: vertical;
     transition: height 300ms ease, max-height 300ms ease, border-color 300ms ease, background-color 300ms ease;
     max-height: 80vh;
+    width: min-content;
 }
 
 
