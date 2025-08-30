@@ -3221,16 +3221,16 @@ min-height: fit-content!important;
     border-color: var(--yss-btn-green-border)!important;
 }
 
-/* .yss-button-with-dropdown .yss-button-options .yss-button-option-item {
-    padding: 10px!important;
-    font-size: 12px;
+.yss-button-with-dropdown .yss-button-options .yss-button-option-item {
+    padding: 8px!important;
+    font-size: 13px;
     gap: 6px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     height: 100%;
-} */
+}
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item:not(:last-child) {
     border-bottom: 1px solid var(--yss-panel-border);
 }
