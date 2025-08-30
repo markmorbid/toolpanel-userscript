@@ -354,10 +354,10 @@ justify-content: space-evenly;
     color: white;
 }
 .yss-status-info h3 {
-    font-weight: 400;
-    margin-bottom: 8px;
+    /* font-weight: 400; */
+    margin-bottom: 4px;
     color: white;
-    font-size: 1.58rem;
+    font-size: 15PX;
     text-transform: uppercase;
 }
 .yss-videolist-container {
@@ -1254,7 +1254,7 @@ input[type="radio"], input[type="checkbox"] {
     font-size: 30px !important;
     border-left: 1px solid var(--yss-panel-border);
 }
-/* #yss-toggle-collapse-group {
+/* .yss-toggle-collapse-group {
     width: 20px;
     height: 20px;
     text-align: center;
@@ -1273,7 +1273,7 @@ input[type="radio"], input[type="checkbox"] {
     right: 14px;
     transform: translateY(-50%);
 } */
-#yss-toggle-collapse-group {
+.yss-toggle-collapse-group {
     width: 20px;
     height: 100%;
     text-align: center;
@@ -1292,7 +1292,7 @@ input[type="radio"], input[type="checkbox"] {
     right: 0;
     transform: translateY(-50%);
 }
-#yss-toggle-collapse-group i.fa-solid {
+.yss-toggle-collapse-group i.fa-solid {
     font-size: 14px!important;
 }
 .yss-controls, .yss-log-wrapper {
@@ -1382,7 +1382,7 @@ margin-right: -1px;
 /* .yss-controls .button_group:not(:last-child,:has(.yss-btn-icon)) {
     flex: 1 1;
 } */
-.yss-controls .button_group:has(#yss-toggle-collapse-group) {
+.yss-controls .button_group:has(.yss-toggle-collapse-group) {
     padding-right: 40px;
     position: relative;
 }
@@ -2479,7 +2479,7 @@ button#yss-clear-imported-btn:disabled {
 #yss-panel:has(#yss-bulk-downloader-btn.yss-btn-stop) div.data-tooltip:has(input[type="checkbox"]) {
     pointer-events: none;
 }
-#yss-panel:has(#yss-bulk-downloader-btn.yss-btn-stop) #yss-toggle-collapse-group{
+#yss-panel:has(#yss-bulk-downloader-btn.yss-btn-stop) .yss-toggle-collapse-group{
     pointer-events: none;
 }
 .yss-textarea-wrapper.with-button {
@@ -3575,10 +3575,10 @@ border-color: var(--yss-btn-stop-border) !important;
     min-width: unset;
     min-width: 70px;
 }
-.yss-buttons-notext #yss-toggle-collapse-group {
+.yss-buttons-notext .yss-toggle-collapse-group {
     display: none;
 }
-.yss-buttons-notext  .yss-controls .button_group:has(#yss-toggle-collapse-group) {
+.yss-buttons-notext  .yss-controls .button_group:has(.yss-toggle-collapse-group) {
     padding: 10px;
 }
 .yss-buttons-notext  .yss-controls .button_row.toggleable:not(.collapsed) {
@@ -3618,10 +3618,10 @@ div#yss-panel.yss-buttons-notext {
  .yss-buttons-notext .yss-controls .button_group:has(.yss-button-with-dropdown:only-child) {
     flex: 0;
 }
-.yss-buttons-notext #yss-toggle-collapse-group {
+.yss-buttons-notext .yss-toggle-collapse-group {
     display: none;
 }
-.yss-buttons-notext  .yss-controls .button_group:has(#yss-toggle-collapse-group) {
+.yss-buttons-notext  .yss-controls .button_group:has(.yss-toggle-collapse-group) {
     padding: 10px;
 }
 .yss-buttons-notext  .yss-controls .button_row.toggleable:not(.collapsed) {
@@ -3703,10 +3703,10 @@ div#yss-panel.yss-buttons-notext {
     /* overflow: hidden!important; */
     word-break: break-word;
 }
-.yss-buttons-notext #yss-toggle-collapse-group {
+.yss-buttons-notext .yss-toggle-collapse-group {
     display: none;
 }
-.yss-buttons-notext  .yss-controls .button_group:has(#yss-toggle-collapse-group) {
+.yss-buttons-notext  .yss-controls .button_group:has(.yss-toggle-collapse-group) {
     padding: 10px;
 }
 .yss-buttons-notext  .yss-controls .button_row.toggleable:not(.collapsed) {
@@ -3767,18 +3767,18 @@ div#yss-panel.yss-buttons-notext {
     transition: opacity 300ms ease;
     opacity: 1;
 }
-.yss-modal-content {
+dialog.yss-modal-content {
     transition: opacity 300ms ease, transform 300ms ease .3s;
     transform: translateY(-20%);
 }
-.yss-modal-overlay:has(.yss-modal-content:open), .yss-modal-content:open {
+.yss-modal-overlay:has(dialog.yss-modal-content:open), dialog.yss-modal-content:open {
     pointer-events: all;
     opacity: 1!important;
 }
-.yss-modal-content:open {
+dialog.yss-modal-content:open {
 transform: translateY(0);
 }
-.yss-modal-overlay:has(.yss-modal-content:not(:open)), .yss-modal-content:not(:open) {
+.yss-modal-overlay:has(dialog.yss-modal-content:not(:open)), dialog.yss-modal-content:not(:open) {
     /* display: none!important; */
     opacity: 0!important;
     pointer-events: none;
