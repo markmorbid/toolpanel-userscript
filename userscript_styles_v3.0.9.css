@@ -2665,7 +2665,10 @@ button#yss-clear-imported-btn:disabled {
     align-content: center;
     align-items: center;
     justify-content: space-evenly;
-
+min-height: fit-content!important;
+}
+#yss-scraper-modal table[style="display: none;"] {
+    display: table!important;
 }
 #yss-scraper-modal .yss-summary-title {
     display: none;
@@ -2814,14 +2817,19 @@ button#yss-clear-imported-btn:disabled {
     border-spacing: 3px;
     background: transparent!important;
     opacity: 0;
-    transition: opacity 300ms .3s;
+    transform: translateY(10px);
+    transition: opacity 300ms ease .3s, transform 300ms ease .1s;
     cursor: pointer;
 }
-#yss-scraper-modal .yss-videolist-container.loading tbody tr{
-  opacity: 0;
+
+#yss-scraper-modal .yss-videolist-container.loading tbody tr {
+    opacity: 0;
+    transform: translateY(10px);
 }
+
 #yss-scraper-modal .yss-videolist-container tbody tr.lazyloaded {
     opacity: 1;
+    transform: translateY(0);
 }
 #yss-scraper-modal .yss-videolist-container td {
     padding: 9px 0px!important;
@@ -3178,7 +3186,6 @@ button#yss-clear-imported-btn:disabled {
 .yss-button-with-dropdown:has(.yss-button-options input:checked) > .yss-btn:after {
     content: "\f14a";
     font-weight: 900;
-    font-size: 105%;
 }
 .yss-button-with-dropdown:has(.yss-button-options input:disabled:not(:checked)) > .yss-btn:after, .yss-button-with-dropdown:has(.yss-btn:disabled) > .yss-btn:after {
     /* display: none; */
@@ -3187,7 +3194,6 @@ button#yss-clear-imported-btn:disabled {
     font-weight: 600;
     font-weight: 900;
     width: 8px;
-    font-size: 100%;
     
 }
 .yss-button-with-dropdown .yss-btn {
@@ -3468,3 +3474,12 @@ border-color: var(--yss-btn-stop-border) !important;
     pointer-events: none;
 }
 
+.yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span) {
+    font-size: 0;
+}
+.yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span) * {
+    font-size: var(--yss-btn-font-size)!important;
+}
+.yss-button-with-dropdown > .yss-btn:after {
+    font-size: var(--yss-btn-font-size);
+}
