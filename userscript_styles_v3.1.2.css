@@ -2419,6 +2419,7 @@ ytcp-video-row.style-scope.ytcp-video-section-content.yss-selectable-video .yss-
 .yss-videolist-container td.yss-status-cell, .yss-videolist-container td.yss-status-cell:not(:has(button.yss-btn-primary)) {
     width: 50px!important;
     text-align: center;
+    white-space: nowrap;
 }
 .yss-videolist-container td.yss-button-cell button.yss-btn {
     padding: 8px;
