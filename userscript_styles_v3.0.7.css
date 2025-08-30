@@ -3401,7 +3401,7 @@ button#yss-clear-imported-btn:disabled {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
-    z-index: 8;
+    z-index: 99;
 }
 
 .yss-modal-content.yss-sticky-modal .yss-form-groups-row .yss-form-group {
