@@ -3221,7 +3221,7 @@ min-height: fit-content!important;
     border-color: var(--yss-btn-green-border)!important;
 }
 
-.yss-button-with-dropdown .yss-button-options .yss-button-option-item {
+/* .yss-button-with-dropdown .yss-button-options .yss-button-option-item {
     padding: 10px!important;
     font-size: 12px;
     gap: 6px;
@@ -3230,7 +3230,7 @@ min-height: fit-content!important;
     flex-wrap: nowrap;
     align-items: center;
     height: 100%;
-}
+} */
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item:not(:last-child) {
     border-bottom: 1px solid var(--yss-panel-border);
 }
@@ -3336,13 +3336,12 @@ min-height: fit-content!important;
     /* font-weight: 900; */
 }
 
-.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
+/* .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    /* padding: 6px!important; */
     font-size: 13px;
     box-shadow: none!important;
 }
@@ -3356,7 +3355,7 @@ min-height: fit-content!important;
     max-width: fit-content;
     min-width: unset;
     box-shadow: none!important;
-}
+} */
 .yss-buttons-notext .button_group:has(.yss-button-with-dropdown .yss-btn) > .yss-btn.yss-btn-icon:disabled {
     display: none;
 }
@@ -3484,7 +3483,9 @@ border-color: var(--yss-btn-stop-border) !important;
     opacity: 0.5;
     pointer-events: none;
 }
-
+/* div#yss-panel.yss-buttons-notext {
+    width: min-content;
+}
 .yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span) {
     font-size: 0;
 }
@@ -3493,4 +3494,244 @@ border-color: var(--yss-btn-stop-border) !important;
 }
 .yss-button-with-dropdown > .yss-btn:after {
     font-size: var(--yss-btn-font-size);
+}
+
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options {
+    position: static;
+    opacity: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    display: flex!important;
+    max-width: fit-content;
+    min-width: unset;
+    box-shadow: none!important;
+}
+
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 13px;
+    box-shadow: none!important;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: fit-content;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.yss-buttons-notext .button_group select.yss-select {
+    max-width: 70px;
+    min-width: unset;
+    min-width: 70px;
+}
+.yss-buttons-notext #yss-toggle-collapse-group {
+    display: none;
+}
+.yss-buttons-notext  .yss-controls .button_group:has(#yss-toggle-collapse-group) {
+    padding: 10px;
+}
+.yss-buttons-notext  .yss-controls .button_row.toggleable:not(.collapsed) {
+    height: auto;
+}
+
+
+.yss-buttons-notext .yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span) i {
+    width: 100%;
+    font-size: 15px!important;
+    font-weight: 900;
+}
+.yss-buttons-notext .yss-controls .button_group:has(.yss-button-with-dropdown:only-child) {
+    flex: 0;
+}
+.yss-buttons-notext .button_group .data-tooltip:has(input[type="checkbox"]) label {
+    max-width: fit-content;
+    min-width: 11ch;
+    font-size: 12px!important;
+    white-space: normal;
+}
+.yss-buttons-notext .yss-log-wrapper {
+    max-height: 200px;
+}
+div#yss-panel.yss-buttons-notext {
+    width: min-content;
+    background: transparent;
+}
+.yss-buttons-notext .yss-controls {
+    background-color: var(--yss-panel-bg);
+}
+.yss-buttons-notext #yss-log-area {
+    background-color: #121212d4;
+    scrollbar-width: none;
+} */
+
+ .yss-buttons-notext .yss-controls .button_group:has(.yss-button-with-dropdown:only-child) {
+    flex: 0;
+}
+.yss-buttons-notext #yss-toggle-collapse-group {
+    display: none;
+}
+.yss-buttons-notext  .yss-controls .button_group:has(#yss-toggle-collapse-group) {
+    padding: 10px;
+}
+.yss-buttons-notext  .yss-controls .button_row.toggleable:not(.collapsed) {
+    height: auto;
+}
+.yss-buttons-notext .yss-log-wrapper {
+    max-height: 200px;
+}
+div#yss-panel.yss-buttons-notext {
+    width: min-content;
+    background: transparent;
+}
+.yss-buttons-notext .yss-controls {
+    background-color: var(--yss-panel-bg);
+}
+.yss-buttons-notext #yss-log-area {
+    background-color: #121212d4;
+    scrollbar-width: none;
+}
+div#yss-panel.yss-buttons-notext {
+    width: min-content;
+}
+.yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span) {
+    font-size: 0;
+}
+.yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span) * {
+    font-size: var(--yss-btn-font-size)!important;
+}
+.yss-button-with-dropdown > .yss-btn:after {
+    font-size: var(--yss-btn-font-size);
+}
+
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options {
+    /* position: static; */
+    /* opacity: 1; */
+    height: 100%;
+    /* background: transparent; */
+    /* border: none; */
+    display: flex!important;
+    /* max-width: fit-content; */
+    /* min-width: unset; */
+    box-shadow: none!important;
+    border-radius: var(--yss-btn-border-radius);
+}
+
+
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: fit-content;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.yss-buttons-notext .button_group select.yss-select {
+    max-width: 80px;
+    min-width: unset;
+    min-width: 82px;
+    text-overflow: ellipsis;
+    /* overflow: hidden!important; */
+    word-break: break-word;
+}
+.yss-buttons-notext #yss-toggle-collapse-group {
+    display: none;
+}
+.yss-buttons-notext  .yss-controls .button_group:has(#yss-toggle-collapse-group) {
+    padding: 10px;
+}
+.yss-buttons-notext  .yss-controls .button_row.toggleable:not(.collapsed) {
+    height: auto;
+}
+
+
+.yss-buttons-notext .yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span) i {
+    width: 100%;
+    font-size: 15px!important;
+    font-weight: 900;
+}
+.yss-buttons-notext .yss-controls .button_group:has(.yss-button-with-dropdown:only-child) {
+    flex: 0;
+}
+.yss-buttons-notext .button_group .data-tooltip:has(input[type="checkbox"]) label {
+    max-width: fit-content;
+    min-width: 11ch;
+    font-size: 12px!important;
+    white-space: normal;
+}
+.yss-buttons-notext .yss-log-wrapper {
+    max-height: 200px;
+}
+div#yss-panel.yss-buttons-notext {
+    width: min-content;
+    background: transparent;
+}
+.yss-buttons-notext .yss-controls {
+    background-color: var(--yss-panel-bg);
+}
+.yss-buttons-notext #yss-log-area {
+    background-color: #121212d4;
+    scrollbar-width: none;
+}
+
+#yss-panel.yss-buttons-notext h1.yss-header-title {
+    font-size: 0;
+}
+
+#yss-panel.yss-buttons-notext h1.yss-header-title strong {
+    font-size: var(--yss-header-font-size);
+}
+
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 13px;
+    box-shadow: none!important;
+    padding: 0 8px;
 }
