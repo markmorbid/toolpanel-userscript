@@ -573,16 +573,18 @@ color: white!important;
 background-color: var(--yss-btn-stop-bg) !important;
 border-color: var(--yss-btn-stop-border) !important;
 }
-.yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-btn:not(#yss-publish-drafts-btn){
-cursor: not-allowed;
-background-color: var(--yss-btn-disabled-bg) !important;
-color: var(--yss-btn-disabled-color) !important;
-border-color: var(--yss-btn-disabled-border) !important;
+.yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-btn:not(#yss-publish-drafts-btn), .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) select, .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-publish-drafts-btn)) {
+    cursor: not-allowed;
+    background-color: var(--yss-btn-disabled-bg) !important;
+    color: var(--yss-btn-disabled-color) !important;
+    border-color: var(--yss-btn-disabled-border) !important;
+    pointer-events: none;
 }
 .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) input#yss-rename-only-cb, .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) input[type="checkbox"]{
 cursor: not-allowed;
 pointer-events: none;
 opacity: 0.5;
+pointer-events: none;
 }
 .yss-btn-stop:hover {
 background-color: var(--yss-btn-stop-hover) !important;
@@ -1126,15 +1128,16 @@ cursor: pointer;
     /* width: 12px; */
     text-align: center;
     min-width: 12px;
-    max-width: 15px;
+    /* max-width: 15px; */
+    width: auto;
 }
 
 .yss-btn i:only-child {
     margin-right: 0;
     width: auto;
     text-align: center;
-    min-width: 12px;
-    max-width: 15px;
+    /* min-width: 12px; */
+    /* max-width: 15px; */
 }
 .yss-btn:has(i) {
     display: flex;
@@ -3191,8 +3194,7 @@ button#yss-clear-imported-btn:disabled {
 .yss-button-with-dropdown:has(.yss-button-options input:checked) > .yss-btn:after {
     content: "\f14a";
     font-weight: 900;
-    width: 8px;
-    font-size: 110%;
+    font-size: 105%;
 }
 .yss-button-with-dropdown:has(.yss-button-options input:disabled:not(:checked)) > .yss-btn:after, .yss-button-with-dropdown:has(.yss-btn:disabled) > .yss-btn:after {
     /* display: none; */
