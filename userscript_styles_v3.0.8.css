@@ -569,23 +569,7 @@ background-color: var(--yss-btn-stop-bg) !important;
 border-color: var(--yss-btn-stop-border) !important;
 color: white!important;
 }
-#yss-publish-drafts-btn.yss-btn-stop:hover{
-background-color: var(--yss-btn-stop-bg) !important;
-border-color: var(--yss-btn-stop-border) !important;
-}
-.yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-btn:not(#yss-publish-drafts-btn), .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) select, .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-publish-drafts-btn)) {
-    cursor: not-allowed;
-    background-color: var(--yss-btn-disabled-bg) !important;
-    color: var(--yss-btn-disabled-color) !important;
-    border-color: var(--yss-btn-disabled-border) !important;
-    pointer-events: none;
-}
-.yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) input#yss-rename-only-cb, .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) input[type="checkbox"]{
-cursor: not-allowed;
-pointer-events: none;
-opacity: 0.5;
-pointer-events: none;
-}
+
 .yss-btn-stop:hover {
 background-color: var(--yss-btn-stop-hover) !important;
 border-color: var(--yss-btn-stop-hover) !important;
@@ -2829,11 +2813,16 @@ button#yss-clear-imported-btn:disabled {
     border-collapse: collapse;
     border-spacing: 3px;
     background: transparent!important;
-    opacity: 1;
-    transition: opacity 300ms;
+    opacity: 0;
+    transition: opacity 300ms .3s;
     cursor: pointer;
 }
-
+#yss-scraper-modal .yss-videolist-container.loading tbody tr{
+  opacity: 0;
+}
+#yss-scraper-modal .yss-videolist-container tbody tr.lazyloaded {
+    opacity: 1;
+}
 #yss-scraper-modal .yss-videolist-container td {
     padding: 9px 0px!important;
     font-size: 15px!important;
@@ -2912,12 +2901,7 @@ button#yss-clear-imported-btn:disabled {
     border-color: var(--yss-btn-start-hover)!important;
 }
 
-#yss-scraper-modal .yss-videolist-container.loading tbody tr{
-  opacity: 0;
-}
-#yss-scraper-modal .yss-videolist-container.loading tbody tr.lazyloaded{
-  opacity: 1;
-}
+
 #yss-scraper-modal .yss-noFiles {
     background: var(--yss-panel-bg-2);
     border-radius: var(--yss-border-radius);
@@ -3431,3 +3415,56 @@ button#yss-clear-imported-btn:disabled {
 .yss-modal-content.yss-sticky-modal .yss-form-groups-row .yss-form-group:hover legend {
     opacity: 1;
 }
+
+.yss-controls .yss-btn-stop:hover{
+background-color: var(--yss-btn-stop-bg) !important;
+border-color: var(--yss-btn-stop-border) !important;
+}
+.yss-controls:has(#yss-scrape-btn.yss-btn-stop) .yss-btn:not(#yss-scrape-btn),
+.yss-controls:has(#yss-scrape-btn.yss-btn-stop) select,
+.yss-controls:has(#yss-scrape-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-scrape-btn)),
+
+.yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-btn:not(#yss-publish-drafts-btn),
+.yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) select,
+.yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-publish-drafts-btn)),
+
+.yss-controls:has(#yss-bulk-downloader-btn.yss-btn-stop) .yss-btn:not(#yss-bulk-downloader-btn),
+.yss-controls:has(#yss-bulk-downloader-btn.yss-btn-stop) select,
+.yss-controls:has(#yss-bulk-downloader-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-bulk-downloader-btn)),
+
+.yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) .yss-btn:not(#yss-disable-all-notifs-btn),
+.yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) select,
+.yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-disable-all-notifs-btn)),
+
+.yss-controls:has(#yss-unlist-btn.yss-btn-stop) .yss-btn:not(#yss-unlist-btn),
+.yss-controls:has(#yss-unlist-btn.yss-btn-stop) select,
+.yss-controls:has(#yss-unlist-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-unlist-btn)),
+
+.yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) .yss-btn:not(#yss-csv-scrape-btn),
+.yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) select,
+.yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-csv-scrape-btn)),
+
+.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-btn:not(#yss-start-stop-btn),
+.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) select,
+.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-start-stop-btn))
+{
+    cursor: not-allowed;
+    background-color: var(--yss-btn-disabled-bg) !important;
+    color: var(--yss-btn-disabled-color) !important;
+    border-color: var(--yss-btn-disabled-border) !important;
+    pointer-events: none;
+}
+.yss-controls:has(#yss-scrape-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-scrape-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-scrape-btn.yss-btn-stop) input[type="checkbox"],
+.yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-publish-drafts-btn.yss-btn-stop) input[type="checkbox"],
+.yss-controls:has(#yss-bulk-downloader-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-bulk-downloader-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-bulk-downloader-btn.yss-btn-stop) input[type="checkbox"],
+.yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) input[type="checkbox"],
+.yss-controls:has(#yss-unlist-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-unlist-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-unlist-btn.yss-btn-stop) input[type="checkbox"],
+.yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) input[type="checkbox"],
+.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) input[type="checkbox"]
+{
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
