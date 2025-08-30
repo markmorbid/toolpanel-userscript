@@ -3383,5 +3383,5 @@ button#yss-clear-imported-btn:disabled {
     padding: 3px;
 }
 .yss-btn span:empty {
-    display: none;
+    display: none!important;
 }
