@@ -87,7 +87,7 @@ font-family: var(--yss-font-family);
     bottom: 20px;
     right: 20px;
     width: 650px;
-    max-width: 90vw;
+    max-width: 700px;
     min-height: 350px;
     background-color: var(--yss-panel-bg);
     color: var(--yss-panel-color);
@@ -100,9 +100,9 @@ font-family: var(--yss-font-family);
     font-family: var(--yss-font-family);
     font-size: var(--yss-font-size);
     resize: vertical;
-    transition: height 300ms ease, max-height 300ms ease, border-color 300ms ease, background-color 300ms ease;
+    transition: height 300ms ease, max-height 300ms ease, border-color 300ms ease, background-color 300ms ease, width 300ms ease;
     max-height: 80vh;
-    width: min-content;
+   /*  width: min-content; */
 }
 
 
