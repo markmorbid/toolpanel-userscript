@@ -2082,9 +2082,9 @@ border-end-end-radius: 0;
     max-width: 400px;
 }
 .yss-modal-content.yss-sticky-modal:has(.yss-noFiles) .yss-btn.yss-btn-secondary{
-        pointer-events: none;
+      /*  pointer-events: none;
     filter: grayscale(1) contrast(0.79) brightness(0.5);
-    cursor: not-allowed;
+    cursor: not-allowed;*/
 }
 
 .yss-modal-content.yss-sticky-modal:has(#manualSelection:checked) #fileStatusIndicator {
