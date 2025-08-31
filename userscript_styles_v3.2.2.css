@@ -3838,3 +3838,50 @@ transform: translateY(0);
 .yss-buttons-notext .yss-controls .button_group:has(#yss-toggle-collapse-status-block) {
     padding-right: 38px;
 }
+.yss-modal-instructions ol {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    margin: 4px 0;
+    line-height: 1.85rem;
+}
+.yss-modal-instructions ol li {
+    padding: 3px;
+    position: relative;
+}
+.yss-modal-instructions ol li::marker {
+    color: #59a9ff;
+}
+.yss-modal-instructions {
+    margin-bottom: 0;
+    padding: 15px;
+    background: var(--yss-panel-bg-2);
+    border-radius: var(--yss-border-radius);
+    border: 1px solid var(--yss-panel-border);
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    align-content: stretch;
+    gap: 5px;
+}
+.yss-modal-instructions h3, .yss-instruction-title {
+    font-weight: 500;
+    font-size: 17px;
+    text-transform: uppercase;
+    display: flex;
+}
+.yss-modal-actions .yss-checkbox-container, .yss-modal-actions .yss-checkbox-container label {
+    display: flex;
+    font-size: 14px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
