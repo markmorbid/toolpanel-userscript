@@ -101,8 +101,8 @@ font-family: var(--yss-font-family);
     font-size: var(--yss-font-size);
     resize: vertical;
     transition: height 300ms ease, max-height 300ms ease, border-color 300ms ease, background-color 300ms ease, width 300ms ease;
-    max-height: 80vh;
-   /*  width: min-content; */
+    max-height: 90vh;
+    width: min-content;
 }
 
 
