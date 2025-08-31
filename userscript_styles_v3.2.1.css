@@ -2185,10 +2185,10 @@ input#manualSelection, input#startFromSpecific {
     color: white;
     border: none;
     padding: 12px 16px;
-    border-radius: 8px;
+    border-radius: var(--yss-border-radius);
     cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: var(--yss-header-font-size);
+    font-weight: 500;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     z-index: 10001;
     display: flex;
@@ -2196,18 +2196,38 @@ input#manualSelection, input#startFromSpecific {
     gap: 5px;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    background: var(--yss-btn-green-bg);
+    border: 1px solid #ffffff61;
 }
-
+.yss-floating-confirm + .yss-floating-confirm {
+    top: 75px;
+}
 .yss-floating-confirm:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
     background: var(--yss-log-error);
 }
-
+.yss-floating-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    background: #161616;
+}
+#yss-floating-cancel {
+    background: var(--yss-btn-stop-bg);
+}
+#yss-floating-cancel:hover {
+    background: var(--yss-btn-stop-hover);
+}
+#yss-floating-confirm {
+    background: var(--yss-btn-green-bg);
+}
+#yss-floating-confirm:hover {
+    background: #257729;
+}
 .yss-floating-confirm.confirmed {
-    background: #4CAF50;
+    background: #4CAF50!important;
 }
 #yss-floating-counter {
     position: fixed;
