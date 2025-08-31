@@ -2081,12 +2081,31 @@ border-end-end-radius: 0;
     height: auto;
     max-width: 400px;
 }
-.yss-modal-content.yss-sticky-modal:has(.yss-noFiles) .yss-btn.yss-btn-secondary{
-      /*  pointer-events: none;
+/* .yss-modal-content.yss-sticky-modal:has(.yss-noFiles) .yss-btn.yss-btn-secondary{
+        pointer-events: none;
     filter: grayscale(1) contrast(0.79) brightness(0.5);
-    cursor: not-allowed;*/
+    cursor: not-allowed;
+} */
+.yss-modal-content.yss-sticky-modal:has(.yss-videolist-container .yss-noFiles) .yss-videolist-container:not(:has(table)) {
+    min-height: fit-content;
 }
-
+.yss-modal-content.yss-sticky-modal:has(.yss-videolist-container .yss-noFiles) .yss-videolist-container:not(:has(table)) .yss-noFiles {
+    height: 38px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+}
+.yss-modal-content.yss-sticky-modal:has(.yss-videolist-container .yss-noFiles) .yss-modal-view:not(:has(.yss-videolist-container table)) .yss-summary-table {
+    display: none!important;
+}
+.yss-modal-content.yss-sticky-modal:has(.yss-videolist-container .yss-noFiles) .yss-videolist-container:has(table) .yss-noFiles {
+    display: none!important;
+}
 .yss-modal-content.yss-sticky-modal:has(#manualSelection:checked) #fileStatusIndicator {
     pointer-events: none;
     filter: grayscale(1) contrast(0.79) brightness(0.75);
