@@ -1347,9 +1347,8 @@ input[type="radio"], input[type="checkbox"] {
     flex-wrap: nowrap;
     flex-direction: row;
     flex: 1 1 100%;
-    width: 100%;
+    width: -webkit-fill-available;
     border-top: 1px solid var(--yss-panel-border);
-
 }
 
 .yss-controls .button_row.toggleable {
@@ -3735,6 +3734,7 @@ div#yss-panel.yss-buttons-notext {
 div#yss-panel.yss-buttons-notext {
     width: min-content;
     background: transparent;
+    max-width: 380px;
 }
 .yss-buttons-notext .yss-controls {
     background-color: var(--yss-panel-bg);
@@ -3810,4 +3810,11 @@ transform: translateY(0);
     min-height: -webkit-fill-available;
     min-width: -webkit-fill-available;
     border-radius: 0;
+}
+.yss-buttons-notext #yss-toggle-collapse-status-block {
+    display: block;
+    /* position: relative; */
+}
+.yss-buttons-notext .yss-controls .button_group:has(#yss-toggle-collapse-status-block) {
+    padding-right: 38px;
 }
