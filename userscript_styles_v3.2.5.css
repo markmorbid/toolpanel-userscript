@@ -1760,7 +1760,7 @@ pointer-events: none;
     pointer-events: none;
     cursor: not-allowed;
 }
-#yss-csv-status-block {
+#yss-status-block {
     background-color: var(--yss-panel-bg);
     padding: 8px 42px 8px 10px;
     display: none;
@@ -1778,7 +1778,7 @@ pointer-events: none;
     position: relative;
     border-top: none;
 }
-#yss-csv-status-block.visible {
+#yss-status-block.visible {
     display: flex;
 
 }
@@ -1871,11 +1871,11 @@ button#yss-csv-download-btn:not(:disabled) {
     border-color: var(--yss-log-success);
     color: var(--yss-log-info);
 }
-#yss-csv-status-block .status-item {
+#yss-status-block .status-item {
     flex: 1 1;
     padding: 5px 10px;
 }
-#yss-csv-status-block .status-item:not(:last-child) {
+#yss-status-block .status-item:not(:last-child) {
     border-right: 1px solid var(--yss-panel-border);
 }
 .yss-controls:has(button#yss-scrape-btn.yss-btn-stop) .yss-btn:not(.yss-btn-stop) {
@@ -3824,7 +3824,7 @@ transform: translateY(0);
     pointer-events: none;
 }
 
-.yss-buttons-notext #yss-csv-status-block .status-item {
+.yss-buttons-notext #yss-status-block .status-item {
     flex: 1 1 34%;
     padding: 12px!important;
     border: 1px solid var(--yss-panel-border);
@@ -3832,7 +3832,7 @@ transform: translateY(0);
     background-color: var(--yss-panel-bg-3);
 }
 
-.yss-buttons-notext  #yss-csv-status-block.visible {
+.yss-buttons-notext  #yss-status-block.visible {
     padding: 0;
     gap: 0;
     background-color: var(--yss-panel-bg-3);
