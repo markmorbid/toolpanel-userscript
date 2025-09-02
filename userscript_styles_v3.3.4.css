@@ -4019,7 +4019,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     background-color: var(--yss-btn-hover-bg)!important;
     border-color: var(--yss-btn-hover-border)!important;
 }
-.yss-summary-rows div strong {
+.yss-summary-rows div:not(:has(span)) strong {
     padding: 2px 5px;
     text-align: center;
     display: inline-block;
