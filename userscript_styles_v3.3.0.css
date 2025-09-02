@@ -1299,7 +1299,10 @@ input[type="radio"], input[type="checkbox"] {
 .yss-controls, .yss-log-wrapper {
     height: max-content;
     transition: height 300ms, max-height 300ms;
-    max-height: 70vh;
+}
+.yss-log-wrapper {
+    height: max-content;
+    max-height: 92vh;
 }
 .yss-panel.collapsed .yss-controls, .yss-panel.collapsed .yss-log-wrapper {
     height: 0!important;
@@ -3537,7 +3540,11 @@ min-height: fit-content!important;
 
 .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-btn:not(#yss-start-stop-btn, #yss-pause-resume-btn),
 .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) select,
-.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-start-stop-btn))
+.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-start-stop-btn)),
+
+.yss-controls:has(#yss-bulk-uploader-btn.yss-btn-stop) .yss-btn:not(#yss-bulk-uploader-btn, #yss-pause-resume-btn),
+.yss-controls:has(#yss-bulk-uploader-btn.yss-btn-stop) select,
+.yss-controls:has(#yss-bulk-uploader-btn.yss-btn-stop) .yss-button-with-dropdown:not(:has(#yss-bulk-uploader-btn))
 {
     cursor: not-allowed;
     background-color: var(--yss-btn-disabled-bg) !important;
@@ -3551,7 +3558,8 @@ min-height: fit-content!important;
 .yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-disable-all-notifs-btn.yss-btn-stop) input[type="checkbox"],
 .yss-controls:has(#yss-unlist-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-unlist-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-unlist-btn.yss-btn-stop) input[type="checkbox"],
 .yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-csv-scrape-btn.yss-btn-stop) input[type="checkbox"],
-.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) input[type="checkbox"]
+.yss-controls:has(#yss-start-stop-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-start-stop-btn.yss-btn-stop) input[type="checkbox"],
+.yss-controls:has(#yss-bulk-uploader-btn.yss-btn-stop) .yss-checkbox-label, .yss-controls:has(#yss-bulk-uploader-btn.yss-btn-stop) input[type="checkbox"], .yss-controls:has(#yss-bulk-uploader-btn.yss-btn-stop) input[type="checkbox"]
 {
     cursor: not-allowed;
     pointer-events: none;
@@ -3676,9 +3684,7 @@ div#yss-panel.yss-buttons-notext {
 .yss-buttons-notext  .yss-controls .button_row.toggleable:not(.collapsed) {
     height: auto;
 }
-.yss-buttons-notext .yss-log-wrapper {
-    max-height: 200px;
-}
+
 div#yss-panel.yss-buttons-notext {
     width: min-content;
     background: transparent;
@@ -3778,7 +3784,7 @@ div#yss-panel.yss-buttons-notext {
     white-space: normal;
 }
 .yss-buttons-notext .yss-log-wrapper {
-    max-height: 200px;
+    max-height: 92vh;
 }
 div#yss-panel.yss-buttons-notext {
     width: min-content;
