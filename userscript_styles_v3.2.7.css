@@ -477,7 +477,7 @@ justify-content: space-evenly;
     cursor: pointer;
 }
 .yss-videolist-container tr.yss-videolist-row-compare.yss-new:hover {
-    border-bottom: 1px solid var(--yss-btn-start-hover)!important;
+    border-bottom-color: var(--yss-btn-start-hover)!important;
 }
 
 .yss-videolist-container tr.yss-videolist-row-compare.yss-new:hover td {
@@ -2049,7 +2049,7 @@ border-end-end-radius: 0;
     background-color: var(--yss-panel-bg);
     margin-left: -21px;
     margin-right: -21px;
-    z-index: 8;
+    z-index: 99;
 }
 .yss-form-group:has(#manualSelection), .yss-form-group:has(#startFromSpecific) {
     padding: 16px;
@@ -2504,12 +2504,12 @@ button#yss-clear-imported-btn:disabled {
     pointer-events: none;
     opacity: 0.5;
 }
-#yss-panel:has(#yss-bulk-downloader-btn.yss-btn-stop) button:not(#yss-bulk-downloader-btn.yss-btn-stop) {
+/* #yss-panel:has(#yss-bulk-downloader-btn.yss-btn-stop) button:not(#yss-bulk-downloader-btn.yss-btn-stop) {
     cursor: not-allowed;
     color: var(--yss-btn-disabled-color)!important;
     background-color: var(--yss-btn-disabled-bg)!important;
     border-color: var(--yss-btn-disabled-border)!important;
-}
+} */
 #yss-panel:has(#yss-bulk-downloader-btn.yss-btn-stop) input[type="checkbox"] {
     cursor: not-allowed;
     color: var(--yss-btn-disabled-color)!important;
