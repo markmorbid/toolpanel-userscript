@@ -286,8 +286,8 @@ font-family: var(--yss-font-family);
     padding: 6px 0;
     height: 100%;
 }
-.yss-summary-rows div:not(:last-child) {
-    border-bottom: 1px solid var(--yss-header-border);
+.yss-summary-rows div:not(:first-child) {
+    border-top: 1px solid var(--yss-header-border);
 }
 
 
@@ -385,6 +385,8 @@ justify-content: space-evenly;
 .yss-videolist-container tbody tr {
     background: var(--yss-header-bg)!important;
     border-bottom: 1px solid var(--yss-header-border)!important;
+    position: relative;
+    cursor: pointer;
 }
 .yss-videolist-container tbody tr:last-child {
     border-bottom: none!important;
@@ -433,9 +435,10 @@ justify-content: space-evenly;
     -webkit-line-clamp: 1;
     position: relative;
 }
-.yss-videolist-container td:last-child {
+.yss-videolist-container td:last-child, .yss-videolist-container tr td:last-of-type {
     border-right: none!important;
 }
+
 .yss-videolist-container td:not(:has(button.yss-btn-primary)) {
     width: auto!important;
 }
@@ -3159,7 +3162,7 @@ min-height: fit-content!important;
     font-size: var(--yss-tooltip-font-size);
     font-weight: 300;
     line-height: 1.4;
-    /* opacity: 0; */
+    opacity: 0;
     pointer-events: none;
     transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
     transform: scale(0.95) translateZ(0);
@@ -4002,6 +4005,20 @@ button.yss-btn.yss-delete.yss-btn-icon {
 tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     border-left-color: #be1f2e!important;
 }
+.yss-videolist-container tr:not(.yss-uploaded-file) > button {
+    opacity: 0;
+    transition: opacity 300ms;
+}
+.yss-videolist-container tr:not(.yss-uploaded-file):hover > button {
+    opacity: 1;
+}
+.yss-videolist-container tr:has(> button) td {
+    transition: background-color 300ms, border-color 300ms;
+}
+.yss-videolist-container tr:has(> button):hover td {
+    background-color: var(--yss-btn-hover-bg)!important;
+    border-color: var(--yss-btn-hover-border)!important;
+}
 .yss-summary-rows div strong {
     padding: 2px 5px;
     text-align: center;
@@ -4016,7 +4033,9 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     border-color: #be1f2e;
 
 }
-
+.yss-summary-rows:has(.duplicated-uploads[style*="display: none;"]) div:first-child {
+    border-bottom: none;
+}
 #yss-tooltip-container[style*="text-align: left;"] #yss-tooltip-arrow {
     left: 14px!important;
 }
