@@ -3506,9 +3506,10 @@ min-height: fit-content!important;
     opacity: 1;
 }
 
-.yss-controls .yss-btn-stop:hover{
-background-color: var(--yss-btn-stop-bg) !important;
-border-color: var(--yss-btn-stop-border) !important;
+.yss-controls .yss-btn-stop:hover {
+    background-color: var(--yss-btn-stop-bg) !important;
+    border-color: var(--yss-btn-stop-border) !important;
+    color: white!important;
 }
 .yss-controls:has(#yss-scrape-btn.yss-btn-stop) .yss-btn:not(#yss-scrape-btn),
 .yss-controls:has(#yss-scrape-btn.yss-btn-stop) select,
