@@ -4108,6 +4108,6 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 .yss-summary-rows:has(.duplicated-uploads[style*="display: none;"]) div:first-child {
     border-bottom: none;
 }
-#yss-tooltip-container[style*="text-align: left;"] #yss-tooltip-arrow {
+/* #yss-tooltip-container[style*="text-align: left;"] #yss-tooltip-arrow {
     left: 14px!important;
-}
+} */
