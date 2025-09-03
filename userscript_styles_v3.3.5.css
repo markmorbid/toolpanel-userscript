@@ -81,7 +81,17 @@
 [id^="yss-"], [class^="yss-"]{
 font-family: var(--yss-font-family);
 }
-
+[class^="yss-"] hr {
+    width: 100%;
+    display: flex;
+    height: 1px;
+    margin: 10px 0;
+    background-color: rgba(255,255,255,.2);
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+}
 .yss-panel {
     position: fixed;
     bottom: 20px;
@@ -327,11 +337,11 @@ justify-content: space-evenly;
 
 .yss-modal-instructions {
     margin-bottom: 0;
-    padding: 13px;
+    padding: 15px;
     background: var(--yss-panel-bg-2);
     border-radius: var(--yss-border-radius);
     border: 1px solid var(--yss-panel-border);
-    font-size: 13px;
+    font-size: 15px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -339,6 +349,7 @@ justify-content: space-evenly;
     justify-content: center;
     align-content: stretch;
     gap: 5px;
+    font-weight: 400;
 }
 .yss-status-info {
       margin-bottom: 0px;
@@ -359,6 +370,12 @@ justify-content: space-evenly;
     color: white;
     font-size: 15PX;
     text-transform: uppercase;
+}
+.yss-modal-instructions h4 {
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative;
 }
 .yss-videolist-container {
     overflow-y: auto;
@@ -3875,7 +3892,7 @@ transform: translateY(0);
 .yss-buttons-notext .yss-controls .button_group:has(#yss-toggle-collapse-status-block) {
     padding-right: 38px;
 }
-.yss-modal-instructions ol {
+.yss-modal-instructions ol, .yss-modal-instructions ul {
     padding-left: 18px;
     display: flex;
     flex-direction: column;
@@ -3885,33 +3902,72 @@ transform: translateY(0);
     margin: 4px 0;
     line-height: 1.85rem;
 }
-.yss-modal-instructions ol li {
+.yss-modal-instructions ol li, .yss-modal-instructions ul li {
     padding: 3px;
     position: relative;
 }
-.yss-modal-instructions ol li::marker {
+.yss-modal-instructions ol li::marker, .yss-modal-instructions ul li::marker {
     color: #59a9ff;
 }
-.yss-modal-instructions {
-    margin-bottom: 0;
-    padding: 15px;
-    background: var(--yss-panel-bg-2);
-    border-radius: var(--yss-border-radius);
-    border: 1px solid var(--yss-panel-border);
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: center;
-    align-content: stretch;
-    gap: 5px;
+
+.yss-modal-instructions ul li::marker {
+    content: "\f138";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f054";
+    font-size: 70%;
 }
-.yss-modal-instructions h3, .yss-instruction-title {
+
+.yss-modal-instructions summary {
     font-weight: 500;
     font-size: 17px;
     text-transform: uppercase;
+    /* display: flex; */
+     cursor: pointer;
+}
+.yss-modal-instructions:open summary {
+    margin-bottom: 3px;
+    border-bottom: 1px solid var(--yss-panel-border);
+    padding-bottom: 8px;
+}
+
+
+details.yss-modal-instructions {
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    background: var(--yss-panel-bg-3);
+    border-radius: var(--yss-border-radius);
+    border: 1px solid var(--yss-panel-border);
+    box-shadow: 0 0 2px var(--yss-panel-shadow);
+    cursor: pointer;
+}
+.yss-modal-instructions:open {
     display: flex;
+    cursor: default;
+}
+.yss-modal-instructions summary::marker {
+    display: none!important;
+    content:'';
+}
+.yss-modal-instructions summary::before {
+    content: "\f138";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 7px;
+}
+.yss-modal-instructions:open summary::before {
+    content: "\f13a"!important;
+ 
+}
+
+.yss-modal-instructions ul {
+    padding-left: 8px;
+}
+
+details.yss-modal-instructions:not(:open):hover {
+    background: var(--yss-panel-bg-2);
+    border: 1px solid var(--yss-panel-border);
 }
 .yss-modal-actions .yss-checkbox-container, .yss-modal-actions .yss-checkbox-container label {
     display: flex;
