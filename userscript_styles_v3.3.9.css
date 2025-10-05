@@ -3217,13 +3217,13 @@ min-height: fit-content!important;
 
 /* Placement: TOP (arrow points down) */
 #yss-tooltip-container.yss-tooltip-placement-top #yss-tooltip-arrow {
-    bottom: calc(var(--yss-tooltip-arrow-size) * -1);
+    bottom: calc(var(--yss-tooltip-arrow-size) * -1 + 1px);
     border-width: var(--yss-tooltip-arrow-size) var(--yss-tooltip-arrow-size) 0;
     border-color: var(--yss-tooltip-bg) transparent transparent transparent;
 }
 /* Placement: BOTTOM (arrow points up) */
 #yss-tooltip-container.yss-tooltip-placement-bottom #yss-tooltip-arrow {
-    top: calc(var(--yss-tooltip-arrow-size) * -1);
+    top: calc(var(--yss-tooltip-arrow-size) * -1 + 1px);
     border-width: 0 var(--yss-tooltip-arrow-size) var(--yss-tooltip-arrow-size);
     border-color: transparent transparent var(--yss-tooltip-bg) transparent;
 }
@@ -3338,13 +3338,16 @@ min-height: fit-content!important;
     align-items: center;
     height: 100%;
 }
-.yss-button-with-dropdown .yss-button-options .yss-button-option-item:not(:last-child) {
+/* .yss-button-with-dropdown .yss-button-options .yss-button-option-item:not(:last-child) {
+    border-bottom: 1px solid var(--yss-panel-border);
+} */
+ .yss-button-with-dropdown .yss-button-options .yss-button-option-item {
     border-bottom: 1px solid var(--yss-panel-border);
 }
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item *:not(.yss-btn) {
     font-size: inherit!important;
     vertical-align: middle;
-    line-height: initial;
+    line-height: 21px;
     margin: 0!important;
     max-width: unset;
 }
@@ -3738,7 +3741,9 @@ div#yss-panel.yss-buttons-notext {
 .yss-button-with-dropdown > .yss-btn:after {
     font-size: var(--yss-btn-font-size);
 }
-
+.yss-button-with-dropdown > .yss-btn:not(:disabled):after {
+    font-size: 16px;
+}
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
     max-width: fit-content;
     display: flex;
