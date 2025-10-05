@@ -3416,13 +3416,13 @@ min-height: fit-content!important;
     /* border-radius: 100%; */
     font-size: 15px;
 }
-.yss-modal-content.yss-buttons-notext .yss-btn span, .yss-panel.yss-buttons-notext .yss-btn span, .yss-buttons-notext .yss-btn span {
+.yss-modal-content.yss-buttons-notext .yss-btn:not(.yss-btn-item) span, .yss-panel.yss-buttons-notext .yss-btn:not(.yss-btn-item) span, .yss-buttons-notext .yss-btn:not(.yss-btn-item) span {
     display: none!important;
 }
 /*.yss-buttons-notext .button_group:has(.yss-button-with-dropdown .yss-btn span), .yss-buttons-notext .button_group:has(.yss-button-with-dropdown) {
     max-width: fit-content;
 }*/
-.yss-buttons-notext .yss-btn:not(.yss-btn-icon):has(span) {
+.yss-buttons-notext .yss-btn:not(.yss-btn-icon,.yss-btn-item):has(span) {
     flex: 0!important;
     width: fit-content;
 }
@@ -3437,7 +3437,7 @@ min-height: fit-content!important;
     justify-content: flex-start;
     align-items: center;
 }
-.yss-buttons-notext .yss-btn:not(.yss-btn-icon):has(span) i {
+.yss-buttons-notext .yss-btn:not(.yss-btn-icon,.yss-btn-item):has(span) i {
     width: 100%;
     font-size: 15px!important;
     /* font-weight: 900; */
@@ -3479,7 +3479,7 @@ min-height: fit-content!important;
 .yss-buttons-notext .yss-btn:not(.yss-btn-icon):has(span):after {
     display: none;
 }
-.yss-buttons-notext .yss-btn:not(.yss-btn-icon):has(span) {
+.yss-buttons-notext .yss-btn:not(.yss-btn-icon,.yss-btn-item):has(span) {
     flex: 0!important;
     width: fit-content;
     aspect-ratio: 1;
@@ -3757,8 +3757,8 @@ div#yss-panel.yss-buttons-notext {
 }
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options {
     /* position: static; */
-    /* opacity: 1; */
-    height: 100%;
+    /* opacity: 1; 
+    height: 100%;*/
     /* background: transparent; */
     /* border: none; */
     display: flex!important;
@@ -4111,3 +4111,8 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 /* #yss-tooltip-container[style*="text-align: left;"] #yss-tooltip-arrow {
     left: 14px!important;
 } */
+ .yss-button-with-dropdown .yss-button-options .yss-btn {
+    padding: 7px!important;
+    min-height: 32px!important;
+    margin: 6px;
+}
