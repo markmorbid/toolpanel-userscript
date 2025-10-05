@@ -3180,64 +3180,7 @@ min-height: fit-content!important;
 /* .yss-controls #yss-pause-resume-btn:disabled, .yss-controls:has(#yss-pause-resume-btn:not(:disabled)) #yss-rename-cb-container:has(input:disabled) {
     display: none;
 } */
-/* --- START: NEW JAVASCRIPT TOOLTIP STYLES --- */
-#yss-tooltip-container {
-    position: fixed;
-    z-index: 100000;
-    padding: 10px 10px;
-    border-radius: var(--yss-btn-border-radius);
-    background: var(--yss-tooltip-bg);
-    color: var(--yss-tooltip-color);
-    max-width: 400px;
-    white-space: normal;
-    font-size: var(--yss-tooltip-font-size);
-    font-weight: 300;
-    line-height: 1.4;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
-    transform: scale(0.95) translateZ(0);
-    text-align: center;
-}
-#yss-tooltip-content {
-    text-overflow: ellipsis;
-    overflow: hidden;
-   
-}
-/* #yss-tooltip-content {
-} */
 
-#yss-tooltip-arrow {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-style: solid;
-}
-#yss-tooltip-container.yss-tooltip-visible {
-    opacity: 1;
-    transform: scale(1) translateZ(0);
-}
-
-/* Placement: TOP (arrow points down) */
-#yss-tooltip-container.yss-tooltip-placement-top #yss-tooltip-arrow {
-    bottom: calc(var(--yss-tooltip-arrow-size) * -1 + 1px);
-    border-width: var(--yss-tooltip-arrow-size) var(--yss-tooltip-arrow-size) 0;
-    border-color: var(--yss-tooltip-bg) transparent transparent transparent;
-}
-/* Placement: BOTTOM (arrow points up) */
-#yss-tooltip-container.yss-tooltip-placement-bottom #yss-tooltip-arrow {
-    top: calc(var(--yss-tooltip-arrow-size) * -1 + 1px);
-    border-width: 0 var(--yss-tooltip-arrow-size) var(--yss-tooltip-arrow-size);
-    border-color: transparent transparent var(--yss-tooltip-bg) transparent;
-}
-/* Basic styles for programmatically generated content */
-#yss-tooltip-content ul, #yss-tooltip-content ol {
-    margin: 5px 0 5px 20px; padding: 0; text-align: left;
-}
-#yss-tooltip-content li { margin-bottom: 4px; }
-#yss-tooltip-content a { color: var(--yss-breadcrumb-color); text-decoration: none; }
-#yss-tooltip-content a:hover { text-decoration: underline; color: var(--yss-breadcrumb-hover); }
-/* --- END: NEW JAVASCRIPT TOOLTIP STYLES --- */
 
 .yss-button-with-dropdown {
     display: flex;
@@ -4201,4 +4144,110 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     padding: 7px!important;
     min-height: 32px!important;
     margin: 6px;
+}
+
+/* --- ENHANCED JAVASCRIPT TOOLTIP STYLES --- */
+#yss-tooltip-container {
+    position: fixed;
+    z-index: 100000;
+    padding: 10px 12px;
+    border-radius: var(--yss-btn-border-radius, 6px);
+    background: var(--yss-tooltip-bg, rgba(0, 0, 0, 0.9));
+    color: var(--yss-tooltip-color, #fff);
+    min-width: 60px;
+    max-width: min(90vw, 400px);
+    white-space: normal;
+    font-size: var(--yss-tooltip-font-size, 13px);
+    font-weight: 300;
+    line-height: 1.4;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    will-change: opacity, transform;
+    /* Use transform for GPU acceleration */
+    transform: scale(0.92) translateZ(0);
+    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1),
+                transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 150ms;
+}
+
+#yss-tooltip-content {
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+#yss-tooltip-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+#yss-tooltip-container.yss-tooltip-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateZ(0);
+}
+
+/* Arrow positions based on tooltip placement */
+#yss-tooltip-container.yss-placement-top #yss-tooltip-arrow {
+    bottom: calc(var(--yss-tooltip-arrow-size, 6px) * -1 + 1px);
+    border-width: var(--yss-tooltip-arrow-size, 6px) var(--yss-tooltip-arrow-size, 6px) 0;
+    border-color: var(--yss-tooltip-bg, rgba(0, 0, 0, 0.9)) transparent transparent transparent;
+}
+
+#yss-tooltip-container.yss-placement-bottom #yss-tooltip-arrow {
+    top: calc(var(--yss-tooltip-arrow-size, 6px) * -1 + 1px);
+    border-width: 0 var(--yss-tooltip-arrow-size, 6px) var(--yss-tooltip-arrow-size, 6px);
+    border-color: transparent transparent var(--yss-tooltip-bg, rgba(0, 0, 0, 0.9)) transparent;
+}
+
+#yss-tooltip-container.yss-placement-left #yss-tooltip-arrow {
+    right: calc(var(--yss-tooltip-arrow-size, 6px) * -1 + 1px);
+    border-width: var(--yss-tooltip-arrow-size, 6px) 0 var(--yss-tooltip-arrow-size, 6px) var(--yss-tooltip-arrow-size, 6px);
+    border-color: transparent transparent transparent var(--yss-tooltip-bg, rgba(0, 0, 0, 0.9));
+}
+
+#yss-tooltip-container.yss-placement-right #yss-tooltip-arrow {
+    left: calc(var(--yss-tooltip-arrow-size, 6px) * -1 + 1px);
+    border-width: var(--yss-tooltip-arrow-size, 6px) var(--yss-tooltip-arrow-size, 6px) var(--yss-tooltip-arrow-size, 6px) 0;
+    border-color: transparent var(--yss-tooltip-bg, rgba(0, 0, 0, 0.9)) transparent transparent;
+}
+
+/* Content styling */
+#yss-tooltip-content ul,
+#yss-tooltip-content ol {
+    margin: 5px 0 5px 20px;
+    padding: 0;
+    text-align: left;
+}
+
+#yss-tooltip-content li {
+    margin-bottom: 4px;
+}
+
+#yss-tooltip-content a {
+    color: var(--yss-breadcrumb-color, #64b5f6);
+    text-decoration: none;
+}
+
+#yss-tooltip-content a:hover {
+    text-decoration: underline;
+    color: var(--yss-breadcrumb-hover, #90caf9);
+}
+
+/* Alignment variants */
+#yss-tooltip-container.yss-align-left #yss-tooltip-content {
+    text-align: left;
+}
+
+#yss-tooltip-container.yss-align-center #yss-tooltip-content {
+    text-align: center;
+}
+
+#yss-tooltip-container.yss-align-right #yss-tooltip-content {
+    text-align: right;
 }
