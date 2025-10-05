@@ -52,7 +52,7 @@
     --yss-log-error: #dc3545;
 
     /* Tooltip Colors */
-    --yss-tooltip-arrow-size: 10px;
+    --yss-tooltip-arrow-size: 8px;
     --yss-tooltip-bg: #1a1a1a;
     --yss-tooltip-border: #f7f7f736;
     --yss-tooltip-color: #e8e8e8;
@@ -4152,7 +4152,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     position: fixed;
     z-index: 100000;
     padding: 0;
-    border-radius: 6px;
+    border-radius: var(--yss-btn-border-radius);
     background: var(--yss-tooltip-bg);
     border: 1px solid var(--yss-tooltip-border);
     color: var(--yss-tooltip-color);
@@ -4167,13 +4167,13 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     visibility: hidden;
     will-change: opacity, transform;
     transform: scale(0.94) translateZ(0);
-    transition: opacity 120ms cubic-bezier(0.4, 0, 0.2, 1),
-                transform 120ms cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 120ms;
+    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
+                transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 300ms;
 }
 
 #yss-tooltip-content {
-    padding: 9px 12px;
+    padding: 10px 15px;
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
@@ -4247,7 +4247,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 
 /* LEFT placement - arrow points right */
 #yss-tooltip-container.yss-placement-left {
-
+    text-align: left;
 }
 
 #yss-tooltip-container.yss-placement-left #yss-tooltip-arrow {
@@ -4289,13 +4289,9 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     transform: translateY(-50%) rotate(45deg);
 }
 
+
 #yss-tooltip-container.yss-placement-right #yss-tooltip-content {
-    border-left: 1px solid var(--yss-tooltip-border);
-}
-#yss-tooltip-container.yss-placement-right #yss-tooltip-content {
-    border: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border: none;
     border-radius: 0;
 }
 /* Content styling */
