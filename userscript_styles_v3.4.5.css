@@ -3233,7 +3233,7 @@ min-height: fit-content!important;
     flex: 1 1 100%;
     text-align: right;
 } */
- .yss-button-with-dropdown > .yss-btn:after {
+.yss-button-with-dropdown > .yss-btn:after {
     content: "\f0d7";
     font-family: "Font Awesome 6 Free";
     font-weight: 700;
@@ -3242,15 +3242,17 @@ min-height: fit-content!important;
     color: inherit;
     flex: 1 1 100%;
     text-align: right;
-    /* content: "\f142"; */
+    content: "\f058";
     font-weight: 600;
-    content: "\f14a";
-    font-weight: 400;
-    width: 8px;
+    /* content: "\f14a"; */
+    font-weight: 100;
+    width: 10px;
+    opacity: 0.6;
 }
 .yss-button-with-dropdown:has(.yss-button-options input:checked) > .yss-btn:after {
-    content: "\f14a";
-    font-weight: 900;
+    content: "\f058";
+    font-weight: 700;
+    opacity: 1;
 }
 .yss-button-with-dropdown:has(.yss-button-options input:disabled:not(:checked)) > .yss-btn:after, .yss-button-with-dropdown:has(.yss-btn:disabled) > .yss-btn:after{
     /* display: none; */
@@ -3264,7 +3266,10 @@ min-height: fit-content!important;
 }
 .button_group .data-tooltip:has(input[type="checkbox"]:disabled) {
     cursor: default!important;
-    pointer-events: none;
+    pointer-events: none!important;
+}
+.button_group .yss-button-options .yss-button-option:has(input[type="checkbox"]:disabled){
+    display: none!important;
 }
 .yss-button-with-dropdown .yss-btn {
     display: flex;
@@ -3293,8 +3298,8 @@ min-height: fit-content!important;
 /* .yss-button-with-dropdown .yss-button-options .yss-button-option-item:not(:last-child) {
     border-bottom: 1px solid var(--yss-panel-border);
 } */
- .yss-button-with-dropdown .yss-button-options .yss-button-option-item {
-    border-bottom: 1px solid var(--yss-panel-border);
+.yss-button-with-dropdown .yss-button-options .yss-button-option-item:not(:first-child) {
+    border-top: 1px solid var(--yss-panel-border);
 }
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item *:not(.yss-btn) {
     font-size: inherit!important;
@@ -3340,32 +3345,115 @@ min-height: fit-content!important;
     -moz-appearance: none;
     appearance: none;
     border-left-width: 1px;
+    overflow: hidden;
+    border: 1px solid #404040;
 }
 
-.select-wrapper:has(#yss-visibility-filter-select)::before{
+.select-wrapper:has(#yss-visibility-filter-select)::before {
     content: '\f0b0';
-    content: '\f06e';
+    content: '\f274';
     font-family: "Font Awesome 6 Free";
     z-index: 8;
-    font-weight: 900; 
-        font-weight: 100;    
-
-    display:block!important;
+    font-weight: 900;
+    font-weight: 100;
+    display: block!important;
     position: absolute;
-    right: 6px;
-    top:50%;
-    transform:translateY(-50%);
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
 }
-.select-wrapper:has(#yss-visibility-filter-select)::after{
+.select-wrapper:has(#yss-visibility-filter-select:hover)::before {
+    content: '\f273'!important;
+    font-weight: 100;
+    right: 6px;
+}
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input {
+    margin-right: 0px!important;
+    /* -webkit-appearance: none; */
+    appearance: none;
+    background-color: var(--yss-header-bg);
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--yss-header-border);
+    border-radius: 2px;
+    /* transform: translateY(-50%); */
+    display: grid;
+    place-content: center;
+    aspect-ratio: 1;
+    box-shadow: none;
+    outline: none;
+}
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:before {
+    content: "";
+    width: 1.2rem;
+    height: 1.2rem;
+    transform: scale(0);
+    transform-origin: center;
+    transition: 320ms transform ease-in-out;
+    /* box-shadow: 4em 3em currentColor; */
+    background-color: currentColor;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    /* transform: scale(1); */
+}
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked:before {
+    transform: scale(1);
+}
+/* .select-wrapper:has(#yss-visibility-filter-select)::after {
     content: '';
     z-index: 8;
-    display:block!important;
+    display: block!important;
     position: absolute;
-    right: 30px;
+    right: 32px;
     top: 0;
-     background-color: var(--yss-panel-border);
-    width:1px;
-    height:100%;
+    background-color: #4e4e4e;
+    width: 1px;
+    height: 100%;
+} */
+.select-wrapper:has(#yss-visibility-filter-select)::after {
+    content: '';
+    z-index: 8;
+    display: block!important;
+    position: absolute;
+    left: calc(100% - 32px);
+    top: 0;
+    background-color: #404040;
+    width: 1px;
+    height: 100%;
+    transition: width 300ms,background-color 300ms;
+    z-index: 0;
+}
+.select-wrapper:has(#yss-visibility-filter-select:hover)::after {
+    width: 33px;
+    background-color: var(--yss-btn-green-border);
+    border-top-right-radius: var(--yss-btn-border-radius);
+    border-bottom-right-radius: var(--yss-btn-border-radius);
+}
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked {
+    background-color: var(--yss-btn-green-bg);
+    border-color: rgb(255 255 255 / 25%);
+    color: white;
+}
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:focus {
+    outline: max(1px, 0.1em) solid var(--yss-btn-green-bg);
+    outline-offset: max(3px, 0.2em);
+    border: 1px solid white!important;
+}
+.button_group .data-tooltip label:has(input[type="checkbox"]) {
+    display: flex;
+    padding: 4px;
+    gap: 13px;
+    white-space: normal;
+    width: 100%;
+    max-width: 150px!important;
+    line-height: 1.3rem!important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 #yss-visibility-filter-select:hover{
     background-color: var(--yss-btn-hover-bg);
@@ -3767,7 +3855,7 @@ div#yss-panel.yss-buttons-notext {
     font-size: var(--yss-btn-font-size);
 }
 .yss-button-with-dropdown > .yss-btn:not(:disabled):after {
-    font-size: 16px;
+    font-size: 15px;
 }
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
     max-width: fit-content;
@@ -4141,10 +4229,10 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 /* #yss-tooltip-container[style*="text-align: left;"] #yss-tooltip-arrow {
     left: 14px!important;
 } */
- .yss-button-with-dropdown .yss-button-options .yss-btn {
-    padding: 7px!important;
-    min-height: 32px!important;
-    margin: 6px;
+.yss-button-with-dropdown .yss-button-options .yss-btn {
+    padding: 9px!important;
+    min-height: 40px!important;
+    margin: 8px;
 }
 
 /* --- ENHANCED JAVASCRIPT TOOLTIP STYLES --- */
