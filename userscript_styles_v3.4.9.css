@@ -1914,7 +1914,6 @@ button#yss-csv-download-btn:not(:disabled) {
 #yss-replace-mode-group input[type="checkbox"] {
     width: 18px;
     height: 18px;
-    display: inline-block;
     vertical-align: middle;
 }
 
@@ -2193,6 +2192,16 @@ input#manualSelection:checked, input#startFromSpecific:checked {
 }
 .yss-modal-content.yss-sticky-modal .yss-form-group label {
     margin: 0;
+}
+.yss-modal-content .yss-form-group label:has(input[type="checkbox"]) {
+    display: flex;
+    gap: 8px;
+    white-space: normal;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-wrap: pretty;
 }
 .yss-modal-content.yss-sticky-modal .yss-form-group, .yss-form-group {
     align-content: stretch;
