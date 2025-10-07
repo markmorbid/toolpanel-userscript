@@ -2146,11 +2146,17 @@ border-end-end-radius: 0;
      display: none;
 }
 input#manualSelection, input#startFromSpecific {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin: 0;
+    background-color: transparent;
+    border-color: white;
+    border-width: 2px;
 }
-
+input#manualSelection:checked, input#startFromSpecific:checked {
+    background: white;
+    color: black;
+}
 .yss-form-group:has(#manualSelection) *, .yss-form-group:has(#startFromSpecific) *{
     cursor: pointer;
 }
@@ -4256,8 +4262,8 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     background: var(--yss-tooltip-bg);
     border: 1px solid var(--yss-tooltip-border);
     color: var(--yss-tooltip-color);
-    /* min-width: 60px; */
-    /* max-width: min(90vw, 420px); */
+    min-width: 60px;
+    max-width: min(90vw, 420px);
     white-space: normal;
     font-size: var(--yss-tooltip-font-size);
     font-weight: 400;
@@ -4280,7 +4286,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     position: relative;
     z-index: 1;
     text-wrap: pretty;
-    max-inline-size: 46ch;
+    max-inline-size: 28ch;
     line-height: 1.7rem;
 }
 
