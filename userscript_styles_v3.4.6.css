@@ -1603,26 +1603,26 @@ pointer-events: none;
     font-size: 16px;
 }
 
-    .button_group .data-tooltip:has(input[type="checkbox"]) {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        height: 100%;
-        padding: 0 5px;
-    }
+.button_group .data-tooltip:has(input[type="checkbox"]) {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+align-items: center;
+height: 100%;
+padding: 0px!important;
+}
 
-    .button_group .data-tooltip:has(input[type="checkbox"]) label {
-            display: -webkit-box;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-clamp: 1;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        max-width: 100px;
-        width: fit-content;
-        font-size: 11px;
-    }
+.button_group .data-tooltip:has(input[type="checkbox"]) label {
+        display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    max-width: 100px;
+    width: fit-content;
+    font-size: 11px;
+}
 /*// ---- Tooltips styles ---- //*/
 /*
     .data-tooltip {
@@ -3368,9 +3368,9 @@ min-height: fit-content!important;
     font-weight: 100;
     right: 6px;
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input, .yss-modal-overlay input[type="checkbox"]{
     margin-right: 0px!important;
-    /* -webkit-appearance: none; */
+    -webkit-appearance: none;
     appearance: none;
     background-color: var(--yss-header-bg);
     margin: 0;
@@ -3380,26 +3380,24 @@ min-height: fit-content!important;
     height: 20px;
     border: 1px solid var(--yss-header-border);
     border-radius: 2px;
-    /* transform: translateY(-50%); */
     display: grid;
     place-content: center;
     aspect-ratio: 1;
     box-shadow: none;
     outline: none;
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:before {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:before, .yss-modal-overlay input[type="checkbox"]:before {
     content: "";
     width: 1.2rem;
     height: 1.2rem;
     transform: scale(0);
     transform-origin: center;
     transition: 320ms transform ease-in-out;
-    /* box-shadow: 4em 3em currentColor; */
     background-color: currentColor;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-    /* transform: scale(1); */
+    
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked:before {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked:before, .yss-modal-overlay input[type="checkbox"]:checked:before {
     transform: scale(1);
 }
 /* .select-wrapper:has(#yss-visibility-filter-select)::after {
@@ -3432,7 +3430,7 @@ min-height: fit-content!important;
     border-top-right-radius: var(--yss-btn-border-radius);
     border-bottom-right-radius: var(--yss-btn-border-radius);
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked, .yss-modal-overlay input[type="checkbox"]:checked {
     background-color: var(--yss-btn-green-bg);
     border-color: rgb(255 255 255 / 25%);
     color: white;
@@ -3444,16 +3442,28 @@ min-height: fit-content!important;
 }
 .button_group .data-tooltip label:has(input[type="checkbox"]) {
     display: flex;
-    padding: 4px;
-    gap: 13px;
+    padding: 12px;
+    gap: 6px;
     white-space: normal;
     width: 100%;
-    max-width: 150px!important;
+    /* max-width: 145px!important; */
     line-height: 1.3rem!important;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: center;
+    text-wrap: pretty;
+    max-inline-size: 20ch;
+}
+.yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) {
+    padding: 0!important;
+}
+.yss-button-with-dropdown .yss-button-options .yss-button-option-item label:has(input[type="checkbox"]) {
+    padding: 12px!important;
+}
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item input:not(:checked):hover, .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item label:hover > input:not(:checked), .yss-modal-overlay input[type="checkbox"]:not(:checked):hover {
+    background-color: var(--yss-btn-hover-border)!important;
+    border-color: rgb(255 255 255 / 55%)!important;
+    color: white!important;
 }
 #yss-visibility-filter-select:hover{
     background-color: var(--yss-btn-hover-bg);
@@ -3511,7 +3521,7 @@ min-height: fit-content!important;
     display: none;
 }
 .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input {
-    margin-right: 4px!important;
+    margin-right: 0!important;
 }
 .yss-header-nav .yss-btn-icon, .yss-header-nav .yss-btn, .yss-header-nav .yss-btn-icon, .yss-header-nav .yss-btn:hover {
     min-height: unset;
@@ -3873,7 +3883,7 @@ div#yss-panel.yss-buttons-notext {
     justify-content: flex-start;
     align-items: center;
 }
-.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options {
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn:not(:disabled)) .yss-button-options {
     /* position: static; */
     /* opacity: 1; 
     height: 100%;*/
@@ -3885,7 +3895,9 @@ div#yss-panel.yss-buttons-notext {
     box-shadow: none!important;
     border-radius: var(--yss-btn-border-radius);
 }
-
+.yss-buttons-notext .select-wrapper:has(#yss-visibility-filter-select):after, .yss-buttons-notext .select-wrapper:has(#yss-visibility-filter-select):before {
+    display: none!important;
+}
 
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
     max-width: fit-content;
@@ -4244,8 +4256,8 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     background: var(--yss-tooltip-bg);
     border: 1px solid var(--yss-tooltip-border);
     color: var(--yss-tooltip-color);
-    min-width: 60px;
-    max-width: min(90vw, 420px);
+    /* min-width: 60px; */
+    /* max-width: min(90vw, 420px); */
     white-space: normal;
     font-size: var(--yss-tooltip-font-size);
     font-weight: 400;
@@ -4261,12 +4273,15 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 }
 
 #yss-tooltip-content {
-    padding: 10px 15px;
+    padding: 12px 12px;
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
     position: relative;
     z-index: 1;
+    text-wrap: pretty;
+    max-inline-size: 46ch;
+    line-height: 1.7rem;
 }
 
 #yss-tooltip-arrow {
@@ -4336,6 +4351,8 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 /* LEFT placement - arrow points right */
 #yss-tooltip-container.yss-placement-left {
     text-align: left;
+    text-wrap: pretty;
+    max-inline-size: 30ch;
 }
 
 #yss-tooltip-container.yss-placement-left #yss-tooltip-arrow {
@@ -4345,7 +4362,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 }
 
 #yss-tooltip-container.yss-placement-left #yss-tooltip-arrow::before {
-    right: calc(50% + 2px);
+    right: calc(50% + 0px);
     top: 50%;
     border-bottom: none;
     border-left: none;
@@ -4355,12 +4372,16 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     border-right: 0;
     border: none;
     border-radius: 0;
-    text-align: left;
+    text-align: left!important;
+    text-wrap: pretty;
+    max-inline-size: 45ch;
 }
 
 /* RIGHT placement - arrow points left */
 #yss-tooltip-container.yss-placement-right {
     text-align: left;
+    text-wrap: pretty;
+    max-inline-size: 45ch;
 }
 
 #yss-tooltip-container.yss-placement-right #yss-tooltip-arrow {
@@ -4371,7 +4392,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 
 #yss-tooltip-container.yss-placement-right #yss-tooltip-arrow::before {
     top: 50%;
-    left: calc(50% + 2px);
+    left: calc(50% + 0px);
     border-top: none;
     border-right: none;
     transform: translateY(-50%) rotate(45deg);
