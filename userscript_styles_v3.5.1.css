@@ -3442,7 +3442,7 @@ min-height: fit-content!important;
     background-color: #404040;
     width: 32px;
     height: 100%;
-    transition: width 300ms,background-color 300ms, left 300ms;
+    transition: width 300ms, background-color 300ms, left 300ms, left 300ms, color 300ms .2ms;
     z-index: 0;
     border-top-right-radius: var(--yss-btn-border-radius);
     border-bottom-right-radius: var(--yss-btn-border-radius);
@@ -3465,6 +3465,13 @@ min-height: fit-content!important;
     /* content: ""; */
     /* content: var(--selected-option-text, ""); */
     color: white;
+    border-radius: var(--yss-btn-border-radius);
+}
+.select-wrapper[style*="Select Visibility"]:has(#yss-visibility-filter-select:hover):after {
+    width: 32px!important;
+    left: auto!important;
+    right: 0;
+    color: transparent!important;
 }
 .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked, .yss-modal-overlay input[type="checkbox"]:checked {
     background-color: var(--yss-btn-green-bg);
