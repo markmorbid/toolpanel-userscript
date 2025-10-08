@@ -4632,3 +4632,211 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     /* font-weight: 900!important; */
     background-color: var(--yss-btn-disabled-bg)!important;
 }
+
+/* Calendar View Styles */
+        .yss-calendar-modal-content { max-width: 95vw !important; width: 1200px; }
+        .yss-calendar-container { display: flex; flex-direction: column; gap: 2rem; }
+        .yss-calendar-month { display: flex; flex-direction: column; }
+        .yss-calendar-header {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+}
+        .yss-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1px solid var(--yss-panel-border);
+    border-radius: var(--yss-border-radius);
+    overflow: hidden;
+    position: relative;
+}
+        .yss-calendar-day-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 1.15rem;
+    background: #151515;
+    border-bottom: 1px solid var(--yss-panel-border);
+    font-size: 12px;
+}
+        .yss-calendar-day-cell {
+    min-height: 50px;
+    border-right: 1px solid var(--yss-panel-border);
+    border-bottom: 1px solid var(--yss-panel-border);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--yss-panel-bg-3);
+}
+        .yss-calendar-day-cell:nth-child(7n) { border-right: none; }
+        .yss-calendar-day-cell.empty { background: var(--yss-panel-bg); }
+        .yss-calendar-day-number {
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 2px;
+            text-align: right;
+            font-weight: 100;
+        }
+       .yss-video-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 11px;
+    padding: 0;
+    overflow: visible;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: stretch;
+    position: relative;
+    background: var(--yss-log-bg);
+    border-radius: 4px;
+    padding: 6px;
+    border: 1px solid var(--yss-panel-border);
+    transition: background 300ms ease, border-color 300ms ease, color 300ms ease, opacity 300ms ease;
+}
+    .yss-video-entry a {
+    color: var(--yss-text-color);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 16ch;
+    text-wrap: pretty;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+
+}
+        .yss-video-entry a:hover {
+    text-decoration: none;
+}
+       .yss-video-thumbnail {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 3px;
+    flex-shrink: 0;
+    position: absolute;
+    top: auto;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    bottom: 80%;
+    transition: bottom 300ms ease, opacity 300ms ease;
+    opacity: 0;
+    pointer-events: none;
+}
+    .yss-video-entry:hover .yss-video-thumbnail {
+    opacity: 1;
+    bottom: 106%;
+}
+     /*    .yss-video-time {
+    font-weight: bold;
+    background: var(--yss-btn-green-bg);
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 10px;
+    white-space: nowrap;
+} */
+    .yss-video-time {
+    font-weight: bold;
+    background: var(--yss-btn-color);
+    color: black;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 10px;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 95%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+    .yss-video-entry:hover span.yss-video-time {
+    opacity: 1;
+    
+}
+    .yss-calendar-grid:has(.yss-video-entry:hover) .yss-video-entry:not(:hover) {
+    background: var(--yss-btn-disabled-bg);
+    border-color: var(--yss-btn-disabled-border);
+    color: var(--yss-btn-disabled-color);
+    opacity: 0.8;
+}
+    .yss-video-entry:hover .yss-video-time {
+    opacity: 1;
+}
+        .yss-more-videos-btn {
+    margin-top: auto;
+    padding: 4px;
+    background: var(--yss-btn-start-bg);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 11px;
+}
+        .yss-more-videos-btn:hover {
+    background: var(--yss-btn-start-border-hover);
+}
+        /* Day Detail Modal */
+      .yss-day-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+   .yss-day-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #2b2b2b;
+    padding: 0 7px 0 0;
+    border-radius: 4px;
+    font-size: 13px;
+    border: 1px solid var(--yss-panel-border);
+    position: relative;
+    overflow: hidden;
+}
+    .yss-day-detail-item a {
+    color: white;
+    flex: 1 1;
+}
+        .yss-day-detail-item img { width: 80px; height: 45px; }
+        .yss-day-detail-item img.yss-video-thumbnail {
+            position: static;
+            opacity: 1;
+            width: 50px;
+            height: 35px;
+        }
+        .yss-day-detail-item .yss-video-time {
+            flex-shrink: 0;
+            order: 5;
+            font-size: 13px;
+            position: static;
+            opacity: 1;
+        }
+        #yss-status-block button#yss-calendar-modal-btn {
+            flex: 0;
+            max-height: 35px;
+            min-height: unset;
+        }
+        .yss-upload-prompt { text-align: center; padding: 2rem; }
+        .yss-upload-prompt label { display: inline-block; padding: 10px 20px; background: var(--yss-btn-primary-bg); color: #fff; border-radius: 4px; cursor: pointer; }
+.yss-modal-content .yss-modal-view p {
+    font-size: 14px;
+}
+.yss-upload-prompt label {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--yss-btn-disabled-bg);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    border: 1px solid var(--yss-btn-disabled-border);
+}
