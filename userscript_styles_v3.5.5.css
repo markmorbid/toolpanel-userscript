@@ -4075,15 +4075,15 @@ transform: translateY(0);
     background-color: var(--yss-panel-bg-3);
 }
 
-.yss-buttons-notext button#yss-csv-download-btn {
+.yss-buttons-notext button#yss-csv-download-btn, .yss-buttons-notext button#yss-calendar-modal-btn {
     position: static;
     transform: none;
     margin: 0;
-    flex: 1 1 84px;
+    flex: 1 1 84px!important;
     /* height: -webkit-fill-available; */
     aspect-ratio: unset;
     /* width: 70px; */
-    min-height: -webkit-fill-available;
+    min-height: 34px!important;
     min-width: -webkit-fill-available;
     border-radius: 0;
 }
@@ -4705,6 +4705,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     text-overflow: ellipsis;
     max-width: 16ch;
     text-wrap: pretty;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     display: -webkit-box;
     -webkit-box-orient: vertical;
