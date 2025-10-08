@@ -4695,7 +4695,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     border-radius: 4px;
     padding: 6px;
     border: 1px solid var(--yss-panel-border);
-    transition: background 300ms ease, border-color 300ms ease, color 300ms ease, opacity 300ms ease;
+    /* transition: background-color 300ms, border-color 300ms, color 300ms, opacity 300ms; */
 }
     .yss-video-entry a {
     color: var(--yss-text-color);
@@ -4761,7 +4761,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     opacity: 1;
     
 }
-    .yss-calendar-grid:has(.yss-video-entry:hover) .yss-video-entry:not(:hover) {
+    .yss-calendar-grid:has(.yss-calendar-day-cell:hover) .yss-calendar-day-cell:not(:hover) .yss-video-entry {
     background: var(--yss-btn-disabled-bg);
     border-color: var(--yss-btn-disabled-border);
     color: var(--yss-btn-disabled-color);
