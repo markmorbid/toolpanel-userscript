@@ -3934,10 +3934,7 @@ div#yss-panel.yss-buttons-notext {
 .yss-buttons-notext .yss-controls {
     background-color: var(--yss-panel-bg);
 }
-.yss-buttons-notext #yss-log-area {
-    background-color: #121212d4;
-    scrollbar-width: none;
-}
+
 div#yss-panel.yss-buttons-notext {
     width: min-content;
 }
@@ -3984,6 +3981,9 @@ div#yss-panel.yss-buttons-notext {
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn:disabled) .yss-button-options {
     display: none!important;
 }
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn:disabled) .yss-button-options:has(.yss-btn:not(:disabled)) {
+    display: flex!important;
+}
 .yss-buttons-notext .select-wrapper:has(#yss-visibility-filter-select):after, .yss-buttons-notext .select-wrapper:has(#yss-visibility-filter-select):before {
     display: none!important;
 }
@@ -4019,7 +4019,6 @@ div#yss-panel.yss-buttons-notext {
 
 
 .yss-buttons-notext .yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span) i {
-    width: 100%;
     font-size: 15px!important;
     font-weight: 900;
 }
@@ -4045,7 +4044,6 @@ div#yss-panel.yss-buttons-notext {
 }
 .yss-buttons-notext #yss-log-area {
     background-color: #121212d4;
-    scrollbar-width: none;
 }
 
 #yss-panel.yss-buttons-notext h1.yss-header-title {
@@ -4108,7 +4106,7 @@ transform: translateY(0);
     background-color: var(--yss-panel-bg-3);
 }
 
-.yss-buttons-notext button#yss-csv-download-btn, .yss-buttons-notext button#yss-calendar-modal-btn {
+.yss-buttons-notext button#yss-csv-download-btn /* , .yss-buttons-notext button#yss-calendar-modal-btn */{
     position: static;
     transform: none;
     margin: 0;
