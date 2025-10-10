@@ -3245,13 +3245,13 @@ min-height: fit-content!important;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: stretch;
-    border: 1px solid var(--yss-panel-border);
+    outline: 1px solid var(--yss-panel-border);
     border-radius: 0 0 var(--yss-btn-border-radius) var(--yss-btn-border-radius);
     transition: opacity 300ms, height 300ms .3s, transform 300ms;
     /* border-radius: var(--yss-btn-border-radius); */
     overflow: hidden;
     position: absolute;
-    top: calc(100% - 2px);
+    top: calc(100% - 0px);
     z-index: 2;
     min-width: max-content;
     gap: 0;
@@ -3261,11 +3261,14 @@ min-height: fit-content!important;
     pointer-events: none;
     width: -webkit-fill-available;
     padding-top: 0px;
+    border-top: 3px solid var(--yss-btn-green-bg);
+    transform: translateY(10px);
 }
 .yss-button-with-dropdown:hover .yss-button-options, .yss-button-with-dropdown .yss-button-options:has(.yss-btn.yss-btn-stop) {
     height: max-content;
     opacity: 1;
     pointer-events: all;
+    transform: translateY(0px);
 }
 .yss-button-with-dropdown:has(.yss-button-options .yss-btn.yss-btn-stop) > .yss-btn:not(.yss-btn-stop) {
     pointer-events: none;
@@ -4869,26 +4872,27 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 .yss-undo-icon {
     position: absolute;
     top: 0px;
-    left: -2px;
+    right: 0px;
     color: var(--yss-btn-stop-bg);
     z-index: 999999;
     opacity: 0;
+    display: none;
 }
-.yss-used .yss-undo-icon{
+.yss-used .yss-undo-icon {
     display: block;
+    opacity: 1;
 }
-.yss-btn:hover a.yss-undo-icon {
+.yss-btn:hover .yss-undo-icon {
     opacity: 1;
 }
 .yss-undo-icon:hover {
     color: #ccc;
 }
 .yss-btn.yss-used {
-    color: var(--yss-log-success);
     background-color: var(--yss-btn-hover-bg)!important;
 }
 
-.yss-panel:not(.yss-buttons-notext,.collapsed) .yss-header-wrapper h1.yss-header-title strong {
+.yss-panel:not(.yss-buttons-notext,.collapssed) .yss-header-wrapper h1.yss-header-title strong {
     background: var(--yss-btn-stop-bg);
     padding: 0 8px;
     border-radius: var(--yss-border-radius);
