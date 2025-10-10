@@ -3245,30 +3245,44 @@ min-height: fit-content!important;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: stretch;
-    outline: 1px solid var(--yss-panel-border);
+    border: 1px solid var(--yss-panel-border);
     border-radius: 0 0 var(--yss-btn-border-radius) var(--yss-btn-border-radius);
-    transition: opacity 300ms, height 300ms .3s, transform 300ms;
+    transition: opacity 300ms, max-height 300ms .2s, transform 300ms;
     /* border-radius: var(--yss-btn-border-radius); */
     overflow: hidden;
     position: absolute;
-    top: calc(100% - 0px);
-    z-index: 2;
+    top: calc(100% - 2px);
+    z-index: 99999;
     min-width: max-content;
     gap: 0;
-    box-shadow: 0 0 2px var(--yss-panel-shadow);
-    height: 0;
+    box-shadow: 0px 4px 6px var(--yss-panel-shadow);
+    max-height: 0;
     opacity: 0;
     pointer-events: none;
     width: -webkit-fill-available;
     padding-top: 0px;
     border-top: 3px solid var(--yss-btn-green-bg);
-    transform: translateY(10px);
+    /* transform: translateY(10px); */
+    /* height: auto; */
 }
 .yss-button-with-dropdown:hover .yss-button-options, .yss-button-with-dropdown .yss-button-options:has(.yss-btn.yss-btn-stop) {
-    height: max-content;
+    max-height: 500px;
     opacity: 1;
     pointer-events: all;
-    transform: translateY(0px);
+    /* transform: translateY(0px); */
+}
+.yss-button-with-dropdown .yss-button-options:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 0 8px 10.9px 8px;
+    border-color: transparent transparent var(--yss-btn-green-bg) transparent;
+    border-style: solid;
+    display: inline-block;
+    position: absolute;
+    left: 6px;
+    bottom: 100%;
+    z-index: 9999;
 }
 .yss-button-with-dropdown:has(.yss-button-options .yss-btn.yss-btn-stop) > .yss-btn:not(.yss-btn-stop) {
     pointer-events: none;
@@ -4695,7 +4709,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     padding: 5px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     background: var(--yss-panel-bg-3);
 }
         .yss-calendar-day-cell:nth-child(7n) { border-right: none; }
@@ -4837,8 +4851,8 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
         .yss-day-detail-item img.yss-video-thumbnail {
             position: static;
             opacity: 1;
-            width: 50px;
-            height: 35px;
+            width: 80px;
+            height: 50px;
         }
         .yss-day-detail-item .yss-video-time {
             flex-shrink: 0;
@@ -4852,8 +4866,36 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
             max-height: 35px;
             min-height: unset;
         }
-        .yss-upload-prompt { text-align: center; padding: 2rem; }
-        .yss-upload-prompt label { display: inline-block; padding: 10px 20px; background: var(--yss-btn-primary-bg); color: #fff; border-radius: 4px; cursor: pointer; }
+        .yss-upload-prompt {
+            text-align: center;
+            padding: 22px;
+            border: 1px solid var(--yss-panel-border);
+            border-radius: var(--yss-border-radius);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--yss-panel-bg-2);
+        }
+        .yss-upload-prompt label {
+            display: flex;
+            padding: 12px 20px;
+            background: var(--yss-btn-disabled-bg);
+            color: #fff;
+            border-radius: var(--yss-border-radius);
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 5px;
+            border: 1px solid var(--yss-btn-disabled-border);
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 7px;
+        }
 .yss-modal-content .yss-modal-view p {
     font-size: 14px;
 }
@@ -4908,7 +4950,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     order: -1;
 }
 .yss-header-wrapper h1.yss-header-title {
-    gap: 8px;
+    gap: 12px;
     font-size: 15px;
 }
 .yss-panel:not(.yss-buttons-notext) #yss-visibility-filter-select {
