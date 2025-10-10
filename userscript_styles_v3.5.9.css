@@ -180,6 +180,7 @@ font-family: var(--yss-font-family);
     opacity: 1;
     transition: opacity 300ms ease;
     height: 100%;
+    z-index: 33;
 }
 .yss-panel.collapsed .yss-header-nav {
     opacity: 0;
@@ -4040,6 +4041,11 @@ div#yss-panel.yss-buttons-notext {
 
 #yss-panel.yss-buttons-notext h1.yss-header-title strong {
     font-size: var(--yss-header-font-size);
+    background: var(--yss-btn-stop-bg);
+    padding: 6px;
+    border-radius: var(--yss-border-radius);
+    font-size: 14px;
+    margin-left: 8px;
 }
 
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
@@ -4567,9 +4573,9 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     justify-content: center;
     align-items: center;
 
-  
+    border-radius: 0!important;
 }
-.yss-panel:not(.yss-buttons-notext,.collapsded) .yss-header:has(.yss-header-wrapper) .yss-header-nav .yss-btn, .yss-panel:not(.yss-buttons-notext,.collapdsed) .yss-header:has(.yss-header-wrapper) .yss-header-nav .yss-btn-icon{
+.yss-panel:not(.yss-buttonss-notext,.collapsded) .yss-header:has(.yss-header-wrapper) .yss-header-nav .yss-btn, .yss-panel:not(.yss-buttonss-notext,.collapdsed) .yss-header:has(.yss-header-wrapper) .yss-header-nav .yss-btn-icon{
     border-left-style: solid!important;
     border-left-width: 1px!important;
     border-color: var(--yss-header-border)!important;
@@ -4578,9 +4584,10 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 }
 .yss-panel.yss-buttons-notext .yss-header-wrapper .yss-header-nav{
     border-left-style: solid!important;
-    border-left-width: 1px!important;
+    border-left-width: 0!important;
     border-color: var(--yss-header-border)!important;
     border-radius: 0!important;
+    z-index: 33;
 }
 .yss-panel .yss-header:has(.yss-header-wrapper) .yss-header-wrapper {
     display: flex;
@@ -4590,7 +4597,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    padding-right: 35px;
+    padding-right: 31px;
     padding-left: 18px;
     pointer-events: none;
     align-content: stretch;
@@ -4618,6 +4625,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     min-height: 45px;
     height: 45px;
     cursor: move;
+    overflow: hidden;
 }
 .yss-header:has(.yss-header-wrapper) #yss-toggle-collapse {
     min-height: 45px;
@@ -4856,4 +4864,46 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     font-size: 18px;
     margin-top: 10px;
     border: 1px solid var(--yss-btn-disabled-border);
+}
+
+.yss-undo-icon {
+    position: absolute;
+    top: 0px;
+    left: -2px;
+    color: var(--yss-btn-stop-bg);
+    z-index: 999999;
+    opacity: 0;
+}
+.yss-used .yss-undo-icon{
+    display: block;
+}
+.yss-btn:hover a.yss-undo-icon {
+    opacity: 1;
+}
+.yss-undo-icon:hover {
+    color: #ccc;
+}
+.yss-btn.yss-used {
+    color: var(--yss-log-success);
+    background-color: var(--yss-btn-hover-bg)!important;
+}
+
+.yss-panel:not(.yss-buttons-notext,.collapsed) .yss-header-wrapper h1.yss-header-title strong {
+    background: var(--yss-btn-stop-bg);
+    padding: 0 8px;
+    border-radius: var(--yss-border-radius);
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    order: -1;
+}
+.yss-header-wrapper h1.yss-header-title {
+    gap: 8px;
+    font-size: 15px;
 }
