@@ -670,7 +670,7 @@ border-color: var(--yss-btn-pause-border) !important;
     scrollbar-width: thin;
 }*/
 .yss-log {
-    padding: 12px;
+    padding: 12px 0 12px 12px;
     height: calc(100% - 24px);
     overflow-y: auto;
     font-family: Consolas,"Courier New",monospace;
@@ -689,6 +689,7 @@ border-color: var(--yss-btn-pause-border) !important;
     /* resize: vertical; */
     max-height: 70vh;
     width: -webkit-fill-available;
+    scrollbar-gutter: stable;
 }
 
 .yss-log-entry {
@@ -3265,7 +3266,7 @@ min-height: fit-content!important;
     /* transform: translateY(10px); */
     /* height: auto; */
 }
-.yss-button-with-dropdown:hover .yss-button-options, .yss-button-with-dropdown .yss-button-options:has(.yss-btn.yss-btn-stop) {
+.yss-button-with-dropdown:not(:has(>.yss-btn.yss-btn-stop)):hover .yss-button-options, .yss-button-with-dropdown .yss-button-options:has(.yss-btn.yss-btn-stop) {
     max-height: 500px;
     opacity: 1;
     pointer-events: all;
@@ -4931,7 +4932,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 
 .yss-panel:not(.yss-buttons-notext,.collapssed) .yss-header-wrapper h1.yss-header-title strong {
     background: var(--yss-btn-stop-bg);
-    padding: 0 8px;
+    padding: 0px 12px;
     border-radius: var(--yss-border-radius);
     font-size: 14px;
     height: 100%;
@@ -4943,6 +4944,9 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     align-items: center;
     border-radius: 0;
     order: -1;
+    background: var(--yss-panel-bg);
+    font-weight: 400;
+    border-right: 1px solid #424242;
 }
 .yss-header-wrapper h1.yss-header-title {
     gap: 12px;
@@ -4950,4 +4954,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 }
 .yss-panel:not(.yss-buttons-notext) #yss-visibility-filter-select {
     min-width: 19ch;
+}
+tp-yt-iron-overlay-backdrop.opened {
+    display: none;
 }
