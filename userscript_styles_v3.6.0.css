@@ -3416,7 +3416,7 @@ min-height: fit-content!important;
 .select-wrapper:has(#yss-visibility-filter-select:hover)::before {
     content: '\f273'!important;
     font-weight: 100;
-    right: 7px;
+    right: 8px;
 }
 .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input, .yss-modal-overlay input[type="checkbox"]{
     margin-right: 0px!important;
@@ -4598,7 +4598,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
     flex-wrap: wrap;
     width: 100%;
     padding-right: 31px;
-    padding-left: 18px;
+    padding-left: 0;
     pointer-events: none;
     align-content: stretch;
     height: 100%;
@@ -4906,4 +4906,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 .yss-header-wrapper h1.yss-header-title {
     gap: 8px;
     font-size: 15px;
+}
+.yss-panel:not(.yss-buttons-notext) #yss-visibility-filter-select {
+    min-width: 19ch;
 }
