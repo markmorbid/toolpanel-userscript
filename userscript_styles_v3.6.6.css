@@ -4956,3 +4956,49 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 tp-yt-iron-overlay-backdrop.opened {
     display: none;
 }
+
+.yss-form-column {
+    flex: 1 1 0%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+.yss-form-column-group {
+    display: flex;
+    gap: 10px;
+}
+.yss-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    gap: 5px;
+    margin-top: 10px;
+}
+.yss-form-column .yss-form-group:has(input[type="radio"]) .yss-radio, .yss-form-column .yss-form-group .yss-checkbox-group .yss-checkbox-container {
+    font-size: 13px;
+    padding: 7px 10px;
+    margin-bottom: 0px;
+    border: 1px solid var(--yss-panel-border);
+    background: var(--yss-panel-bg);
+    border-radius: var(--yss-border-radius);
+}
+.yss-form-column .yss-form-group .yss-checkbox-group label.yss-checkbox-label {
+    font-size: 12px;
+}
+.yss-form-group label.yss-group-title-label {
+    font-size: 16px;
+    display: flex;
+    padding-bottom: 10px;
+}
+.yss-form-column .yss-form-group .yss-radio-group{
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+}
