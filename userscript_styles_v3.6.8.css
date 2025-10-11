@@ -3530,7 +3530,7 @@ min-height: fit-content!important;
     right: 0;
     color: transparent!important;
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked, .yss-modal-overlay input[type="checkbox"]:checked, .yss-form-group input[type="radio"]:checked {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked, .yss-modal-overlay input[type="checkbox"]:checked{
     background-color: var(--yss-btn-green-bg);
     border-color: rgb(255 255 255 / 25%);
     color: white;
@@ -3560,7 +3560,7 @@ min-height: fit-content!important;
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item label:has(input[type="checkbox"]) {
     padding: 12px!important;
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item input:not(:checked):hover, .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item label:hover > input:not(:checked), .yss-modal-overlay input[type="checkbox"]:not(:checked):hover, .yss-form-group input[type="radio"]:not(:checked):hover {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item input:not(:checked):hover, .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item label:hover > input:not(:checked), .yss-modal-overlay input[type="checkbox"]:not(:checked):hover, .yss-form-group input[type="radio"]:not(:checked):hover, .yss-form-group label:hover > input:not(:checked),  .yss-form-group .yss-radio:hover > input:not(:checked){
     background-color: var(--yss-btn-hover-border)!important;
     border-color: rgb(255 255 255 / 55%)!important;
     color: white!important;
@@ -4990,7 +4990,7 @@ tp-yt-iron-overlay-backdrop.opened {
 }
 .yss-form-column .yss-form-group:has(input[type="radio"]) .yss-radio, .yss-form-column .yss-form-group .yss-checkbox-group .yss-checkbox-container {
     font-size: 13px;
-    padding: 7px 10px;
+    padding: 8px 10px;
     margin-bottom: 0px;
     border: 1px solid var(--yss-panel-border);
     background: var(--yss-panel-bg);
@@ -5034,4 +5034,36 @@ tp-yt-iron-overlay-backdrop.opened {
     box-shadow: none;
     outline: none;
     position: relative;
+}
+.yss-form-column .yss-form-group .yss-radio-group.compact {
+    gap: 0;
+    border: 1px solid var(--yss-panel-border);
+    background: var(--yss-panel-bg);
+    border-radius: var(--yss-border-radius);
+    padding: 6px 11px;
+}
+
+.yss-form-column .yss-form-group .yss-radio-group.compact .yss-radio {
+    border: none;
+    border-radius: 0!important;
+    padding: 8px 4px;
+    background: transparent!important;
+    font-size: 14px;
+    position: relative;
+}
+
+.yss-form-column .yss-form-group .yss-radio-group.compact .yss-radio:not(:last-child) {
+    border-bottom: 1px solid var(--yss-panel-border);
+}
+
+.yss-form-column .yss-form-group .yss-checkbox-group .yss-checkbox-container:has(input[type="checkbox"]:not(:checked)), .yss-form-column .yss-form-group .yss-radio-group .yss-radio:has(input[type="radio"]:not(:checked)) {
+    color: var(--yss-btn-disabled-color);
+    background-color: #272727;
+    border-color: #484848;
+}
+.yss-form-column .yss-form-group .yss-checkbox-group label.yss-checkbox-label:has(input[type="checkbox"]:not(:checked,:hover)), .yss-form-column .yss-form-group .yss-radio-group .yss-radio:has(input[type="radio"]:not(:checked, :hover)){
+    color: var(--yss-btn-disabled-color);
+}
+.yss-form-column .yss-form-group .yss-radio-group .yss-radio:has(input[type="radio"]:hover), .yss-form-column .yss-form-group .yss-radio-group .yss-radio:has(input[type="radio"]):hover{
+    color: white!important;
 }
