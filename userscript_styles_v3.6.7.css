@@ -1471,13 +1471,13 @@ flex: 1 1 100%;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     border: 1px solid var(--yss-panel-border);
     background: var(--yss-panel-bg);
     border-radius: var(--yss-border-radius);
     margin-bottom: 6px;
 }
-.yss-form-group:has(input[type="radio"]) label {
+.yss-form-group:has(input[type="radio"]) label:not(.yss-group-title-label) {
     font-size: 16px;
     margin-bottom: 7px!important;
 }
@@ -3454,7 +3454,7 @@ min-height: fit-content!important;
     box-shadow: none;
     outline: none;
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:before, .yss-modal-overlay input[type="checkbox"]:before {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:before, .yss-modal-overlay input[type="checkbox"]:before, .yss-form-group input[type="radio"]:before {
     content: "";
     width: 1.2rem;
     height: 1.2rem;
@@ -3465,8 +3465,18 @@ min-height: fit-content!important;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked:before, .yss-modal-overlay input[type="checkbox"]:checked:before {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked:before, .yss-modal-overlay input[type="checkbox"]:checked:before, .yss-form-group input[type="radio"]:checked:before {
     transform: scale(1);
+}
+.yss-form-group .yss-radio input[type="radio"]:before {
+    clip-path: circle();
+    width: 1.4rem;
+    height: 1.4em;
+}
+.yss-form-group input[type="radio"]:checked {
+    color: var(--yss-btn-green-bg);
+    border: 0px solid var(--yss-btn-green-bg)!important;
+    background-color: white;
 }
 /* .select-wrapper:has(#yss-visibility-filter-select)::after {
     content: '';
@@ -3520,12 +3530,12 @@ min-height: fit-content!important;
     right: 0;
     color: transparent!important;
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked, .yss-modal-overlay input[type="checkbox"]:checked {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:checked, .yss-modal-overlay input[type="checkbox"]:checked, .yss-form-group input[type="radio"]:checked {
     background-color: var(--yss-btn-green-bg);
     border-color: rgb(255 255 255 / 25%);
     color: white;
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:focus {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) label:has(input) > input:focus, .yss-modal-overlay input[type="checkbox"]:focus, .yss-form-group input[type="radio"]:focus {
     outline: max(1px, 0.1em) solid var(--yss-btn-green-bg);
     outline-offset: max(3px, 0.2em);
     border: 1px solid white!important;
@@ -3550,7 +3560,7 @@ min-height: fit-content!important;
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item label:has(input[type="checkbox"]) {
     padding: 12px!important;
 }
-.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item input:not(:checked):hover, .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item label:hover > input:not(:checked), .yss-modal-overlay input[type="checkbox"]:not(:checked):hover {
+.button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item input:not(:checked):hover, .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item label:hover > input:not(:checked), .yss-modal-overlay input[type="checkbox"]:not(:checked):hover, .yss-form-group input[type="radio"]:not(:checked):hover {
     background-color: var(--yss-btn-hover-border)!important;
     border-color: rgb(255 255 255 / 55%)!important;
     color: white!important;
@@ -4976,7 +4986,7 @@ tp-yt-iron-overlay-backdrop.opened {
     align-content: stretch;
     align-items: stretch;
     gap: 5px;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 .yss-form-column .yss-form-group:has(input[type="radio"]) .yss-radio, .yss-form-column .yss-form-group .yss-checkbox-group .yss-checkbox-container {
     font-size: 13px;
@@ -4987,12 +4997,13 @@ tp-yt-iron-overlay-backdrop.opened {
     border-radius: var(--yss-border-radius);
 }
 .yss-form-column .yss-form-group .yss-checkbox-group label.yss-checkbox-label {
-    font-size: 12px;
+    font-size: 13px;
 }
 .yss-form-group label.yss-group-title-label {
-    font-size: 16px;
+    font-size: 15px!important;
     display: flex;
     padding-bottom: 10px;
+    margin: 0!important;
 }
 .yss-form-column .yss-form-group .yss-radio-group{
     gap: 5px;
@@ -5001,4 +5012,26 @@ tp-yt-iron-overlay-backdrop.opened {
     flex-wrap: wrap;
     align-content: stretch;
     align-items: stretch;
+}
+
+.yss-form-group input[type="radio"] {
+    vertical-align: middle;
+    margin: 3px 3px 5px 0;
+    margin-right: 0px!important;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #353535;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #5c5c5c;
+    border-radius: 100px;
+    display: grid;
+    place-content: center;
+    aspect-ratio: 1;
+    box-shadow: none;
+    outline: none;
+    position: relative;
 }
