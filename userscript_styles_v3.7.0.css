@@ -5208,3 +5208,31 @@ details.yss-modal-instructions:not(:open) summary {
     color: var(--yss-accent-color);
     filter: brightness(1.2);
 }
+.yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]:not(:checked)) input {
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    background-color: #ffffff0d;
+    border-color: #ffffff26;
+    border-width: 2px;
+}
+.yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]:not(:checked)):hover input {
+    background-color: #ffffff9e !important;
+}
+.yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]):hover legend, .yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]:checked) legend {
+    --yss-panel-color: #00000066;
+    --yss-log-bg: #ffffff;
+}
+.yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]) label span {
+    background-color: #00000000;
+    padding: 8px;
+    border-radius: var(--yss-btn-border-radius);
+}
+.yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]):hover label span, .yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]:checked) label span {
+    background-color: #00000066;
+
+}
+.yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]:checked) label span {
+    background: white;
+    color: black;
+}
