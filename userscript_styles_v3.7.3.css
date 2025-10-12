@@ -5344,7 +5344,6 @@ details.yss-modal-instructions:not(:open) summary {
     position: relative;
 overflow-y: scroll;
     cursor: initial;
-    min-height: 80vh;
      width: 80vw!important;
     max-width: 750px!important;
     cursor: initial!important;
