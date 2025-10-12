@@ -2364,14 +2364,20 @@ input#manualSelection:checked, input#startFromSpecific:checked {
     border: 1px solid var(--yss-panel-border);
     background: var(--yss-panel-bg);
     color: white;
-    padding: 16px;
+    padding: 20px;
     border-radius: var(--yss-border-radius);
-    z-index: 9999999;
+    z-index: 999;
     font-family: var(--yss-font-family);
     font-size: 15px;
     max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 3px;
 }
-
 .yss-completion-title {
     font-weight: bold;
     margin-bottom: 10px;
@@ -2392,7 +2398,7 @@ input#manualSelection:checked, input#startFromSpecific:checked {
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 13px;
     color: white;
     white-space: nowrap;
 }
@@ -2402,7 +2408,7 @@ input#manualSelection:checked, input#startFromSpecific:checked {
 }
 
 .yss-completion-btn-warning {
-    background: #FF9800;
+    background: var(--yss-btn-green-bg);
 }
 
 .yss-completion-btn-secondary {
@@ -5611,7 +5617,10 @@ overflow-y: scroll;
     padding: 10px;
     gap: 10px;
     width: -webkit-fill-available;
+    aspect-ratio: unset;
 }
+
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-button-options .yss-btn) {
-    min-width: 80px;
+    min-width: 70px;
+
 }
