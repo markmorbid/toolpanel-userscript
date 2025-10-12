@@ -5333,3 +5333,19 @@ details.yss-modal-instructions:not(:open) summary {
     align-items: stretch;
     gap: 7px;
 }
+
+.yss-modal-content .yss-modal-view:has(.yss-help-accordion-container) .yss-modal-actions:not(:has(button)){
+
+    display: none;
+
+}
+
+.yss-modal-content:has(.yss-help-accordion-container) {
+    position: relative;
+overflow-y: scroll;
+    cursor: initial;
+    min-height: 80vh;
+     width: 80vw!important;
+    max-width: 750px!important;
+    cursor: initial!important;
+}
