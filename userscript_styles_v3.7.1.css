@@ -25,7 +25,7 @@
     --yss-btn-start-bg: #007bff;
     --yss-btn-start-border: #007bff; 
     --yss-btn-start-hover: #0056b3;
-    --yss-btn-start-bg-hover: #0056b3;
+    --yss-btn-start-bg-hover: #0057b5;
     --yss-btn-start-border-hover: #0056b3;
     --yss-btn-green-bg: var(--yss-log-success);
     --yss-btn-green-border: var(--yss-log-success);
@@ -5235,4 +5235,101 @@ details.yss-modal-instructions:not(:open) summary {
 .yss-form-group.yss-input-container-clickable:has(input[type="checkbox"]:checked) label span {
     background: white;
     color: black;
+}
+
+.yss-modal-instructions summary:has(i.fa-solid) {
+    padding-left: 48px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 9px;
+    font-size: 14px;
+}
+
+.yss-modal-instructions summary:has(i.fa-solid)::before {
+    position: absolute;
+    height: 100%;
+    width: 36px;
+    display: flex;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    border-right: 1px solid var(--yss-panel-border);
+    font-weight: 600;
+}
+
+.yss-modal-instructions:open summary:has(i.fa-solid) {
+    padding: 15px 15px 15px 48px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 9px;
+    top: 0;
+    left: 0;
+    width: -webkit-fill-available;
+    --yss-accent-color: white;
+    background: #00000026;
+}
+.yss-modal-instructions:open summary:has(i.fa-solid):hover {
+   background-color: var(--yss-btn-start-bg);
+   /* border-color: var(--yss-btn-start-border-hover); */
+   accent-color: white;
+   --yss-accent-color: white;
+}
+.yss-modal-instructions:open:has(summary > i.fa-solid) {
+    position: relative;
+    padding-top: 65px;
+    overflow: hidden;
+}
+
+.yss-modal-instructions:open summary:has(i.fa-solid)::before {
+    border-color: #ffffff1a;
+    background-color: #00000017;
+    filter: none;
+    font-weight: 400;
+}
+.yss-modal-instructions:open summary:has(i.fa-solid):hover::before {
+    border-color: #ffffff1a;
+    background-color: #0000003b;
+    filter: none;
+    font-weight: 400;
+}
+.yss-modal-instructions summary:has(i.fa-solid)::after {
+    content: "\f054";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    flex: 1 1;
+    text-align: right;
+    font-size: 12px;
+    opacity: 0.6;
+    order: 2;
+}
+
+.yss-modal-instructions:open summary:has(i.fa-solid)::after {
+    content: "\f078";
+}
+
+.yss-modal-instructions summary:has(i.fa-solid) > i {
+    width: 20px;
+    text-align: center;
+    font-size: 13px!important;
+    /* order: 1; */
+}
+
+.yss-help-accordion-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    gap: 7px;
 }
