@@ -3983,8 +3983,8 @@ div#yss-panel.yss-buttons-notext {
     /* opacity: 1; 
     height: 100%;*/
     /* background: transparent; */
-    /* border: none; */
-    display: flex!important;
+    /* border: none;
+    display: flex!important; */
     /* max-width: fit-content; */
     /* min-width: unset; */
     box-shadow: none!important;
@@ -3993,9 +3993,9 @@ div#yss-panel.yss-buttons-notext {
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn:disabled) .yss-button-options {
     display: none!important;
 }
-.yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn:disabled) .yss-button-options:has(.yss-btn:not(:disabled)) {
+/* .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn:disabled) .yss-button-options:has(.yss-btn:not(:disabled)) {
     display: flex!important;
-}
+} */
 .yss-buttons-notext .select-wrapper:has(#yss-visibility-filter-select):after, .yss-buttons-notext .select-wrapper:has(#yss-visibility-filter-select):before {
     display: none!important;
 }
@@ -4545,6 +4545,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 
 #yss-tooltip-container.yss-align-center #yss-tooltip-content {
     text-align: center;
+    max-inline-size: 26ch;
 }
 
 #yss-tooltip-container.yss-align-right #yss-tooltip-content {
