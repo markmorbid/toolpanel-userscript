@@ -5528,3 +5528,90 @@ overflow-y: scroll;
 .yss-buttons-notext .yss-button-with-dropdown:not(:hover) .yss-button-options {
     display: none!important;
 }
+
+ .yss-button-with-dropdown .yss-button-options:before {
+            z-index: 9991;
+        }
+ .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn span) {
+    max-width: unset!important;
+    min-width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+        .yss-buttons-notext .yss-button-with-dropdown:has(.yss-button-options .yss-btn) {
+            min-width: 70px;
+            /* min-width: max-content; */
+            /* max-width: 70px!important; */
+        }
+        .yss-buttons-notext button#yss-pause-notifs-btns:disabled, .yss-buttons-notext button#yss-pause-resume-btn:disabled {
+            display: none;
+        }
+        .yss-buttons-notext #yss-toggle-collapse-group {
+            display: none;
+        }
+        .yss-buttons-notext .yss-controls .button_group:has(#yss-toggle-collapse-group) {
+            padding-right: 10px;
+        }
+        .yss-buttons-notext .yss-controls .button_row.toggleable {
+            display: flex;
+            border-bottom: 1px solid var(--yss-panel-border);
+            overflow: visible;
+        }
+        .yss-buttons-notext .button_group select.yss-select {
+            max-width: 80px;
+            min-width: unset;
+            min-width: 108px;
+            text-overflow: ellipsis;
+            /* overflow: hidden!important; */
+            word-break: break-word;
+        }
+       .yss-buttons-notext .yss-button-with-dropdown:has(.yss-button-options .yss-btn) > .yss-btn:after {
+    content: "\f0d7";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 700;
+    width: 100%;
+    /* font-size: inherit; */
+    color: inherit;
+    flex: 1;
+    text-align: right;
+    /* content: "\f058"; */
+    font-weight: 600;
+    /* content: "\f14a"; */
+    /* font-weight: 100; */
+    width: 10px!important;
+    opacity: 1;
+    display: flex;
+    font-size: 13px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* align-content: center; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-button-options .yss-btn) > .yss-btn i {
+    width: 100%;
+}
+
+.yss-buttons-notext .button_group:has(.yss-button-options .yss-btn) {
+    flex: 1;
+}
+.yss-buttons-notext .button_group:not(:has(.yss-button-options .yss-btn)) {
+    flex: 0;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-button-options .yss-btn) > .yss-btn {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    gap: 10px;
+    width: -webkit-fill-available;
+}
+.yss-buttons-notext .yss-button-with-dropdown:has(.yss-button-options .yss-btn) {
+    min-width: 80px;
+}
