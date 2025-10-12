@@ -2169,14 +2169,14 @@ border-end-end-radius: 0;
 .yss-modal-content #fileStatusIndicator {
      display: none;
 }
-input#manualSelection, input#startFromSpecific {
+/* input#manualSelection, input#startFromSpecific {
     width: 25px;
     height: 25px;
     margin: 0;
     background-color: transparent;
     border-color: white;
     border-width: 2px;
-}
+} */
 input#manualSelection:checked, input#startFromSpecific:checked {
     background: white;
     color: black;
@@ -4192,7 +4192,7 @@ transform: translateY(0);
 
 details.yss-modal-instructions {
     display: block;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 300;
     background: var(--yss-panel-bg-3);
     border-radius: var(--yss-border-radius);
@@ -4917,7 +4917,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
             gap: 7px;
         }
 .yss-modal-content .yss-modal-view p {
-    font-size: 14px;
+    font-size: inherit;
 }
 .yss-upload-prompt label {
     display: inline-block;
@@ -5623,4 +5623,25 @@ overflow-y: scroll;
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-button-options .yss-btn) {
     min-width: 70px;
 
+}
+
+.yss-button-with-dropdown .yss-button-options:before {
+    z-index: 999!important;
+}
+.yss-button-with-dropdown .yss-button-options:after {
+    z-index: 9999!important;
+    height: 14px;
+}
+.yss-completion-notification {
+    z-index: 9999!important;
+    max-width: unset;
+}
+.yss-modal-content.yss-sticky-modal .yss-modal-actions {
+    border-top: 1px solid var(--yss-header-border);
+    background-color: var(--yss-header-bg);
+    padding: 12px;
+}
+.yss-modal-content .yss-modal-title .yss-close-btn {
+    order: 3;
+    margin-right: -14px;
 }
