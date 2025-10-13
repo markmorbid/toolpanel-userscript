@@ -10,74 +10,23 @@
 A powerful, extensible, multi-tool UserScript UI for YouTube Studio. It automates mass scheduling, renaming, notifications management, scraping, uploading, downloading, calendar sync, and more.  
 This documentation covers the entire architecture, UI, feature usage, and developer extension guidance.
 
+
+[![image](https://satsea.io/video-calendar/img/1.png)](https://satsea.io/video-calendar/img/1.png)
+
+|     |     |
+| --- | --- |
+| [![image](https://satsea.io/video-calendar/img/2.png)](https://satsea.io/video-calendar/img/2.png) | [![image](https://satsea.io/video-calendar/img/3.png)](https://satsea.io/video-calendar/img/3.png) |
+| Toolpanel full view | Toolpanel in no-text buttons mode(compact mode) |
+| [![image](https://satsea.io/video-calendar/img/4.png)](https://satsea.io/video-calendar/img/4.png) | [![image](https://satsea.io/video-calendar/img/5.png)](https://satsea.io/video-calendar/img/5.png) |
+| Scheduler configuration modal. | Help Modal Popup |
+| [![image](https://satsea.io/video-calendar/img/6.png)](https://satsea.io/video-calendar/img/6.png) | [![image](https://satsea.io/video-calendar/img/7.png)](https://satsea.io/video-calendar/img/7.png) |
+| Scraper calendar view. | Calendar day detail |
+| [![image](https://satsea.io/video-calendar/img/8.png)](https://satsea.io/video-calendar/img/8.png) | [![image](https://satsea.io/video-calendar/img/9.png)](https://satsea.io/video-calendar/img/9.png) |
+| BulkDownloader Modal | Downloader Reference File Management |
+| [![image](https://satsea.io/video-calendar/img/10.png)](https://satsea.io/video-calendar/img/10.png) | [![image](https://satsea.io/video-calendar/img/11.png)](https://satsea.io/video-calendar/img/11.png) |
+| BulkUploader Modal File selection | BulkUploader Modal History |
 ---
-<table cellpadding="0" cellspacing="0" font-size="10">
-  <tbody>
-    <tr>
-        <img width="800" height="74"  alt="Toolbar Display (buttons enabled for Draft filtered contents)" src="https://github.com/user-attachments/assets/fc2fa0ea-89d3-4b59-98fb-c8dd338a06ee" />
-    </tr>
-  <tr>
-    <td cellpadding="10">
-      <img width="750" height="578" alt="image" src="https://github.com/user-attachments/assets/32b7567e-5cf4-40fe-a9d0-749438eb7171" />
-    </td>    
-    <td cellpadding="10">
-      <img width="342" height="491" alt="image" src="https://github.com/user-attachments/assets/fac1ea0d-a6ba-4006-90b1-82bf90e6eb45" />
-    </td>
-  </tr>
-    <tr>
-    <th font-size="11">Toolpanel  full view</th> 
-    <th font-size="11">Toolpanel in no-text buttons  mode(compact mode)</th>
-  </tr>
-  <tr>
-    <td cellpadding="10">
-     <img width="683" height="714" alt="image" src="https://github.com/user-attachments/assets/d3613d7c-8f78-4d00-b63b-ae538c0f2a42" />
-    </td>    
-    <td cellpadding="10">
-      <img width="807" height="629" alt="image" src="https://github.com/user-attachments/assets/9bbadc8b-01ec-42f4-8e50-8fbaa1406e0a" />
-    </td>
-  </tr>
-  <tr>
-    <th font-size="11">Scheduler configuration modal.</th>
-    <th font-size="11">Help Modal Popup</th> 
-  </tr>
-    <tr>
-    <td cellpadding="10">
-     <img width="1110" height="722" alt="image" src="https://github.com/user-attachments/assets/6be5abdc-ffee-453e-bd61-48ae09b1e35b" />
-    </td>    
-    <td cellpadding="10">
-      <img width="780" height="648" alt="image" src="https://github.com/user-attachments/assets/57087f79-a6f4-46f8-b437-23902fdf0fd2" />
-    </td>
-  </tr>
-  <tr>
-    <th font-size="11">Scraper calendar view.</th>
-    <th font-size="11">Calendar day detail</th> 
-  </tr>
-     <tr>
-    <td cellpadding="10">
-     <img width="763" height="664" alt="image" src="https://github.com/user-attachments/assets/2174e636-8f7d-40bc-95b8-e464e5fd6f4c" />
-    </td>    
-    <td cellpadding="10">
-      <img width="830" height="670" alt="image" src="https://github.com/user-attachments/assets/ca0404e3-98af-45a8-934d-6492481cbe6c" />
-    </td>
-  </tr>
-  <tr>
-    <th font-size="11">BulkDownloader Modal</th>
-    <th font-size="11">Downloader Reference File Management</th> 
-  </tr>
-     <tr>
-    <td cellpadding="10">
-     <img width="759" height="677" alt="image" src="https://github.com/user-attachments/assets/8544a23e-2178-49d9-9954-a0085f6b7a33" />
-    </td>    
-    <td cellpadding="10">
-      <img width="861" height="652" alt="image" src="https://github.com/user-attachments/assets/efae7754-da0e-4e6a-b866-8fedd92d782f" />
-    </td>
-  </tr>
-  <tr>
-    <th font-size="11">BulkUploader Modal File selection</th>
-    <th font-size="11">BulkUploader Modal History </th> 
-  </tr>
-  </tbody>
-</table>
+
 
 ## 🚩 The Main Panel
 
@@ -269,15 +218,12 @@ flowchart TD
 
 #### UI Construction System
 
-<div style="background:#f7f7f7;border-left:4px solid #777;padding:1em 0.5em;color:black;">
-<strong>Key Builders:</strong>
-<ul>
-<li><b>UIMasterBuilder</b>: Declarative, schema-based main panel construction.</li>
-<li><b>YSSModalBuilder</b>: Modal dialog builder with header, footer, draggable, back/close, stats, counter, and flexible content.</li>
-<li><b>SmartButton System</b>: Buttons with states (pause/resume, start/stop), icons, counters, and centralized management.</li>
-<li><b>External Hosted Stylesheet/b>: For performance reasons, the css styles are embedded in an external stylesheet from a raw css file  on  a github reposiitory. styles  can be  injected in GM_addstyle, but its better to keep the styles on the external file.</li>
-</ul>
-</div>
+**Key Builders:**
+
+*   **UIMasterBuilder**: Declarative, schema-based main panel construction.
+*   **YSSModalBuilder**: Modal dialog builder with header, footer, draggable, back/close, stats, counter, and flexible content.
+*   **SmartButton System**: Buttons with states (pause/resume, start/stop), icons, counters, and centralized management.
+*   **External Hosted Stylesheet/b>: For performance reasons, the css styles are embedded in an external stylesheet from a raw css file on a github reposiitory. styles can be injected in GM\_addstyle, but its better to keep the styles on the external file.**
 
 #### Utility Classes & Managers
 
