@@ -6097,7 +6097,10 @@ details.yss-modal-instructions:not(:open) summary:hover {
 .yss-modal-content.yss-sticky-modal.yss-scrollable-modal .yss-modal-actions:not(:has(button)) {
 	display: none!important;
 }
-
+.yss-readme-container {
+    --yss-titles-accent-color: #145293;
+    --yss-titles-subtile-color: #536982;
+}
 .yss-readme-container table td:has(a.yss-lightbox img) {
 	object-fit: cover;
 	width: 50%;
@@ -6374,14 +6377,14 @@ details.yss-modal-instructions:not(:open) summary:hover {
     border-left-color: var(--yss-accent-color);
     padding: 1.2rem 1.3rem!important;
     line-height: 1.6rem;
-    font-size: 1.7rem;
     margin-top:15px;
 }
 
 .yss-readme-container h3 + ul, .yss-readme-container h3 + ol {
-	margin-top: 0;
-	border-top-right-radius: 0;
-	border-top: 0;
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+    border-left: 3px solid var(--yss-titles-accent-color);
 }
 
 .zeroclipboard-container {
@@ -6898,11 +6901,7 @@ span.copy-tooltip {
     margin-top:15px;
 }
 
-.yss-readme-container h3 + ul, .yss-readme-container h3 + ol {
-    margin-top: 0;
-    border-top-right-radius: 0;
-    border-top: 0;
-}
+
 
 .zeroclipboard-container {
     display: flex;
