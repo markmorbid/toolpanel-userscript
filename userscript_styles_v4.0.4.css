@@ -7165,11 +7165,11 @@ span.copy-tooltip {
 	border-bottom: 1px solid var(--yss-panel-border);
 }
 
-.yss-fullscreen.yss-modal-content.yss-scrollable-modal.yss-sticky-modal {
-	max-width: unset!important;
-	width: calc(100vw - 5%);
-	max-height: unset;
-	height: calc(100vh - 5%);
+.yss-fullscreen.yss-modal-content {
+    max-width: unset!important;
+    width: calc(100vw - 5%)!important;
+    max-height: unset!important;
+    height: calc(100vh - 5%)!important;
 }
 
 @keyframes yss-lightbox-spin {
