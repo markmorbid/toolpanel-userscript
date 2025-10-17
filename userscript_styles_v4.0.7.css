@@ -89,7 +89,7 @@
 
     --yss-titles-accent-color: var(--yss-btn-hover-border);
     --yss-accent-color: var(--yss-btn-start-bg);
-	--yss-strong-color: var(--yss-log-error);
+	--yss-strong-color: var(--yss-btn-stop-hover);
 }
 /* === YSS Preloader === */
 .yss-preloader {
@@ -176,7 +176,7 @@ html .yss-panel, html .yss-modal-content {
 ::-webkit-scrollbar-thumb {
 	background-color: var(--yss-panel-border)!important;
 	cursor: pointer;
-	border-radius: 8px!important;
+	border-radius: var(--yss-border-radius)!important;
 	border: 3px solid transparent!important;
 }
 
@@ -3665,7 +3665,7 @@ button#yss-clear-imported-btn:disabled {
 	flex-wrap: nowrap;
 	align-items: center;
 	text-wrap: pretty;
-	max-inline-size: 20ch;
+	/* max-inline-size: 20ch; */
 }
 
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item:has(input[type="checkbox"]) {
@@ -3766,11 +3766,11 @@ button#yss-clear-imported-btn:disabled {
 	font-size: 15px;
 }
 
-.yss-modal-content.yss-buttons-notext .yss-btn:not(.yss-btn-item) span, .yss-panel.yss-buttons-notext .yss-btn:not(.yss-btn-item) span, .yss-buttons-notext .yss-btn:not(.yss-btn-item) span {
+.yss-modal-content.yss-buttons-notext .yss-btn:not(.yss-btn-item, a) span, .yss-panel.yss-buttons-notext .yss-btn:not(.yss-btn-item, a) span, .yss-buttons-notext .yss-btn:not(.yss-btn-item, a) span {
 	display: none!important;
 }
 
-.yss-buttons-notext .yss-btn:not(.yss-btn-icon, .yss-btn-item):has(span) {
+.yss-buttons-notext .yss-btn:not(.yss-btn-icon, .yss-btn-item, a):has(span) {
 	flex: 0!important;
 	width: fit-content;
 }
@@ -3788,7 +3788,7 @@ button#yss-clear-imported-btn:disabled {
 	align-items: center;
 }
 
-.yss-buttons-notext .yss-btn:not(.yss-btn-icon, .yss-btn-item):has(span) i {
+.yss-buttons-notext .yss-btn:not(.yss-btn-icon, .yss-btn-item, a):has(span) i {
 	width: 100%;
 	font-size: 15px!important;
 }
@@ -3804,7 +3804,7 @@ button#yss-clear-imported-btn:disabled {
 	display: none;
 }
 
-.yss-buttons-notext .yss-btn:not(.yss-btn-icon, .yss-btn-item):has(span) {
+.yss-buttons-notext .yss-btn:not(.yss-btn-icon, .yss-btn-item, a):has(span) {
 	flex: 0!important;
 	width: fit-content;
 	aspect-ratio: 1;
@@ -4420,7 +4420,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 	border-radius: 0;
 	text-align: left!important;
 	text-wrap: pretty;
-	max-inline-size: 32ch;
+	/* max-inline-size: 32ch; */
 }
 
 #yss-tooltip-container.yss-placement-right {
@@ -4472,8 +4472,8 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 }
 
 #yss-tooltip-container.yss-align-center #yss-tooltip-content {
-	text-align: center;
-	max-inline-size: 26ch;
+	text-align: left;
+	/* max-inline-size: 26ch; */
 }
 
 #yss-tooltip-container.yss-align-right #yss-tooltip-content {
@@ -4501,7 +4501,12 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 #yss-tooltip-container.yss-placement-right #yss-tooltip-content {
 	text-align: left;
 }
-
+#yss-tooltip-container.yss-align-center.yss-placement-bottom #yss-tooltip-content {
+    max-inline-size: 20ch;
+    text-wrap-style: pretty;
+    /* max-width: 100%; */
+    min-width: fit-content;
+}
 .yss-header:has(.yss-header-wrapper) .yss-header-nav {
 	display: flex;
 	flex-direction: row;
@@ -5678,11 +5683,11 @@ details.yss-modal-instructions:not(:open) summary:hover {
 }
 
 .yss-readme-container h2 {
-	font-size: 1.3em;
+    font-size: 2rem;
 }
 
 .yss-readme-container h3 {
-	font-size: 1em;
+	font-size: 1.5rem;
 }
 
 .yss-readme-container ul, .yss-readme-container ol {
@@ -5724,13 +5729,17 @@ details.yss-modal-instructions:not(:open) summary:hover {
 }
 
 .yss-readme-container th, .yss-readme-container td {
-	border: 1px solid var(--yss-panel-border);
-	padding: 8px;
-	text-align: left;
+    border: 1px solid var(--yss-panel-border);
+    padding: 8px;
+    text-align: left;
+    line-height: 1.75em;
 }
 
 .yss-readme-container th {
-	background-color: var(--yss-header-bg);
+    background-color: var(--yss-header-bg);
+    font-weight: 500;
+    font-size: 103%;
+    padding: 8px 13px;
 }
 
 .yss-readme-container pre code {
@@ -5931,16 +5940,17 @@ details.yss-modal-instructions:not(:open) summary:hover {
 }
 
 .yss-lightbox-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0,0,0,0.92);
-	z-index: 10000;
-	display: none;
-	opacity: 0;
-	transition: opacity 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #080808d1;
+    z-index: 10000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(10px) grayscale(1);
 }
 
 .yss-lightbox-overlay.yss-lightbox-visible {
@@ -5963,15 +5973,16 @@ details.yss-modal-instructions:not(:open) summary:hover {
 }
 
 .yss-lightbox-image {
-	max-width: fit-content;
-	max-height: calc(90vh - 100px);
-	width: auto;
-	height: auto;
-	object-fit: contain;
-	border-radius: var(--yss-border-radius);
-	box-shadow: 0 8px 32px var(--yss-panel-shadow);
-	background-color: var(--yss-panel-bg-2);
-	transition: opacity 0.2s ease;
+    max-width: fit-content;
+    max-height: calc(90vh - 100px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--yss-border-radius);
+    box-shadow: 0 8px 32px var(--yss-panel-shadow);
+    background-color: var(--yss-panel-bg-2);
+    transition: opacity 0.2s ease;
+    border: 1px solid var(--yss-panel-border);
 }
 
 .yss-lightbox-loading .yss-lightbox-image {
@@ -6005,15 +6016,15 @@ details.yss-modal-instructions:not(:open) summary:hover {
 	font-size: 21px!important;
 }
 
-.yss-lightbox-close:hover {
+/* .yss-lightbox-close:hover {
 	background-color: var(--yss-btn-hover-bg);
 	border-color: var(--yss-btn-hover-border);
 	transform: scale(1);
-}
+} 
 
 .yss-lightbox-close:active {
 	transform: scale(0.98);
-}
+}*/
 
 .yss-lightbox-prev, .yss-lightbox-next {
 	position: fixed;
@@ -6046,7 +6057,7 @@ details.yss-modal-instructions:not(:open) summary:hover {
 	right: 10px;
 }
 
-.yss-lightbox-prev:hover, .yss-lightbox-next:hover {
+/* .yss-lightbox-prev:hover, .yss-lightbox-next:hover {
 	background-color: var(--yss-btn-start-bg);
 	border-color: var(--yss-btn-start-border);
 	transform: translateY(-50%) scale(1);
@@ -6054,10 +6065,10 @@ details.yss-modal-instructions:not(:open) summary:hover {
 
 .yss-lightbox-prev:active, .yss-lightbox-next:active {
 	transform: translateY(-50%) scale(0.98);
-}
+} */
 
 .yss-lightbox-caption {
-	margin-top: 16px;
+	margin-top: 5px;
 	padding: var(--yss-btn-padding);
 	background-color: var(--yss-panel-bg);
 	color: var(--yss-panel-color);
@@ -6069,7 +6080,6 @@ details.yss-modal-instructions:not(:open) summary:hover {
 	text-align: center;
 	box-shadow: 0 2px 8px var(--yss-panel-shadow);
 	line-height: 1.5;
-	transform: translateX(-50%);
 	padding: 10px 14px;
 	border-color: color-mix(in srgb, var(--yss-panel-border), transparent 50%);
 	background-color: color-mix(in srgb, var(--yss-panel-bg-2), transparent 70%);
@@ -6087,7 +6097,9 @@ details.yss-modal-instructions:not(:open) summary:hover {
 .yss-lightbox-caption:empty {
 	display: none;
 }
-
+.yss-lightbox-caption {
+    display: none;
+}
 .yss-lightbox-counter {
 	position: fixed;
 	top: 25px;
@@ -6106,7 +6118,15 @@ details.yss-modal-instructions:not(:open) summary:hover {
 	letter-spacing: 0.5px;
 	border-radius: 100px;
 }
-
+.yss-lightbox-counter {
+    position: static;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    margin-top: 14px;
+    font-size: 15px;
+}
 .yss-lightbox-loading::after {
 	content: '';
 	position: absolute;
@@ -6166,7 +6186,7 @@ details.yss-modal-instructions:not(:open) summary:hover {
 
 .yss-readme-container {
 	--yss-titles-accent-color: #145293;
-	--yss-titles-subtile-color: #536982;
+	--yss-titles-subtile-color: #4f4f52;
 }
 
 .yss-readme-container table td:has(a.yss-lightbox img) {
@@ -6233,7 +6253,6 @@ details.yss-modal-instructions:not(:open) summary:hover {
 	background: var(--yss-panel-bg-2);
 	border: 1px solid var(--yss-panel-border);
 	padding: 16px;
-	background: #232323;
 }
 
 .yss-readme-container p:has(a.yss-lightbox .yss-image):has(+ table) a img {
@@ -6248,7 +6267,7 @@ details.yss-modal-instructions:not(:open) summary:hover {
 }
 
 .yss-readme-container table:has(a.yss-lightbox) td:not(:has(a img)) {
-	background: #191919;
+	background: #0d0d0d;
 	text-align: center;
 	font-size: 12px;
 	height: 30px;
@@ -6370,8 +6389,7 @@ details.yss-modal-instructions:not(:open) summary:hover {
 
 .yss-readme-container p:has(strong):has(+ ul, + ol) {
 	margin-bottom: 0!important;
-	border-bottom-right-radius: 0!important;
-	border-bottom-left-radius: 0!important;
+	
 	border-bottom: 1px solid #4a4a4a87!important;
 	margin-top: 10px;
 	padding: 10px 10px!important;
@@ -6382,12 +6400,7 @@ details.yss-modal-instructions:not(:open) summary:hover {
 	text-transform: uppercase;
 }
 
-.yss-readme-container h4 + ul, .yss-readme-container h4 + ol, .yss-readme-container p:has(strong):has(+ ul, + ol) + ul, .yss-readme-container p:has(strong):has(+ ul, + ol) + ol {
-	margin-top: 0;
-	border-top-right-radius: 0;
-	border-top-left-radius: 0;
-	border-top: 0;
-}
+
 
 .yss-readme-container hr + h2 {
 	border-radius: 0 var(--yss-border-radius) var(--yss-border-radius) 0!important;
@@ -6496,7 +6509,7 @@ button.ClipboardButton.btn:hover .octicon {
 
 .yss-readme-container table:not(*:has(.yss-image)) {
 	border-collapse: collapse;
-	border-radius: 5px;
+	border-radius: var(--yss-border-radius);
 	overflow: hidden;
 	border: 1px solid var(--yss-panel-border);
 	box-shadow: none;
@@ -6508,9 +6521,7 @@ button.ClipboardButton.btn:hover .octicon {
 	background: #232323!important;
 }
 
-.yss-readme-container table:not(*:has(.yss-image)) tr:nth-child(odd) td {
-	background: #222222!important;
-}
+
 
 .highlight-code pre {
 	margin: 0;
@@ -6581,10 +6592,14 @@ span.copy-tooltip {
 	font-size: 15px!important;
 }
 
-.yss-modal-content .yss-modal-title h3:has(.yss-btn) {
-	gap: 10px;
-	justify-content: space-between;
-	padding-right: 12px;
+.yss-modal-content .yss-modal-title h3:has(a.yss-btn) {
+    gap: 10px;
+    justify-content: space-between;
+    padding-right: 8px;
+    border-right: 1px solid var(--yss-panel-border);
+    margin-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .zeroclipboard-container:has(.code-lang:not(:empty)) {
@@ -6615,22 +6630,22 @@ span.copy-tooltip {
 }
 
 .highlight-code:has(pre):has(.btn) .zeroclipboard-container .btn, .highlight-code:has(pre):has(.btn) .zeroclipboard-container .code-lang {
-	height: 100%;
-	border: none!important;
-	outline: none!important;
-	border-radius: 0!important;
-	padding: 0.7rem;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-items: center;
-	background: transparent!important;
-	letter-spacing: 0;
-	font-size: 11px;
-	font-weight: 400;
-	font-family: monospace, var(--yss-font-family);
-	line-height: 11px;
-	gap: 5px;
+    height: 100%;
+    border: none!important;
+    outline: none!important;
+    border-radius: 0!important;
+    padding: 0.8rem!important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    background: transparent!important;
+    letter-spacing: 0;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: monospace, var(--yss-font-family);
+    line-height: 14px;
+    gap: 5px;
 }
 
 .highlight-code:has(pre):has(.btn) .zeroclipboard-container:has( > span:empty) {
@@ -6641,10 +6656,7 @@ span.copy-tooltip {
 	margin: 10px 0 7px 0;
 }
 
-.yss-modal-content .yss-modal-view .yss-readme-container p:not(:has(strong, a)) {
-	padding: 3px 0;
-	margin: 6px 0;
-}
+
 
 .yss-readme-container ol, .yss-readme-container ul {
 	display: flex;
@@ -6671,21 +6683,21 @@ span.copy-tooltip {
 
 .yss-readme-container h4:has(+ ul, + ol), .yss-readme-container p:has(strong):has(+ ul, + ol) {
 	margin-bottom: 0!important;
-	border-bottom-right-radius: 0!important;
-	border-bottom-left-radius: 0!important;
+	
 	border-bottom: 1px solid #4a4a4a87!important;
 	margin-top: 10px;
 }
 
 .yss-readme-container h4:has(+ p strong):has(+ p + ul, + ol), .yss-readme-container h4:has(+ ul, + ol) {
-	background: var(--yss-accent-color);
-	border: 1px solid var(--yss-accent-color);
-	border-left-width: 3px;
-	border-left-color: var(--yss-accent-color);
-	padding: 1.12rem 1.3rem!important;
-	line-height: 1.2rem;
-	font-size: 1.5rem;
-	margin-top: 15px;
+    background: var(--yss-titles-subtile-color);
+    border: 1px solid var(--yss-titles-subtile-color);
+    border-left-width: 3px;
+    border-left-color: var(--yss-titles-subtile-color);
+    padding: 1.42rem 1.45rem!important;
+    line-height: 1.2rem;
+    margin-top: 15px;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
 .yss-readme-container h4, .yss-readme-container p:has(strong):has(+ ul, + ol) {
@@ -6705,7 +6717,6 @@ span.copy-tooltip {
 .yss-readme-container p:has(strong):has(+ ul, + ol) strong {
 	color: white;
 	font-weight: 400;
-	font-size: 13px!important;
 }
 
 .yss-readme-container code {
@@ -6720,20 +6731,38 @@ span.copy-tooltip {
 .yss-readme-container ol li, .yss-readme-container ul li {
 	line-height: 1.9rem;
 }
-
+.yss-readme-container p:has(strong):has(+ ul li:not(:only-child)) + ul li:not(:only-child),
+.yss-readme-container p:has(strong):has(+ ol li:not(:only-child)) + ol li:not(:only-child) {
+    margin-top: 0;
+    border-radius: 0 var(--yss-border-radius) var(--yss-border-radius) 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top: 0;
+}
 .yss-readme-container h4 + ul, .yss-readme-container h4 + ol, .yss-readme-container p:has(strong):has(+ ul, + ol) + ul, .yss-readme-container p:has(strong):has(+ ul, + ol) + ol {
-	margin-top: 0;
-	border-radius: 0 var(--yss-border-radius) var(--yss-border-radius) 0;
-	border-top-right-radius: 0;
-	border-top-left-radius: 0;
-	border-top: 0;
+    margin-top: 0;
+    border-radius: 0 0 var(--yss-border-radius) var(--yss-border-radius)!important;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top: 0;
 }
 
-.yss-readme-container {
-	--yss-titles-accent-color: #145293;
-	--yss-titles-subtile-color: #7e7e7e;
+.yss-readme-container p:has(strong):has(+ ul, + ol) + ol:has(li:only-child), .yss-readme-container ol:has(li:only-child) {
+    margin-top: 10px;
+    border-radius: var(--yss-border-radius)!important;
+    font-size: var(--yss-font-size);
+    list-style-type: none!important;
 }
-
+.yss-readme-container ol:has(li:only-child) li strong{
+  
+    font-weight: 400;
+}
+.yss-readme-container ol:has(li:only-child) li:before{
+  content: "\f061";
+	content: "\f0da";
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+}
 .yss-readme-container h3:has(+ ul, + ol) {
 	margin-bottom: 0!important;
 	border-bottom-right-radius: 0;
@@ -6821,19 +6850,10 @@ span.copy-tooltip {
 	font-size: 1.3rem;
 }
 
-.yss-readme-container h3 {
-	font-size: 1.7rem;
-	padding: 1.5rem 1.7rem!important;
-	background: var(--yss-btn-stop-hover);
-	width: fit-content;
-}
+
 
 .yss-readme-container h3:has(+ ul, + ol) {
 	width: auto;
-}
-
-.yss-readme-container h2 {
-	font-size: 1.8rem;
 }
 
 .yss-readme-container h4 + p:has(strong):has(+ ul, + ol) {
@@ -6844,12 +6864,7 @@ span.copy-tooltip {
 	border-left: 3px solid var(--yss-titles-subtile-color);
 }
 
-.yss-readme-container h4 + ul, .yss-readme-container h4 + ol, .yss-readme-container p:has(strong):has(+ ul, + ol) + ul, .yss-readme-container p:has(strong):has(+ ul, + ol) + ol {
-	margin-top: 0;
-	border-top-right-radius: 0;
-	border-top-left-radius: 0;
-	border-top: 0;
-}
+
 
 .yss-readme-container hr + h2 {
 	border-radius: 0 var(--yss-border-radius) var(--yss-border-radius) 0!important;
@@ -6960,7 +6975,7 @@ button.ClipboardButton.btn:hover .octicon {
 }
 
 .yss-readme-container table:not(*:has(.yss-image)) tr:nth-child(odd) td {
-	background: #1d1d1d!important;
+	background: #202020!important;
 }
 
 .highlight-code pre {
@@ -7004,17 +7019,17 @@ span.copy-tooltip {
 }
 
 .yss-modal-content .yss-modal-title h3 .yss-btn {
-	min-height: unset;
-	text-decoration: none;
-	text-transform: none;
-	font-size: 11px;
-	display: inline-flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
-	padding: 5px 5px;
+    min-height: 15px;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 12px;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 8px;
 }
 
 .yss-modal-content .yss-modal-title h3 .yss-btn svg {
@@ -7032,11 +7047,7 @@ span.copy-tooltip {
 	font-size: 15px!important;
 }
 
-.yss-modal-content .yss-modal-title h3:has(.yss-btn) {
-	gap: 10px;
-	justify-content: space-between;
-	padding-right: 12px;
-}
+
 
 .zeroclipboard-container:has(.code-lang:not(:empty)) {
 	flex-direction: row;
@@ -7065,24 +7076,7 @@ span.copy-tooltip {
 	padding: 0.6rem!important;
 }
 
-.highlight-code:has(pre):has(.btn) .zeroclipboard-container .btn, .highlight-code:has(pre):has(.btn) .zeroclipboard-container .code-lang {
-	height: 100%;
-	border: none!important;
-	outline: none!important;
-	border-radius: 0!important;
-	padding: 0.7rem;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-items: center;
-	background: transparent!important;
-	letter-spacing: 0;
-	font-size: 11px;
-	font-weight: 400;
-	font-family: monospace, var(--yss-font-family);
-	line-height: 11px;
-	gap: 5px;
-}
+
 
 .yss-readme-container p:has(strong:only-child):not(:has(+ ul, + ol)) {
 	margin: 10px 0 7px 0;
@@ -7096,7 +7090,13 @@ span.copy-tooltip {
 .yss-readme-container p:has(strong):has(+ ul, + ol) {
 	border-radius: var(--yss-border-radius);
 }
-
+.yss-readme-container ul:has(+ p strong):has(li:not(:only-child)) + p:has(strong), .yss-readme-container ol:has(+ p strong):has(li:not(:only-child)) + p:has(strong) {
+    border-radius: var(--yss-border-radius);
+    border-bottom-right-radius: 0!important;
+}
+.yss-readme-container ul:has(+ p strong):has(li:only-child) + p:has(strong), .yss-readme-container ol:has(+ p strong):has(li:only-child) + p:has(strong) {
+    border-radius: var(--yss-border-radius)!important;
+}
 .yss-readme-container ol, .yss-readme-container ul {
 	display: flex;
 	flex-direction: column;
@@ -7122,26 +7122,24 @@ span.copy-tooltip {
 
 .yss-readme-container h4:has(+ ul, + ol), .yss-readme-container p:has(strong):has(+ ul, + ol) {
 	margin-bottom: 0!important;
-	border-bottom-right-radius: 0!important;
-	border-bottom-left-radius: 0!important;
+
 	border-bottom: 1px solid #4a4a4a87!important;
 	margin-top: 10px;
 }
 
 .yss-readme-container h4:has(+ p strong):has(+ p + ul, + ol), .yss-readme-container h4:has(+ ul, + ol) {
-	background: var(--yss-titles-subtile-color);
-	border: 1px solid var(--yss-titles-subtile-color);
-	border-left-width: 3px;
-	border-left-color: var(--yss-titles-subtile-color);
-	padding: 1.12rem 1.3rem!important;
-	line-height: 1.2rem;
-	margin-top: 15px;
+    background: var(--yss-titles-subtile-color);
+    border: 1px solid var(--yss-titles-subtile-color);
+    border-left-width: 3px;
+    border-left-color: var(--yss-titles-subtile-color);
+    padding: 1.42rem 1.45rem!important;
+    line-height: 1.2rem;
+    margin-top: 15px;
 }
 
 .yss-readme-container p:has(strong):has(+ ul, + ol) strong {
 	color: white;
 	font-weight: 400;
-	font-size: 13px!important;
 }
 
 .yss-readme-container code {
@@ -7157,30 +7155,32 @@ span.copy-tooltip {
 	line-height: 1.9rem;
 }
 
-.yss-readme-container h4 + ul, .yss-readme-container h4 + ol, .yss-readme-container p:has(strong):has(+ ul, + ol) + ul, .yss-readme-container p:has(strong):has(+ ul, + ol) + ol {
+/* .yss-readme-container h4 + ul, .yss-readme-container h4 + ol, .yss-readme-container p:has(strong):has(+ ul, + ol) + ul, .yss-readme-container p:has(strong):has(+ ul, + ol) + ol {
 	margin-top: 0;
 	border-radius: 0 var(--yss-border-radius) var(--yss-border-radius) 0;
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
 	border-top: 0;
-}
+} */
 
 .yss-readme-container h1 {
-	background: var(--yss-strong-color);
-	border: 1px solid var(--yss-strong-color);
+    background: var(--yss-strong-color);
+    border: 1px solid var(--yss-strong-color);
+    margin-top: 0.58rem;
+    margin-bottom: 1.8rem;
 }
 
 .yss-readme-container p:has(strong):has(+ ul, + ol) {
-	padding: 10px 15px!important;
-	font-size: 13px!important;
-	background: #1b1b1b!important;
-	border: 1px solid var(--yss-panel-border);
-	border-top-left-radius: 0!important;
-	border-bottom-left-radius: 0!important;
-	border-left-width: 3px;
-	border-left-color: var( --yss-titles-subtile-color);
+    padding: 10px 15px!important;
+    /* font-size: 13px!important; */
+    background: #1b1b1b!important;
+    border: 1px solid var(--yss-panel-border);
+    border-top-left-radius: 0!important;
+    border-bottom-left-radius: 0!important;
+    border-left-width: 3px;
+    border-left-color: var( --yss-titles-subtile-color);
+    border-bottom-right-radius: 0!important;
 }
-
 .yss-readme-container h3 + p {
 	background: var(--yss-titles-accent-color);
 	padding: 1rem 1rem!important;
@@ -7226,7 +7226,7 @@ span.copy-tooltip {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
-	max-inline-size: unset;
+	/* max-inline-size: unset; */
 	width: auto;
 	white-space: nowrap;
 	overflow: hidden;
@@ -7318,17 +7318,21 @@ span.copy-tooltip {
 
 
 .yss-fullscreen .yss-readme-container table td:has(a.yss-lightbox img) {
-    flex: 1 1 100%;
+    flex: 1 1 45%;
     display: flex;
     width: 100%;
     padding: 10px;
-    background: #161616;
+    background: var(--yss-panel-bg-2);
+}
+.yss-fullscreen .yss-readme-container p:has(a.yss-lightbox .yss-image):has(+ table) {
+    padding: 10px;
+    background: var(--yss-panel-bg-2);
 }
 .yss-fullscreen .yss-readme-container table:has(a.yss-lightbox img) tr {
-    flex: 1 0 250px;
+    flex: 1 0 220px;
     display: flex;
 }
-.yss-fullscreen .yss-readme-container table td:not(:has(img)) {
+.yss-fullscreen .yss-readme-container table:has(img) td:not(:has(img)) {
     order:5;
     display: none;
 }
@@ -7347,7 +7351,7 @@ span.copy-tooltip {
     align-content: stretch;
 }
 
-.yss-fullscreen .yss-readme-container table tr:not(:has(td img)) {
+.yss-fullscreen .yss-readme-container table:has(td img) tr:not(:has(td img)) {
     display: none!important;
 }
 
@@ -7367,11 +7371,12 @@ span.copy-tooltip {
 }
 .yss-modal-content .yss-modal-title .yss-btn-fullscreen {
     order: 2;
+    font-size: 16px;
 }
-.yss-modal-content  .yss-modal-title .yss-btn-fullscreen i{
-   font-size: 1.rem!important;
+.yss-modal-content .yss-modal-title .yss-btn-fullscreen i{
+   font-size: 1rem!important;
 }
-.yss-modal-content.yss-fullscreen  .yss-modal-title .yss-btn-fullscreen i{
+.yss-modal-content.yss-fullscreen .yss-modal-title .yss-btn-fullscreen i{
    font-size: 1.8rem!important;
 }
 .yss-modal-content .yss-modal-title:has(.yss-btn-fullscreen) .yss-close-btn {
@@ -7386,20 +7391,29 @@ span.copy-tooltip {
     gap: 5px;
 
 }
-.yss-modal-content .yss-modal-title:has(.yss-btn-fullscreen) h3{
-    padding-top: 6px!important;
-    padding-bottom: 6px!important;
-    padding-right: 10px!important;
-
+.yss-modal-content:not(.yss-fullscreen) .yss-modal-title:has(.yss-btn-fullscreen) h3 {
+    padding-top: 8px!important;
+    padding-bottom: 8px!important;
+    padding-right: 6px!important;
+    border-right: 0px solid var(--yss-panel-border);
 }
-.yss-modal-content.yss-fullscreen  .yss-modal-title:has(.yss-btn-fullscreen)  .yss-btn-fullscreen {
-   min-height: unset;
+.yss-modal-content.yss-fullscreen .yss-modal-title:has(.yss-btn-fullscreen) .yss-btn-fullscreen, .yss-modal-content.yss-fullscreen .yss-modal-title:has(.yss-btn-fullscreen) .yss-close-btn {
+    min-height: unset;
     aspect-ratio: 1;
     height: 100%;
-    width: auto;
+    min-width: 48px;
     border-radius: 0;
+    margin: -2px;
+    border-bottom: 0;
+    border-top: 0;
+    /* border: none; */
+    background: transparent;
+    border-color: var(--yss-panel-border);
 }
-
+.yss-modal-content.yss-sticky-modal.yss-fullscreen .yss-modal-title {
+    padding-right: 0!important;
+    gap: 0;
+}
 .yss-fullscreen.yss-modal-content .yss-modal-title {
     border-radius: 0!important;
 }
@@ -7420,18 +7434,9 @@ span.copy-tooltip {
     transition: none;
     backdrop-filter: none;
     background-color: transparent;
-    z-index: 99999999999999999999999999999999999;
 }
 
 
-
-.yss-modal-overlay:has(.yss-fullscreen){
-    filter:  none;
-    transition: none;
-    backdrop-filter: none;
-    background-color: transparent;
-    z-index: 99999999999999999999999999999999999;
-}
 
 
 body:has(#yss-modal-overlay .draggable) #yss-panel [class^="yss-"]:not(.yss-header, .yss-header *){
@@ -7671,4 +7676,68 @@ div#tdl-modal-log:empty {
 }
 .hide_youtube .yss-controls .button_row#yss-transcript-row {
     display: none!important;
+}
+.yss-modal-content.yss-sticky-modal.yss-scrollable-modal.yss-fullscreen {
+    max-width: unset!important;
+    width: 100vw;
+    max-height: 100vh!important;
+}
+
+.yss-buttons-notext .button_group .yss-btn-icon {
+    font-size: 18px;
+}
+
+.button_group:has(.yss-checkbox-list input[type="checkbox"]):has(.yss-toggle-collapse-group) {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: stretch;
+            height: auto;
+            padding-left: 0px !important;
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+            flex: 1;
+            justify-content: space-evenly;
+            padding-right: 30px;
+            overflow: hidden;
+        }
+
+
+
+.yss-modal-content .yss-modal-view .yss-readme-container p:not(:has(strong, a)):has(~ ul strong), .yss-modal-content .yss-modal-view .yss-readme-container ul:has(strong, a,+ p) + p:not(:has(strong, a)) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+    padding: 10px 10px!important;
+    background: #282828;
+    border: 1px solid #4a4a4a87;
+    color: #ffffffe0;
+    border-radius: var(--yss-border-radius)!important;
+    font-size: var(--yss-font-size);
+}
+
+.yss-modal-content .yss-modal-view .yss-readme-container ul:has(strong, a,+ p) + p:not(:has(strong, a)){
+    margin: 0px 0 10px 0!important;
+    border-radius: var(--yss-border-radius)!important;
+    border-left: 3px solid var(--yss-titles-subtile-color);
+    background: #282828c4;
+    padding: 10px 15px!important;
+     font-size: 14px;
+    border-radius: 0 0 var(--yss-border-radius) 0!important;
+}
+
+
+.yss-readme-container p:has(+ ul, ~ ul) + ul:has(strong):not(:has(+p)), .yss-readme-container p ~ ul:has(+ p) {
+    margin-bottom: 0;
+    border-left: 3px solid var(--yss-accent-color);
+	border-radius: 0 var(--yss-border-radius) 0 0;
+}
+.yss-readme-container p ~ ul:has(+ p):has(li:only-child) {
+    font-size: 17px;
+}
+
+.yss-readme-container p ~ ol:has(+ p):has(li:only-child) {
+    font-size: 17px;
 }
