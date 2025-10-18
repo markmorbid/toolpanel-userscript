@@ -179,15 +179,15 @@ html .yss-panel, html .yss-modal-content {
 }
 
 ::-webkit-scrollbar {
-	width: 13px!important;
-	height: 13px!important;
+	width: 12px!important;
+	height: 12px!important;
 }
 
 ::-webkit-scrollbar-thumb {
 	background-color: var(--yss-panel-border)!important;
 	cursor: pointer;
 	border-radius: var(--yss-border-radius)!important;
-	border: 3px solid transparent!important;
+	border: 0px solid transparent!important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -196,7 +196,7 @@ html .yss-panel, html .yss-modal-content {
 }
 
 ::-webkit-scrollbar-track {
-	background-color: transparent;
+	background-color: transparent!important;
 	cursor: pointer;
 	border: none!important;
 }
@@ -339,7 +339,21 @@ html .yss-panel, html .yss-modal-content {
 .yss-panel.collapsed .yss-header:hover .yss-header-nav {
 	opacity: 1;
 }
-
+.yss-btn {
+    padding: var(--yss-btn-padding);
+    border: 1px solid var(--yss-btn-border);
+    border-radius: var(--yss-btn-border-radius);
+    cursor: pointer;
+    background-color: var(--yss-btn-bg);
+    color: var(--yss-btn-color);
+    font-size: var(--yss-btn-font-size);
+    white-space: nowrap;
+    min-height: var(--yss-btn-icon-minsize);
+    position: relative;
+    max-height: var(--yss-btn-height);
+    /* width: var(--yss-btn-height); */
+    min-width: fit-content;
+}
 .yss-header-nav .yss-btn-icon, .yss-header-nav .yss-btn {
 	min-height: unset;
 	aspect-ratio: 1;
@@ -747,21 +761,7 @@ html .yss-panel, html .yss-modal-content {
 }
 
 
-.yss-btn {
-		padding: var(--yss-btn-padding);
-		border: 1px solid var(--yss-btn-border);
-		border-radius: var(--yss-btn-border-radius);
-		cursor: pointer;
-		background-color: var(--yss-btn-bg);
-		color: var(--yss-btn-color);
-		font-size: var(--yss-btn-font-size);
-		white-space: nowrap;
-		min-height: var(--yss-btn-height);
-		position: relative;
-		max-height: var(--yss-btn-height);
-		/* width: var(--yss-btn-height); */
-		min-width: fit-content;
-	}
+
 
 .yss-btn-start i, .yss-btn-stop i, .yss-btn-pause i, .yss-btn-icon i, .yss-btn i, .yss-btn-primary i {
 	font-size: inherit!important;
@@ -1929,8 +1929,8 @@ button#yss-csv-download-btn {
 	width: 33px;
 	height: 33px;
 	aspect-ratio: 1;
-	position: absolute;
-	top: 50%;
+/* 	position: absolute;
+ */	top: 50%;
 	transform: translateY(-50%);
 	right: 4px;
 	display: flex;
@@ -2103,16 +2103,16 @@ input#startFromSpecific {
 }
 
 .yss-modal-content.yss-sticky-modal {
-	background: var(--yss-panel-bg);
-	padding: 0 20px 0 20px;
-	border-radius: var(--yss-border-radius);
-	width: 70vw;
-	border: 1px solid var(--yss-panel-border);
-	font-family: var(--yss-font-family);
-	overflow: hidden;
-	max-height: calc(100vh - 25%);
-	overflow-y: scroll;
-	scrollbar-width: none;
+    background: var(--yss-panel-bg);
+    padding: 0 20px 0 20px;
+    border-radius: var(--yss-border-radius);
+    width: 70vw;
+    border: 1px solid var(--yss-panel-border);
+    font-family: var(--yss-font-family);
+    /* overflow: hidden; */
+    max-height: calc(100vh - 25%);
+    overflow-y: overlay;
+    scrollbar-width: none;
 }
 
 .yss-modal-content.yss-sticky-modal .yss-modal-title {
@@ -3377,7 +3377,7 @@ button#yss-clear-imported-btn:disabled {
 	flex: 1;
 }
 
-.yss-button-with-dropdown .yss-button-options {
+/* .yss-button-with-dropdown .yss-button-options {
 	padding: 0;
 	background: #1f1f1f;
 	display: flex;
@@ -3402,7 +3402,7 @@ button#yss-clear-imported-btn:disabled {
 	width: -webkit-fill-available;
 	padding-top: 0px;
 	transform: translateY(7px);
-}
+} */
 
 .yss-button-with-dropdown:not(:has(>.yss-btn.yss-btn-stop)):hover .yss-button-options, .yss-button-with-dropdown .yss-button-options:has(.yss-btn.yss-btn-stop) {
 	max-height: 500px;
@@ -3688,8 +3688,11 @@ button#yss-clear-imported-btn:disabled {
 	padding: 0!important;
 }
 
-.yss-button-with-dropdown .yss-button-options .yss-button-option-item label:has(input[type="checkbox"]) {
-	padding: var(--yss-btn-padding)!important;
+.yss-button-with-dropdown:has(.yss-button-options .yss-btn) .yss-button-options .yss-button-option-item label:has(input[type="checkbox"]) {
+    padding: var(--yss-btn-padding)!important;
+}
+.yss-button-with-dropdown:not(:has(.yss-button-options .yss-btn)) .yss-button-options label {
+    padding: 13px!important;
 }
 
 .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item input:not(:checked):hover, .button_group .yss-button-with-dropdown .yss-button-options .yss-button-option-item label:hover > input:not(:checked), .yss-modal-overlay input[type="checkbox"]:not(:checked):hover, .yss-form-group input[type="radio"]:not(:checked):hover, .yss-form-group label:hover > input:not(:checked), .yss-form-group .yss-radio:hover > input:not(:checked), [id^="yss-"] .yss-form-group .yss-radio:hover > input:not(:checked) {
@@ -4308,11 +4311,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 	border-bottom: none;
 }
 
-.yss-button-with-dropdown .yss-button-options .yss-btn {
-	padding: 9px!important;
-	min-height: 40px!important;
-	margin: 8px;
-}
+
 
 #yss-tooltip-container {
 	position: fixed;
@@ -5387,31 +5386,7 @@ details.yss-modal-instructions:not(:open) summary {
 	overflow: visible;
 }
 
-.yss-button-with-dropdown .yss-button-options {
-	padding: 0;
-	background: #1f1f1f;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: stretch;
-	border: 1px solid var(--yss-panel-border);
-	border-radius: 0 0 var(--yss-btn-border-radius) var(--yss-btn-border-radius);
-	transition: opacity 300ms, max-height 300ms .2s, transform 300ms;
-	border-radius: var(--yss-btn-border-radius);
-	overflow: hidden;
-	position: absolute;
-	top: calc(100% - 1px);
-	z-index: 99999;
-	min-width: max-content;
-	gap: 0;
-	box-shadow: 0px 4px 6px var(--yss-panel-shadow);
-	opacity: 0;
-	pointer-events: none;
-	width: -webkit-fill-available;
-	padding-top: 0px;
-	transform: translateY(22px);
-}
+
 
 .yss-button-with-dropdown .yss-button-options:after {
 	content: "";
@@ -5438,11 +5413,6 @@ details.yss-modal-instructions:not(:open) summary {
 	z-index: 9999;
 }
 
-.yss-button-with-dropdown .yss-button-options .yss-btn {
-	padding: 7px!important;
-	min-height: 37px!important;
-	margin: 8px;
-}
 
 .yss-button-with-dropdown .yss-button-options .yss-button-option-item *:not(.yss-btn) {
 	font-size: inherit!important;
@@ -5464,7 +5434,7 @@ details.yss-modal-instructions:not(:open) summary {
 	background-color: var(--yss-btn-bg);
 }
  */
-.yss-button-with-dropdown .yss-button-options {
+/* .yss-button-with-dropdown .yss-button-options {
 	padding: 0;
 	background: #1f1f1f;
 	display: flex;
@@ -5490,12 +5460,7 @@ details.yss-modal-instructions:not(:open) summary {
 	padding-top: 0px;
 	transform: translateY(27px);
 }
-
-.yss-button-with-dropdown .yss-button-options .yss-btn {
-	padding: 7px!important;
-	min-height: 37px!important;
-	margin: 9px;
-}
+ */
 
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-button-options input:disabled:checked) .yss-button-options {
 	display: none!important;
@@ -8174,15 +8139,16 @@ div#tdl-modal-log:empty {
     justify-content: space-between;
     align-items: center;
 }
-    #yss-panel:not(.yss-buttons-notext) #yss-status-block button#yss-csv-download-btn {
+   #yss-panel:not(.yss-buttons-notext) #yss-status-block button#yss-csv-download-btn {
     right: 0;
-    height: 100%;
     border-radius: 0;
-    width: 30px;
+    width: auto;
     transform: none;
     top: 0;
     color: white;
-    order: 10;
+    flex: 0 1 30px;
+    height: -webkit-fill-available;
+    aspect-ratio: unset;
 }
     .yss-controls .button_group {
     display: flex;
@@ -8205,18 +8171,18 @@ div#tdl-modal-log:empty {
     justify-content: space-between;
     align-items: center;
 }
-  #yss-panel:not(.yss-buttons-notext) #yss-status-block .status-item:not(:has(.yss-btn)) {
-    padding: 8px 7px;
+#yss-panel:not(.yss-buttons-notext) #yss-status-block .status-item:not(:has(.yss-btn)) {
+    padding: 10px 12px;
     line-height: 1.6em;
     font-size: calc(var(--yss-btn-font-size)/1.2);
-    order: 10;
+    /* order: 10; */
     height: -webkit-fill-available;
     flex: 1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
-    justify-content: space-between;
+    justify-content: center;
     align-content: center;
     color: #ffffff54;
     /* white-space: nowrap; */
@@ -8327,7 +8293,7 @@ div#tdl-modal-log:empty {
     --yss-strong-color: var(--yss-btn-purple-bg);
     border-color: var(--yss-strong-color);
 }
-.yss-controls .yss-start-btn, .yss-controls .yss-button-with-dropdown:has(.yss-start-btn) {
+.yss-controls .yss-btn-start, .yss-controls .yss-button-with-dropdown:has(.yss-btn-start) {
     --yss-strong-color: var(--yss-btn-start-bg);
     border-color: var(--yss-strong-color);
 }
@@ -8337,6 +8303,10 @@ div#tdl-modal-log:empty {
 }
 .yss-controls .yss-clear-btn, .yss-controls .yss-button-with-dropdown:has(.yss-clear-btn) {
     --yss-strong-color: var(--yss-btn-clear-bg);
+    border-color: var(--yss-strong-color);
+}
+.yss-controls .yss-btn-lightgreen, .yss-controls .yss-button-with-dropdown:has(.yss-btn-lightgreen) {
+    --yss-strong-color: var(--yss-btn-lightgreen-bg);
     border-color: var(--yss-strong-color);
 }
 .yss-controls .yss-download-log-btn, .yss-controls .yss-button-with-dropdown:has(.yss-download-log-btn) {
@@ -8358,7 +8328,6 @@ div#tdl-modal-log:empty {
     right: 10px;
     --yss-header-border: var(--yss-strong-color);
 }
-  
 }
 
 
@@ -8417,7 +8386,7 @@ div#tdl-modal-log:empty {
     width: var(--yss-btn-icon-minsize);
 }
 
-.yss-button-with-dropdown .yss-button-options {
+/* .yss-button-with-dropdown .yss-button-options {
     padding: 0;
     background: #1f1f1f;
     display: flex;
@@ -8444,7 +8413,7 @@ div#tdl-modal-log:empty {
     transform: translateY(27px);
     align-content: stretch;
     padding: 10px;
-}
+} */
 
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
     display: flex;
@@ -8459,16 +8428,16 @@ div#tdl-modal-log:empty {
     padding: 0px;
     font-size: 15px;
 }
-.yss-button-with-dropdown .yss-button-options .yss-btn {
+/* .yss-button-with-dropdown .yss-button-options .yss-btn {
     padding: 7px!important;
     min-height: 40px!important;
     margin: 0;
     flex: 1 1 38%!important;
     border: none;
     max-width: fit-content;
-}
+} */
 
-.yss-button-with-dropdown .yss-button-options {
+/* .yss-button-with-dropdown .yss-button-options {
     padding: 0;
     background: #1f1f1f;
     display: flex;
@@ -8495,7 +8464,7 @@ div#tdl-modal-log:empty {
     transform: translateY(27px);
     align-content: stretch;
     padding: 10px;
-}
+} */
 .yss-buttons-notext .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item *:not(.yss-btn, input, button span, button i) {
     word-break: break-all;
     pointer-events: all!important;
@@ -8506,7 +8475,7 @@ div#tdl-modal-log:empty {
     font-size: 13px!important;
 }
 
-.yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
+/* .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
     flex: 1 1 30%;
     padding: 0px;
     font-size: 13px;
@@ -8516,14 +8485,20 @@ div#tdl-modal-log:empty {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
+} */
+
+.yss-button-with-dropdown .yss-button-options .yss-btn {
+	padding: 9px!important;
+	min-height: 40px!important;
+	margin: 8px;
 }
 .yss-button-with-dropdown:has(.yss-btn) .yss-button-options:has(.yss-btn) .yss-button-option-item label:has(input[type="checkbox"]) {
     padding: 10px 0 4px 0 !important;
 }
 .yss-button-with-dropdown:has(.yss-btn) .yss-button-options:has(.yss-btn) .yss-button-option-item label:has(input[type="checkbox"]) {
-    padding: 6px!important;
-    gap: 7px;
-    /* white-space: nowrap; */
+    /* padding: 7px 3px!important; */
+    gap: 6px;
+    white-space: nowrap;
     max-inline-size: min-content;
     text-wrap-style: pretty;
 }
@@ -8618,37 +8593,7 @@ div#tdl-modal-log:empty {
     /* padding: 0; */
 }
 
-.yss-button-with-dropdown .yss-button-options {
-    padding: 0;
-    background: #1f1f1f;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: stretch;
-    border: 0px solid var(--yss-panel-border);
-    border-radius: 0 0 var(--yss-border-radius) var(--yss-border-radius);
-    transition: opacity 300ms, max-height 300ms .2s, transform 300ms;
-    overflow: hidden;
-    position: absolute;
-    top: calc(100% - 1px);
-    z-index: 99999;
-    min-width: max-content;
-    gap: 8px;
-    box-shadow: 0px 4px 6px var(--yss-panel-shadow);
-    max-height: unset;
-    opacity: 0;
-    pointer-events: none;
-    width: auto;
-    padding-top: 0px;
-    transform: translateY(27px);
-    align-content: stretch;
-    padding: 10px;
-    right: 0;
-    border: none;
-    border-top: 3px solid var(--yss-strong-color);
-    box-shadow: inset 0px 0px 0px 1px var(--yss-panel-border);
-}
+
 
 .yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(input[type="checkbox"]):before {
     /* pointer-events: all!important; */
@@ -8691,4 +8636,107 @@ div#tdl-modal-log:empty {
     padding-bottom: 0;
     padding-right: 0;
     pointer-events: none!important;
+}
+.yss-button-with-dropdown .yss-button-options:before {
+    z-index: 999!important;
+    left: auto;
+    right: 10px;
+    --yss-header-border: var(--yss-strong-color);
+}
+
+
+/* .yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
+    flex: 1 1 30%;
+    padding: 0px;
+    font-size: 13px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+ */
+ .yss-controls .button_group .yss-btn:not(.yss-btn-icon):has(span), .yss-controls .button_group .yss-btn:not(.yss-btn-icon) span {
+    flex: 1 1;
+    text-align: center;
+    display: flex;
+}
+
+.yss-button-with-dropdown:has(.yss-btn) .yss-button-options .yss-button-option-item {
+    flex: 1 1 100%;
+    padding: 0px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.yss-controls .yss-btn-orange, .yss-controls .yss-button-with-dropdown:has(.yss-btn-orange) {
+    --yss-strong-color: var(--yss-btn-orange-bg);
+    border-color: var(--yss-strong-color);
+}
+.yss-controls .yss-btn-purple, .yss-controls .yss-button-with-dropdown:has(.yss-btn-purple) {
+    --yss-strong-color: var(--yss-btn-purple-bg);
+    border-color: var(--yss-strong-color);
+}
+.yss-controls .yss-btn-lightgreen, .yss-controls .yss-button-with-dropdown:has(.yss-btn-lightgreen) {
+    --yss-strong-color: var(--yss-btn-lightgreen-bg);
+    border-color: var(--yss-strong-color);
+}
+.yss-controls .yss-btn-start, .yss-controls .yss-button-with-dropdown:has(.yss-btn-start) {
+    --yss-strong-color: var(--yss-btn-start-bg);
+    border-color: var(--yss-strong-color);
+}
+.yss-controls .yss-btn-green {
+    --yss-strong-color: var(--yss-btn-green-bg);
+    border-color: var(--yss-strong-color);
+}
+
+
+#yss-panel:not(.yss-buttons-notext) #yss-status-block:has(.button_group) .button_group {
+    order: 10;
+    border-right: 1px solid var(--yss-panel-border);
+    /* padding: 0; */
+}
+
+.yss-button-with-dropdown .yss-button-options {
+    padding: 0;
+    background: #1f1f1f;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    border: 0px solid var(--yss-panel-border);
+    border-radius: 0 0 var(--yss-border-radius) var(--yss-border-radius);
+    transition: opacity 300ms, max-height 300ms .2s, transform 300ms;
+    overflow: hidden;
+    position: absolute;
+    top: calc(100% - 4px);
+    z-index: 99999;
+    min-width: max-content;
+    gap: 7px;
+    box-shadow: 0px 4px 6px var(--yss-panel-shadow);
+    max-height: unset;
+    opacity: 0;
+    pointer-events: none;
+    width: auto;
+    padding-top: 0px;
+    transform: translateY(27px);
+    align-content: stretch;
+    padding: 10px;
+    right: 0;
+    border: none;
+    border-top: 3px solid var(--yss-strong-color);
+    box-shadow: inset 0px 0px 0px 1px var(--yss-panel-border), 0px 4px 6px var(--yss-panel-shadow);
+}
+
+.yss-button-with-dropdown:not(:has(.yss-button-options .yss-btn)) .yss-button-options {
+    padding: 0;
+    width: -webkit-fill-available;
 }
