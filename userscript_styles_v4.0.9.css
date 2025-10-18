@@ -7868,9 +7868,9 @@ div#tdl-modal-log:empty {
     #yt-batch-download-delay-slider {
     width: 100%;
     margin-right: 0;
-    margin: 6px 0;
-    padding: 5px;
-    height: 10px;
+    margin: 6px 5px;
+    padding: 8px;
+    height: 20px;
     cursor: pointer!important;
 }
     div#yt-batch-controls-wrapper.yss-modal-content.yss-batch {
@@ -7914,51 +7914,48 @@ div#tdl-modal-log:empty {
 
 
     .yss-modal-content.yss-batch .yss-form-block:has(input[type="range"]) > span {
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: stretch;
     justify-content: space-evenly;
     align-items: stretch;
-
     flex: 0;
     text-align: center!important;
     height: -webkit-fill-available;
-    min-width: 48px!important;
+    min-width: 35px!important;
     order: 1;
-  
 }
 .yss-modal-content.yss-batch .yss-form-block:has(input[type="range"]) > label {
     display: flex;
-    
     flex: 1 1;
     order: 1;
-    
     margin: 0;
+    white-space: nowrap;
 }
     #yt-batch-download-delay-slider-container.yss-form-block {
     font-size: 13px;
     color: var(--yt-spec-text-secondary);
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    gap: 6px!important;
+    padding: 12px;
+    gap: 1px!important;
 }
-    .yss-form-block:has(input[type="range"]) > label, .yss-form-block:has(input[type="range"]) > span {
-    padding: 7px;
-    background: #1919199c;
+   .yss-form-block:has(input[type="range"]) > label, .yss-form-block:has(input[type="range"]) > span {
+    padding: 7px 12px;
+    background: #1919197d;
     border: 1px solid #363636;
-    border-radius: 6px;
+    border-radius: 60px;
     font-size: 14px!important;
     margin: 0!important;
     order: -1;
-     box-shadow: none;
+    box-shadow: none;
     color: gray;
     text-shadow: none;
+    min-width: unset!important;
 }
     .yss-modal-content.yss-sticky-modal .yss-form-group:has(input[type="range"]):has(textarea) {
     display: flex;
@@ -8000,25 +7997,25 @@ div#tdl-modal-log:empty {
     width: -webkit-fill-available;
     justify-content: space-between;
 }
-   div#yt-batch-controls-wrapper.yss-modal-content.yss-batch *:not(.yss-modal-title,.yss-modal-title *) {
+ div#yt-batch-controls-wrapper.yss-modal-content.yss-batch *:not(.yss-modal-title,.yss-modal-title *,.yss-btn,input,textarea,button) {
     cursor: initial;
 }
-    .yss-modal-content.yss-sticky-modal .yss-form-group:has(input[type="range"]):has(textarea) {
+   .yss-modal-content.yss-sticky-modal .yss-form-group:has(input[type="range"]):has(textarea) {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
     justify-content: space-between;
     margin: 0!important;
-    padding: 0;
+    /* padding: 0; */
     gap: 6px!important;
     overflow: visible;
     min-height: fit-content;
     /* padding-right: 0; */
-    border-radius: 0;
-    background: #2b2b2b00;
-    border: none;
-    box-shadow: none;
+    /* border-radius: 0; */
+    /* background: #2b2b2b00; */
+    /* border: none; */
+    /* box-shadow: none; */
 }
    #yt-batch-progress-display {
     font-size: 14px;
