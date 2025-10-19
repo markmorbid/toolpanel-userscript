@@ -7978,7 +7978,7 @@ div#tdl-modal-log:empty {
     justify-content: space-between;
 }
  div#yt-batch-controls-wrapper.yss-modal-content.yss-batch *:not(.yss-modal-title,.yss-modal-title *,.yss-btn,input,textarea,button) {
-    cursor: initial;
+    cursor: revert;
 }
    .yss-modal-content.yss-sticky-modal .yss-form-group:has(input[type="range"]):has(textarea) {
     display: flex;
@@ -8070,7 +8070,7 @@ div#tdl-modal-log:empty {
     
     font-size: var(--yss-controls-checkbox-size);
 }
-    body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row)/* , body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header, body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header * */{
+    body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(#yss-transcript-dock, #yss-transcript-dock *.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row)/* , body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header, body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header * */{
     background-color: var(--yss-btn-disabled-bg) !important;
     color: var(--yss-btn-disabled-color)!important;
     border-color: var(--yss-btn-disabled-border)!important;
@@ -8101,7 +8101,7 @@ div#tdl-modal-log:empty {
         border-color: rgb(255 255 255 / 25%);
         color: white;
     }
-        .yss-modal-content:not(.yss-fullscreen) .yss-modal-title:has(.yss-btn-fullscreen) h3{
+        .yss-modal-content:not(.yss-fullscreen) .yss-modal-title:has(.yss-btn-fullscreen:not(.yss-btn-maximize,.yss-btn-undock)) h3{
             border-right: 1px solid var(--yss-panel-border);
         }
             .yss-readme-container h1 {
@@ -8686,15 +8686,23 @@ div#tdl-modal-log:empty {
     --yss-strong-color: var(--yss-btn-lightgreen-bg);
     border-color: var(--yss-strong-color);
 }
-.yss-controls .yss-btn-start, .yss-controls .yss-button-with-dropdown:has(.yss-btn-start) {
+.yss-controls .yss-btn-start, .yss-controls .yss-button-with-dropdown:has(.yss-btn-start), .yss-controls .yss-btn-primary, .yss-controls .yss-button-with-dropdown:has(.yss-btn-primary) {
     --yss-strong-color: var(--yss-btn-start-bg);
     border-color: var(--yss-strong-color);
 }
-.yss-controls .yss-btn-green {
-    --yss-strong-color: var(--yss-btn-green-bg);
+.yss-controls .yss-btn-green, .yss-controls .yss-button-with-dropdown:has(.yss-btn-green) {
+    --yss-strong-color: var(--yss-log-success);
+    border-color: var(--yss-strong-color);
+}
+.yss-controls .yss-btn-stop, .yss-controls .yss-button-with-dropdown:has(.yss-btn-stop) {
+    --yss-strong-color: var(--yss-log-error);
     border-color: var(--yss-strong-color);
 }
 
+.yss-controls .yss-btn-pause, .yss-controls .yss-button-with-dropdown:has(.yss-btn-pause) {
+    --yss-strong-color: var(--yss-btn-pause-bg);
+    border-color: var(--yss-strong-color);
+}
 
 #yss-panel:not(.yss-buttons-notext) #yss-status-block:has(.button_group) .button_group {
     order: 10;
@@ -8742,7 +8750,7 @@ div#tdl-modal-log:empty {
 .yss-panel div#yt-batch-controls-wrapper.yss-modal-content.yss-batch {
     padding: 0;
     overflow: hidden;
-    background-color: var(--yss-panel-bg-4);
+    background-color: var(--yss-btn-hover-bg);
     max-width: unset;
     gap: 0;
     width: 100%;
@@ -8760,4 +8768,112 @@ div#tdl-modal-log:empty {
     align-items: stretch;
     justify-content: flex-start;
     border-top: 0;
+    --yss-strong-color: var(--yss-header-border);
+}
+.yss-panel .yss-modal-content.docked .yss-modal-title {
+    padding-right: 0!important;
+    margin-right: 0;
+    background: var(--yss-strong-color);
+    box-shadow: none;
+}
+.yss-panel .yss-modal-content.docked .yss-modal-title .yss-btn-icon.yss-btn-undock {
+    background: transparent;
+    border: none;
+    border-left: 1px solid #ffffff24;
+    cursor: pointer;
+}
+.yss-modal-content:not(.yss-fullscreen, .yss-batch) .yss-modal-title:has(.yss-btn-fullscreen, .yss-btn-undock) h3 {
+    padding-top: calc(var(--yss-btn-padding) / 1.2)!important;
+    padding-bottom: calc(var(--yss-btn-padding) / 1.2)!important;
+    padding-right: var(--yss-btn-gap)!important;
+    border-right: 0px solid var(--yss-panel-border);
+}
+.yss-modal-content.yss-batch.docked .yss-modal-view {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+
+.yss-modal-content.yss-batch .yss-form-group textarea:has(+ .yss-form-block) {
+    border-bottom-left-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+    outline: none!important;
+}
+.yss-modal-content.yss-batch .yss-form-group textarea + .yss-form-block {
+    border-top-left-radius: 0!important;
+    border-top-right-radius: 0!important;
+    border-top: 0;
+}
+.yss-modal-content.yss-batch .yss-form-group:has(input[type="range"]):has(textarea) {
+    /* padding: 0; */
+    /* background: transparent; */
+    /* border: none; */
+    gap: 0px!important;
+}
+.yss-modal-content.yss-batch .yss-modal-view {
+    padding: 15px;
+    overflow-y: auto;
+    --yss-strong-color: var(--yss-accent-color);
+}
+
+.yss-modal-content .yss-modal-title .yss-btn-icon.yss-btn-undock {
+    background: transparent;
+    border: none;
+    border-left: 1px solid #ffffff24;
+    cursor: pointer;
+}
+
+#yt-batch-progress-display:empty {
+    display: none;
+}
+
+
+#yss-panel:has(.docked) .yss-log-wrapper {
+    height: auto!important;
+}
+.yss-modal-content.yss-batch.docked .yss-form-group:has(input[type="range"]):has(textarea) {
+    padding: 0;
+    border: 0;
+}
+#yss-panel .yss-modal-content.yss-batch.docked .yss-modal-actions {
+    background: transparent;
+    padding: 17px;
+    border-top: 0;
+    padding-top: 0;
+}
+div#yss-transcript-dock {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    flex: 1;
+    padding: 0;
+    background: var(--yss-panel-shadow);
+}
+.yss-panel div#yt-batch-controls-wrapper.yss-modal-content.yss-batch {
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--yss-btn-hover-bg);
+    max-width: unset;
+    gap: 0;
+    width: 100%;
+    height: fit-content;
+    /* max-height: 80vh; */
+    position: static;
+    display: flex!important;
+    box-shadow: none;
+    border-radius: 0;
+    border-right: 0;
+    border-left: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: flex-start;
+    /* border: 0; */
+    --yss-strong-color: var(--yss-panel-border);
+    /* border-radius: var(--yss-border-radius); */
+    /* border: 1px solid var(--yss-panel-border); */
+    /* box-shadow: 2px 5px 7px #00000038; */
 }
