@@ -7937,7 +7937,7 @@ div#tdl-modal-log:empty {
     text-shadow: none;
     min-width: unset!important;
 }
-    .yss-modal-content.yss-sticky-modal .yss-form-group:has(input[type="range"]):has(textarea) {
+    .yss-modal-content.yss-sticky-modal:not(.yss-batch) .yss-form-group:has(input[type="range"]):has(textarea) {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -7951,6 +7951,22 @@ div#tdl-modal-log:empty {
     /* padding-right: 0; */
     border-radius: var(--yss-border-radius);
     background: #2b2b2b4f;
+}
+.yss-modal-content.yss-sticky-modal.yss-batch .yss-form-group:has(input[type="range"]):has(textarea) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 0!important;
+    padding: 0;
+    gap: 0!important;
+    overflow: hidden;
+    min-height: fit-content;
+    /* padding-right: 0; */
+    border-radius: var(--yss-border-radius);
+    background: #2b2b2b00;
+    border: none;
 }
 
 .yss-modal-content.yss-batch .yss-form-block input[type="range"] {
@@ -8070,7 +8086,8 @@ div#tdl-modal-log:empty {
     
     font-size: var(--yss-controls-checkbox-size);
 }
-    body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(#yss-transcript-dock, #yss-transcript-dock *.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row)/* , body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header, body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header * */{
+    /* body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(#yss-transcript-dock, #yss-transcript-dock *.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row), */
+	body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row)/* , body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header, body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header * */{
     background-color: var(--yss-btn-disabled-bg) !important;
     color: var(--yss-btn-disabled-color)!important;
     border-color: var(--yss-btn-disabled-border)!important;
@@ -8081,7 +8098,7 @@ div#tdl-modal-log:empty {
     --yss-btn-disabled-color: hsl(0deg 0% 42% / 53%);
     
 }
-    #yss-panel.yss-watch-mode .button_row:not(#yss-transcript-row) {
+    #yss-panel.yss-watch-mode .button_row:not(#yss-transcript-row, #yss-transcript-dock) {
     display: none;
 }  
     #yss-panel:not(.yss-watch-mode) .button_row#yss-transcript-row {
@@ -8789,10 +8806,9 @@ div#tdl-modal-log:empty {
     border-right: 0px solid var(--yss-panel-border);
 }
 .yss-modal-content.yss-batch.docked .yss-modal-view {
-    padding: 20px;
+    padding: 12px;
     overflow-y: auto;
 }
-
 
 .yss-modal-content.yss-batch .yss-form-group textarea:has(+ .yss-form-block) {
     border-bottom-left-radius: 0!important;
@@ -8837,7 +8853,7 @@ div#tdl-modal-log:empty {
 }
 #yss-panel .yss-modal-content.yss-batch.docked .yss-modal-actions {
     background: transparent;
-    padding: 17px;
+    padding: 12px;
     border-top: 0;
     padding-top: 0;
 }
@@ -8861,7 +8877,7 @@ div#yss-transcript-dock {
     height: fit-content;
     /* max-height: 80vh; */
     position: static;
-    display: flex!important;
+    /* display: flex!important; */
     box-shadow: none;
     border-radius: 0;
     border-right: 0;
@@ -8877,3 +8893,28 @@ div#yss-transcript-dock {
     /* border: 1px solid var(--yss-panel-border); */
     /* box-shadow: 2px 5px 7px #00000038; */
 }
+div#yss-transcript-dock {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex: 1;
+    padding: 0;
+    background: var(--yss-panel-shadow);
+    justify-content: space-evenly;
+    height: unset;
+    max-height: 100vh!important;
+    border: none;
+    transition: max-height 300ms;
+    overflow: clip;
+    align-content: stretch;
+    flex-wrap: wrap;
+}
+
+	.yss-controls .button_group:has(.yss-button-with-dropdown) {
+		display: flex;
+		align-items: flex-start;
+		--yss-strong-color: var(--yss-accent-color);
+	}
+
+
+
