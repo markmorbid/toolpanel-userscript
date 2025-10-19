@@ -1613,7 +1613,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .yss-controls .button_group:not(:last-child) {
 	border-right: 1px solid var(--yss-panel-border);
-	margin-right: -1px;
+	margin-right: 0;
 }
 
 .yss-controls .button_group:has(.yss-toggle-collapse-group) {
@@ -7628,7 +7628,6 @@ div#tdl-modal-log:empty {
 .yss-buttons-notext label.yss-checkbox-label input {
     /* width: 16px; */
     vertical-align: middle;
-    border: none!important;
 }
 .yss-buttons-notext .button_group .yss-checkbox-list:has(input[type="checkbox"]) label.yss-checkbox-label {
     padding: 2px 8px;
@@ -8071,7 +8070,7 @@ div#tdl-modal-log:empty {
     
     font-size: var(--yss-controls-checkbox-size);
 }
-    body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(.button_group:has(#yss-batch-transcript-btn), .button_group:has(#yss-batch-transcript-btn) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row), body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header, body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header *{
+    body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row)/* , body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header, body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header * */{
     background-color: var(--yss-btn-disabled-bg) !important;
     color: var(--yss-btn-disabled-color)!important;
     border-color: var(--yss-btn-disabled-border)!important;
@@ -8490,7 +8489,6 @@ div#tdl-modal-log:empty {
 .yss-button-with-dropdown .yss-button-options .yss-btn {
 	padding: 9px!important;
 	min-height: 40px!important;
-	margin: 8px;
 }
 .yss-button-with-dropdown:has(.yss-btn) .yss-button-options:has(.yss-btn) .yss-button-option-item label:has(input[type="checkbox"]) {
     padding: 10px 0 4px 0 !important;
@@ -8739,4 +8737,27 @@ div#tdl-modal-log:empty {
 .yss-button-with-dropdown:not(:has(.yss-button-options .yss-btn)) .yss-button-options {
     padding: 0;
     width: -webkit-fill-available;
+}
+
+.yss-panel div#yt-batch-controls-wrapper.yss-modal-content.yss-batch {
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--yss-panel-bg-4);
+    max-width: unset;
+    gap: 0;
+    width: 100%;
+    height: fit-content;
+    /* max-height: 80vh; */
+    position: static;
+    /* display: flex!important; */
+    box-shadow: none;
+    border-radius: 0;
+    border-right: 0;
+    border-left: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-top: 0;
 }
