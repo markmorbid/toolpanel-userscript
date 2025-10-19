@@ -64,7 +64,7 @@
     --yss-tooltip-border: #f7f7f74d;
     --yss-tooltip-color: #e8e8e8;
     --yss-tooltip-font-size: 14px;
-	--yss-tooltip-duration: 300ms;
+	--yss-tooltip-duration: 100ms;
 
     /* Spacing */
     --yss-btn-padding: 10px;
@@ -4314,24 +4314,24 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 
 
 #yss-tooltip-container {
-	position: fixed;
-	z-index: 100000;
-	padding: 0;
-	border-radius: var(--yss-btn-border-radius);
-	background: var(--yss-tooltip-bg);
-	border: 1px solid var(--yss-tooltip-border);
-	color: var(--yss-tooltip-color);
-	min-width:var(--yss-rows-height);
-	max-width: min(90vw,420px);
-	white-space: normal;
-	font-size: var(--yss-tooltip-font-size);
-	font-weight: 400;
-	line-height: 1.5;
-	opacity: 0;
-	pointer-events: none;
-	visibility: hidden;
-	will-change: opacity, transform;
-	transform: scale(0.94) translateZ(0);
+    position: fixed;
+    z-index: 100000;
+    padding: 0;
+    border-radius: var(--yss-btn-border-radius);
+    background: var(--yss-tooltip-bg);
+    border: 1px solid var(--yss-tooltip-border);
+    color: var(--yss-tooltip-color);
+    min-width: var(--yss-rows-height);
+    max-width: min(90vw,420px);
+    white-space: normal;
+    font-size: var(--yss-tooltip-font-size);
+    font-weight: 400;
+    line-height: 1.5;
+    /* opacity: 1!important; */
+    pointer-events: none;
+    /* visibility: visible; */
+    will-change: opacity, transform;
+    transform: scale(0.94) translateZ(0);
     transition-duration: var(--yss-tooltip-duration), var(--yss-tooltip-duration);
     transition-timing-function: ease-in-out, ease-in-out;
     transition-delay: 0s, 0s;
