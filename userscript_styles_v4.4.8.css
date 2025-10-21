@@ -707,11 +707,10 @@ html .yss-panel, html .yss-modal-content {
 	color: #5fff9d;
 }
 
-.yss-videolist-container tr:has(a.yss-video-link.video-url):hover {
-	background: #252525!important;
-	color: #5fff9d;
+.yss-videolist-container:not(:has(input[type="checkbox"])) tr:has(a.yss-video-link.video-url):hover {
+    background: #252525!important;
+    color: #5fff9d;
 }
-
 .yss-videolist-container tr.yss-videolist-row-compare.yss-duplicate td {
 	background: #292929;
 	border-color: var(--yss-panel-border)!important;
@@ -9171,30 +9170,6 @@ div#yss-transcript-dock:empty {
 
 
 
-.yss-toggle:has(input[type="checkbox"]) {
-  position: relative;
-  display: inline-flex;
-  width: calc(var(--yss-toggle-size)* 1);
-  min-height: var(--yss-toggle-size);
-  max-width: calc(var(--yss-toggle-size)* 2);
-  --yss-toggle-slider-bg: var(--yss-panel-bg-2);
-  --yss-toggle-slider-active: var(--yss-accent-color);
-  --yss-toggle-slider-size: calc(var(--yss-toggle-size) -  var(--yss-toggle-slider-ratio));
-  --yss-toggle-size: 30px;
-  --yss-toggle-slider-ratio: 2px;
-  --yss-toggle-slider-factor: 1.2;
-  --yss-toggle-circle-size: 100%;
-  --yss-toggle-circle-bg: #ffffff70;
-  --yss-toggle-circle-border: var(--yss-panel-color);
-  --yss-toggle-circle-active: #FFFFFF;
-  --yss-toggle-border-width: 1px;
-  --yss-toggle-border-color: #ffffff24;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
-  justify-content: space-between;
-}
-
 .yss-toggle input[type="checkbox"] {
   display: none!important;
 }
@@ -9407,7 +9382,7 @@ div#yss-transcript-dock:empty {
 .yss-toggle:has(input[type="checkbox"]) {
   position: relative;
   display: inline-flex;
-  width: calc(var(--yss-toggle-size)* 1);
+  width: calc(var(--yss-toggle-size)* 2)!important;
   min-height: var(--yss-toggle-size);
   max-width: calc(var(--yss-toggle-size)* 2);
   --yss-toggle-slider-bg: var(--yss-panel-bg-2);
@@ -9518,7 +9493,7 @@ div#yss-transcript-dock:empty {
    min-height: 100%;
 
 }
-.yss-videolist-container td:has(table button) td:not(:first-child) button {
+.yss-videolist-container td:has(table button, .yss-buttons-table) td:not(:first-child) button {
     border-left: 1px solid var(--yss-btn-border)!important;
 }
 .yss-videolist-container td:has(table button) td > button, .yss-videolist-container td:has(table button) td > button i {
@@ -9587,10 +9562,128 @@ font-size: inherit!important;
     cursor: pointer;
 }
 
-element.style {
+.yss-selected-count {
     margin-left: auto;
     font-size: 14px;
     padding: 9px 12px;
     background: rgb(27, 27, 27);
     border-radius: 6px;
+}
+.yss-toggle-container:after {
+    content: attr(title);
+    position: absolute;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    top: 0;
+    left: calc(100% + 8px);
+    right: auto;
+    bottom: 0;
+    background-color: #17171799;
+    transition: 0.4s;
+    border-radius: var(--yss-border-radius);
+    border: 1px solid var(--yss-panel-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    flex: 1 1 100%;
+    padding: 8px 9px;
+    flex-direction: row;
+    color: gray;
+}
+.yss-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.yss-toggle-container .yss-toggle-slider::after {
+    content: "";
+    display: none;
+}
+
+
+td.yss-actions-cell:has(.yss-buttons-table) {
+    padding: 0!important;
+}
+
+.yss-buttons-table-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.yss-buttons-table, .yss-buttons-table-body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-evenly;
+    height: 100%;
+    width: -webkit-fill-available;
+}
+
+
+.yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button,.yss-buttons-table) *:not(input, button i){
+    padding: 0!important;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  height: 100%;
+   min-height: 100%;
+
+}
+.yss-videolist-container td:has(table button, .yss-buttons-table) td:not(:first-child) button, .yss-videolist-container td .yss-buttons-table-row >div:not(:first-child) button {
+    border-left: 1px solid var(--yss-header-border)!important;
+}
+.yss-videolist-container td:has(table button) td > button, .yss-videolist-container td:has(table button) td > button i {
+    background-color: transparent;
+	color: var(--yss-btn-color);
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.yss-videolist-container td:has(table button) td > button:hover, .yss-videolist-container td .yss-buttons-table-row >div button:hover {
+    background-color: var(--yss-btn-hover-bg)!important;
+	color: var(--yss-btn-hover-color)!important;
+	opacity: 1!important;
+}
+
+.yss-videolist-container table > tbody:has(input[type="checkbox"]) > tr > td  button:hover i{
+opacity: 1;
+}
+.yss-videolist-container table > tbody:has(input[type="checkbox"]) > tr > td  button i{
+opacity: 0.4;
+font-size: inherit!important;
+}
+
+.yss-buttons-table-row > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: stretch;
+    text-align: center;
+}
+
+.yss-buttons-table-row > div button.yss-btn-icon {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex: 1;
+    width: -webkit-fill-available;
+    min-width: 30px;
+}
+.yss-videolist-container:has(td.yss-checkbox-cell) th:not(.yss-sortable):first-child {
+    width: 18px;
 }
