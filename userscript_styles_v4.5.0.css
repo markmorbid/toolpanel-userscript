@@ -8039,7 +8039,6 @@ div#tdl-modal-log:empty {
     padding: 0;
     overflow: hidden;
     background-color: var(--yss-panel-bg-4);
-    max-width: 500px;
     gap: 0;
     width: 100%;
     height: fit-content;
