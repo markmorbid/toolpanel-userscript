@@ -600,6 +600,7 @@ html .yss-panel, html .yss-modal-content {
 	width: 100%;
 	border-collapse: collapse;
 	font-size: 13px;
+	height: 100%;
 }
 
 .yss-videolist-container thead {
@@ -609,18 +610,18 @@ html .yss-panel, html .yss-modal-content {
 }
 
 .yss-videolist-container tbody tr {
-	background: var(--yss-header-bg)!important;
-	border-bottom: 1px solid var(--yss-header-border)!important;
+	background: var(--yss-header-bg);
+	border-top: 1px solid var(--yss-header-border);
 	position: relative;
 	cursor: pointer;
 }
 
-.yss-videolist-container tbody tr:last-child {
-	border-bottom: none!important;
+.yss-videolist-container tbody tr:first-child {
+	border-top: none!important;
 }
 
 .yss-videolist-container tbody tr:nth-child(odd) {
-	background: #292929!important;
+	background: var(--yss-panel-bg);
 }
 
 .yss-videolist-container td a.yss-video-link.yss-btn {
@@ -740,8 +741,9 @@ html .yss-panel, html .yss-modal-content {
 	color: white!important;
 }
 
-.yss-videolist-container:has(tbody:empty) {
-	display: none!important;
+
+.yss-videolist-container:has(> table > tbody:empty) {
+    display: none!important;
 }
 
 .yss-controls {
@@ -9260,7 +9262,32 @@ div#yss-transcript-dock:empty {
   left: calc(var(--yss-toggle-size) - var(--yss-toggle-slider-ratio));
 }
 
-
+.yss-toggle-slider:after {
+    content: attr(title);
+    position: absolute;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    top: 0;
+    left: calc(100% + 8px);
+    right: auto;
+    bottom: 0;
+    background-color: #17171799;
+    transition: 0.4s;
+    border-radius: calc(var(--yss-toggle-slider-ratio)*3);
+    border: var(--yss-toggle-border-width) solid var(--yss-toggle-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    /* width: 100%; */
+    min-height: calc(var(--yss-toggle-slider-size) -  var(--yss-toggle-slider-ratio));
+    flex: 1 1 100%;
+    padding: calc(var(--yss-toggle-slider-ratio)*2) calc(var(--yss-toggle-slider-ratio)*5);
+    flex-direction: row;
+    color: gray;
+}
 /* --- YSS Tabbed Component --- */
 .yss-tabbed {
 	overflow: hidden;
@@ -9471,8 +9498,7 @@ div#yss-transcript-dock:empty {
 }
 
 .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button), .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) td, .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) table, .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) tbody, .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) tbody tr {
-    padding: 0 5px!important;
-    /* width: 200px!important; */
+    padding: 0!important;
     height: 100%;
     min-height: 100%;
     flex-wrap: nowrap;
@@ -9485,33 +9511,77 @@ div#yss-transcript-dock:empty {
     flex-direction: row;
 }
 
-.yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) *:not(input) {
-    padding: 2px!important;
+.yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) *:not(input, button i){
+    padding: 0!important;
     cursor: pointer;
-    background: transparent;
+    background-color: transparent;
     border: none;
   height: 100%;
    min-height: 100%;
+
 }
-.yss-videolist-container table > tbody:has(input[type="checkbox"]) > tr > td:hover  button{
-opacity:  1;
+.yss-videolist-container td:has(table button) td:not(:first-child) button {
+    border-left: 1px solid var(--yss-btn-border)!important;
 }
-.yss-videolist-container table > tbody:has(input[type="checkbox"]) > tr > td  button{
-opacity:  0.4;
+.yss-videolist-container td:has(table button) td > button, .yss-videolist-container td:has(table button) td > button i {
+    background-color: transparent;
+	color: var(--yss-btn-color);
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+.yss-videolist-container td:has(table button) td > button:hover {
+    background-color: var(--yss-btn-hover-bg)!important;
+	color: var(--yss-btn-hover-color)!important;
+	opacity: 1!important;
 }
 
-/* .yss-videolist-container tbody > tr:has(input[type="checkbox"]:checked){
+.yss-videolist-container table > tbody:has(input[type="checkbox"]) > tr > td  button:hover i{
+opacity: 1;
+}
+.yss-videolist-container table > tbody:has(input[type="checkbox"]) > tr > td  button i{
+opacity: 0.4;
+font-size: inherit!important;
+}
 
-} */
-.yss-videolist-container r:has(input[type="checkbox"]:checked), .yss-videolist-container tr:has(input[type="checkbox"]:checked) td {
-    background-color: #314636!important;
-    border-color: #366641!important;
-  
-  color: white!important;
+.yss-videolist-container tr:has(input[type="checkbox"]:checked) {
+    background-color: var(--yss-header-bg)!important;
+    border-color: var(--yss-header-border)!important;
+    color: white!important;
+    --yss-header-bg: #314636;
+    --yss-header-border: #366641;
+    --yss-btn-hover-bg: rgb(0 0 0 / 16%);
+    --yss-btn-border: var(--yss-header-border);
 }
 
 .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) * {
     padding: 0px!important;
     cursor: pointer;
 }
+.yss-videolist-container td {
+    padding: var(--yss-btn-padding) var(--yss-btn-padding)!important;
+    font-size: var(--yss-btn-font-size)!important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-color: var(--yss-header-border)!important;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
 
+.yss-videolist-container td.yss-checkbox-cell {
+    width: fit-content!important;
+    max-width: fit-content;
+    padding: 9px!important;
+}
+.yss-videolist-container td:not(:has(button.yss-btn-primary)).yss-time-cell, .yss-videolist-container th[data-sort-key="timestamp"] {
+    width: fit-content!important;
+    max-width: 90px!important;
+    padding: 9px!important;
+}
+
+.yss-modal-content .yss-form-group.yss-actionsbar-top, .yss-modal-content .yss-form-group:has(.yss-toggle):has(+ .yss-videolist-container) {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 0px;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px;
+}
