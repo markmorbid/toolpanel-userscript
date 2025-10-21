@@ -8837,7 +8837,7 @@ div#tdl-modal-log:empty {
 
 
 #yss-panel:has(.docked) .yss-log-wrapper {
-    height: auto!important;
+    height: auto;
 }
 .yss-modal-content.yss-batch.docked .yss-form-group:has(input[type="range"]):has(textarea) {
     padding: 0;
@@ -9686,4 +9686,238 @@ font-size: inherit!important;
 }
 .yss-videolist-container:has(td.yss-checkbox-cell) th:not(.yss-sortable):first-child {
     width: 18px;
+}
+
+ #yss-tooltip-container {
+    position: fixed;
+    z-index: 100000;
+    padding: 0;
+    border-radius: var(--yss-btn-border-radius);
+    background: var(--yss-tooltip-bg);
+    border: 1px solid var(--yss-tooltip-border);
+    color: var(--yss-tooltip-color);
+    min-width: var(--yss-rows-height);
+    max-width: min(90vw,420px);
+    white-space: normal;
+    font-size: var(--yss-tooltip-font-size);
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1) translateZ(0);
+    transition-duration: var(--yss-tooltip-duration);
+    /* transition-property: opacity, transform, visibility, left, top, width, max-width; */
+    /* left: 0; */
+    /* top: 0; */
+    /* max-width: fit-content; */
+    transition-property: opacity, transform;
+    will-change: opacity, transform!important;
+    transition-timing-function: ease;
+    transition-behavior: normal;
+    --yss-tooltip-duration: 300ms;
+    transition-delay: 0s, 0s;
+}
+.yss-toggle-container:after {
+    content: attr(alt);
+    position: absolute;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    top: 0;
+    left: calc(100% + 8px);
+    right: auto;
+    bottom: 0;
+    background-color: #17171799;
+    transition: 0.4s;
+    border-radius: var(--yss-border-radius);
+    border: 1px solid var(--yss-panel-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    flex: 1 1 100%;
+    padding: 8px 9px;
+    flex-direction: row;
+    color: gray;
+}
+    #yss-tooltip-container.yss-placement-top #yss-tooltip-arrow {
+    bottom: calc(var(--yss-tooltip-arrow-size) * -2 + 0px);
+    height: calc(var(--yss-tooltip-arrow-size) * 2 + 1px);
+}
+    #yss-tooltip-container.yss-placement-bottom #yss-tooltip-arrow {
+    top: calc(var(--yss-tooltip-arrow-size) * -2 - 0px);
+    height: calc(var(--yss-tooltip-arrow-size) * 2 + 0px);
+}
+    #yss-tooltip-content {
+    padding: var(--yss-panel-padding) var(--yss-panel-padding);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    position: relative;
+    z-index: 1;
+    text-wrap: pretty;
+    line-height: 1.7rem;
+    max-width: fit-content;
+    max-inline-size: 28ch;
+    text-wrap-style: pretty;
+    line-break: loose;
+    /* text-align: justify; */
+    hyphens: manual;
+}
+    html:has(.yss-modal-overlay) {
+    overflow: hidden;
+}
+    #yt-batch-progress-display .yss-log-entry:first-child {
+  border-top-left-radius: var(--yss-border-radius);
+  border-top-right-radius: var(--yss-border-radius);
+  border-top: 0;
+}
+
+#yt-batch-progress-display .yss-log-entry:last-child {
+  border-bottom-right-radius: var(--yss-border-radius);
+  border-bottom-left-radius: var(--yss-border-radius);
+  border-bottom: 0;
+}
+
+div#yt-batch-progress-display.yss-log-wrapper{
+  display: grid!important;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(var(--log-entry-height), 1fr);
+  max-height: calc(var(--log-entry-height)*5 - 0px)!important;
+  text-overflow: ellipsis;
+border-radius: var(--yss-border-radius);
+  border: 1px solid var(--yss-panel-border)!important;
+  
+  pointer-events: all;
+  cursor: initial!important;
+  --log-entry-height: 38px;
+}
+
+#yt-batch-progress-display.yss-log-wrapper .yss-log-entry {
+	line-clamp: 1;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box!important;
+    -webkit-box-orient: vertical;
+    white-space: nowrap;
+    border-inline-start-width: 0;
+    border-inline-end: 0;
+}
+    .yss-modal-content .yss-modal-title .yss-btn-icon.yss-btn-undock {
+    background-color: transparent;
+    border: none;
+    border-left: 0px solid #ffffff24;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+    .yss-panel .yss-modal-content.docked .yss-modal-title .yss-btn-icon.yss-btn-undock {
+    background-color: var(--yss-panel-border);
+    border: none;
+    border-left: 0px solid #ffffff24;
+    cursor: pointer;
+    height: 100%;
+    font-size: 18px!important;
+}
+    .yss-panel .yss-modal-content.docked .yss-modal-title .yss-btn-icon.yss-btn-undock:hover {
+    background-color: var(--yss-accent-color);
+}
+    .yss-panel .yss-modal-content.docked .yss-modal-title .yss-btn-icon.yss-btn-undock:hover, .yss-panel .yss-modal-content.docked .yss-modal-title:hover .yss-btn-icon.yss-btn-undock {
+    background-color: var(--yss-accent-color);
+}
+    .yss-panel .yss-modal-content.docked .yss-modal-title:has(.yss-btn-icon.yss-btn-undock:hover) {
+    background-color: var(--yss-panel-bg-3);
+    color: white;
+}
+  .yss-panel .yss-modal-content.docked .yss-modal-title {
+    padding-right: 0!important;
+    margin-right: 0;
+    background-color: var(--yss-panel-bg);
+    box-shadow: none;
+    border-bottom: 1px solid var(--yss-panel-border);
+    color: #9b9b9b;
+    font-size: 10px;
+    height: 40px;
+    cursor: default!important;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}
+    .yss-modal-content .yss-modal-title {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.yss-modal-content .yss-modal-title .yss-btn-fullscreen i {
+    font-size: 1.3rem!important;
+}
+    div#yt-batch-controls-wrapper.yss-modal-content.yss-batch *:not(.yss-modal-title,.yss-modal-title *,.yss-btn,input,textarea,button) {
+    cursor: default;
+}
+    #yt-batch-controls-wrapper.yss-modal-content.yss-batch {
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--yss-panel-bg-4);
+    max-width: fit-content;
+    gap: 0;
+    width: 100%;
+    height: fit-content;
+    /* max-height: 80vh; */
+    border: none;
+    border-radius: var(--yss-border-radius);
+}
+    div#yt-batch-controls-wrapper.yss-modal-content.yss-batch *:not(.yss-modal-title,.yss-modal-title *,input,textarea,button, button *) {
+    cursor: default;
+}
+    div#yt-batch-progress-display.yss-log-wrapper:empty:after {
+    content: "Log Empty";
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex: 1;
+    width: -webkit-fill-available;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+    div#yt-batch-progress-display.yss-log-wrapper:empty {
+    display: none!important;
+}
+    .yss-videolist-container #transcript-summary-table td a.yss-video-link.video-url {
+    padding: 12px;
+    color: inherit;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: -webkit-fill-available;
+    gap: 5px;
+    position: relative;
+    padding-left: 47px;
+}
+.yss-videolist-container #transcript-summary-table td a.yss-video-link.video-url:before {
+    content: "";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    font-family: "Font Awesome 6 Brands";
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    left: 0;
+    top: 0;
+    border-right: 1px solid var(--yss-header-border);
 }
