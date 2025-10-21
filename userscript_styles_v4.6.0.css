@@ -8078,7 +8078,7 @@ div#tdl-modal-log:empty {
     font-size: var(--yss-controls-checkbox-size);
 }
     /* body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(#yss-transcript-dock, #yss-transcript-dock *.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row), */
-	body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(#yss-transcript-dock, #yss-transcript-dock *,.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row)/* , body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header, body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header * */{
+	body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-controls *:not(#yss-transcript-dock, #yss-transcript-dock *,.yss-checkbox-list,.yss-checkbox-list *, #yt-batch-controls-wrapper, #yt-batch-controls-wrapper *, .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *), .button_group:has(#yss-batch-transcript-btn,.yss-checkbox-list,.yss-checkbox-list *) .yss-btn, .button_group:has(#yss-batch-transcript-btn) .yss-btn *, .button_row, button span, button > i)/* , body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header, body:has(#yt-batch-controls-wrapper.yss-modal-content.yss-batch[style*="display: flex;"]) #yss-panel .yss-header * */{
     background-color: var(--yss-btn-disabled-bg) !important;
     color: var(--yss-btn-disabled-color)!important;
     border-color: var(--yss-btn-disabled-border)!important;
@@ -9545,10 +9545,23 @@ font-size: inherit!important;
 }
 .yss-videolist-container td:not(:has(button.yss-btn-primary)).yss-time-cell, .yss-videolist-container th[data-sort-key="timestamp"] {
     width: fit-content!important;
-    max-width: 90px!important;
+    max-width: 70px!important;
     padding: 9px!important;
 }
-
+.yss-buttons-table-row > div button.yss-btn-icon[data-tooltip="Delete Entry"]:hover {
+    background-color: var(--yss-log-error)!important;
+}
+.yss-buttons-table-row > div button.yss-btn-icon[data-tooltip="Download Transcript"]:hover {
+    background-color: var(--yss-btn-green-bg)!important;
+}
+.yss-buttons-table-row > div button.yss-btn-icon[data-tooltip="Copy to Clipboard"]:hover {
+    background-color: var(--yss-btn-start-bg)!important;
+}
+.yss-videolist-container td.yss-checkbox-cell input[type="checkbox"]:disabled, .yss-videolist-container td.yss-checkbox-cell:has(input[type="checkbox"]:disabled) {
+    pointer-events: none;
+    opacity: 0;
+    cursor: initial;
+}
 .yss-modal-content .yss-form-group.yss-actionsbar-top, .yss-modal-content .yss-form-group:has(.yss-toggle):has(+ .yss-videolist-container) {
     display: flex;
     gap: 10px;
@@ -9919,4 +9932,64 @@ border-radius: var(--yss-border-radius);
     left: 0;
     top: 0;
     border-right: 1px solid var(--yss-header-border);
+}
+
+#yss-toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--yt-spec-base-background);
+    border: 1px solid var(--yt-spec-10-percent-layer);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 16px;
+    min-width: 300px;
+    max-width: 400px;
+    z-index: 999999999999999;
+    animation: slideInRight 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    align-content: stretch;
+    gap: 9px;
+    --yt-spec-base-background: #1717178a;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 8px black;
+}
+#yss-toast-notification .yss-toast-icon {
+    font-size: 32px;
+    margin-bottom: 0;
+}
+#yss-toast-notification .yss-toast-message {
+    margin-bottom: 3px;
+    font-weight: 500;
+    color: white;
+    font-size: 21px;
+}
+#yss-toast-notification .yss-toast-details {
+    color: var(--yt-spec-text-secondary);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+#yss-toast-notification .yss-btn.yss-btn-primary {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+	font-size: 16px;
+}
+#yss-toast-notification .yss-btn.yss-btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: white;
+}
+#yss-toast-notification .yss-toast-icon i {
+    font-size: inherit!important;
 }
