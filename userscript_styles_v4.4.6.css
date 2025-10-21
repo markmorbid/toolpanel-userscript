@@ -9247,11 +9247,9 @@ div#yss-transcript-dock:empty {
   --yss-toggle-border-color: var(--yss-accent-color);
   --yss-panel-bg: var(--yss-accent-color);
 }
-.yss-toggle:has(input[type="checkbox"]:checked):hover .yss-toggle-slider{
-  background-color: var(--yss-panel-bg);
-  --yss-toggle-border-color: var(--yss-btn-start-border);
-  --yss-panel-bg: var(--yss-btn-start-hover);
- 
+.yss-toggle:has(input[type="checkbox"]:checked):hover .yss-toggle-slider {
+    background-color: color-mix(in srgb, var(--yss-toggle-slider-active), transparent 40%);
+    --yss-toggle-border-color: var(--yss-toggle-slider-active);
 }
 .yss-toggle input:checked + .yss-toggle-slider:before {
   background-color: var(--yss-toggle-circle-active);
@@ -9482,11 +9480,9 @@ div#yss-transcript-dock:empty {
   --yss-toggle-border-color: var(--yss-accent-color);
   --yss-panel-bg: var(--yss-accent-color);
 }
-.yss-toggle:has(input[type="checkbox"]:checked):hover .yss-toggle-slider{
-  background-color: var(--yss-panel-bg);
-  --yss-toggle-border-color: var(--yss-btn-start-border);
-  --yss-panel-bg: var(--yss-btn-start-hover);
- 
+.yss-toggle:has(input[type="checkbox"]:checked):hover .yss-toggle-slider {
+    background-color: color-mix(in srgb, var(--yss-toggle-slider-active), transparent 40%);
+    --yss-toggle-border-color: var(--yss-toggle-slider-active);
 }
 .yss-toggle input:checked + .yss-toggle-slider:before {
   background-color: var(--yss-toggle-circle-active);
@@ -9496,7 +9492,9 @@ div#yss-transcript-dock:empty {
 .yss-toggle input:checked + .yss-toggle-slider:before {
   left: calc(var(--yss-toggle-size) - var(--yss-toggle-slider-ratio));
 }
-
+.yss-toggle:hover .yss-toggle-slider:before {
+    --yss-toggle-circle-bg: var(--yss-toggle-circle-active);
+}
 .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button), .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) td, .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) table, .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) tbody, .yss-videolist-container td:not(:has(button.yss-btn-primary)):has(table button) tbody tr {
     padding: 0!important;
     height: 100%;
@@ -9584,4 +9582,15 @@ font-size: inherit!important;
     align-items: center;
     flex-direction: row;
     padding: 5px;
+}
+.yss-selected-count:hover {
+    cursor: pointer;
+}
+
+element.style {
+    margin-left: auto;
+    font-size: 14px;
+    padding: 9px 12px;
+    background: rgb(27, 27, 27);
+    border-radius: 6px;
 }
