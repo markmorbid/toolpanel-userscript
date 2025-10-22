@@ -4,6 +4,7 @@
     --yss-panel-bg-2: #171717;
     --yss-panel-bg-3: #282828;
 	--yss-panel-bg-4: #1b1b1b;
+	--yss-panel-bg-5: #151515;
     --yss-panel-color: #eee;
 	--yss-panel-color-transp: #ffffffa3;
 	--yss-panel-color-transp-2: #ffffff1a;
@@ -17,14 +18,14 @@
 	--yss-header-border-transp: #4a4a4a87;
 
     /* Button Colors */
-    --yss-btn-bg: #444;
-    --yss-btn-color: #fffff;
-    --yss-btn-border: #666;
+    --yss-btn-bg: #444444;
+    --yss-btn-color: #ffffff;
+    --yss-btn-border: #666666;
     --yss-btn-hover-bg: #1f1f1f;
     --yss-btn-hover-border: #515151;
-    --yss-btn-disabled-bg: #333;
-    --yss-btn-disabled-color: #777;
-    --yss-btn-disabled-border: #444;
+    --yss-btn-disabled-bg: #333333;
+    --yss-btn-disabled-color: #777777;
+    --yss-btn-disabled-border: #444444;
 
     /* Button State Colors */
     --yss-btn-start-bg: #007bff;
@@ -4667,7 +4668,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 	text-align: center;
 	font-weight: bold;
 	padding: 1.15rem;
-	background: #151515;
+	background-color: var(--yss-panel-bg-2);
 	border-bottom: 1px solid var(--yss-panel-border);
 	font-size: var(--yss-panel-padding);
 }
@@ -4759,7 +4760,7 @@ tr.yss-uploaded-file:not(.failed) button.yss-btn.yss-delete.yss-btn-icon {
 
 .yss-video-time {
 	font-weight: bold;
-	background: var(--yss-btn-color);
+	background-color: var(--yss-btn-color);
 	color: black;
 	padding: 2px 4px;
 	border-radius: 3px;
