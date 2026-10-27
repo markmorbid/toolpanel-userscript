@@ -1,0 +1,1973 @@
+@charset "UTF-8";
+
+/* ------------------ Root font-size ---------------------------------------
+   Set to 16px so 1rem = 16px (browser default).
+   The userscript CSS uses px-based custom props (--yss-font-size-base: 13px)
+   scoped to #yss-panel, so the panel itself is NOT affected by this value.
+   Change this single line if you ever need a different rem scale.            */
+html {
+    color-scheme: dark;
+    background: #101010;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-size: 0.866025rem;
+    scrollbar-width: unset !important;
+    scrollbar-color: unset !important;
+    scrollbar-gutter: unset !important;
+}
+
+:root,
+:root * {
+    /* 
+     * TOOLSKIN DESIGN SYSTEM — Custom Showcase Root Variables
+     * For mockup preview context only. Uses TOOLSKIN as the main base system:
+     * @import url("@_TOOLSKIN_DESIGN_YSTEM_FRAMEWORK/toolskin.css");
+     *
+     * All design tokens are set on :root/html, with smart, scalable, flexible variants.
+    */
+    /* font-sizes using clamp for ultimate flexibility â€” covers xxs/xxl/giant cases */
+    --mockup-fs-xxs: clamp(0.5rem, 0.6vw + 0.55rem, 0.6875rem);
+    /* ~8-11px */
+    --mockup-fs-xs: clamp(0.6875rem, 0.85vw + 0.72rem, 0.8rem);
+    /* ~11-13px */
+    --mockup-fs-sm: clamp(0.75rem, 1vw + 0.75rem, 0.925rem);
+    /* ~12-15px */
+    --mockup-fs-base: clamp(0.8125rem, 1vw + 0.8rem, 1rem);
+    /* ~13-16px */
+    --mockup-fs-md: clamp(0.9375rem, 1.25vw + 0.9rem, 1.125rem);
+    /* ~15-18px */
+    --mockup-fs-lg: clamp(1.0625rem, 1.5vw + 1rem, 1.3125rem);
+    /* ~17-21px */
+    --mockup-fs-xl: clamp(1.25rem, 2vw + 1.2rem, 1.75rem);
+    /* ~20-28px */
+    --mockup-fs-xxl: clamp(1.5rem, 2.5vw + 1.4rem, 2.25rem);
+    /* ~24-36px */
+    --mockup-fs-giant: clamp(2.25rem, 6vw + 1.8rem, 5rem);
+    /* ~36-80px */
+    --mockup-font-sans: var(--ts-font-sans, 'Inter', system-ui, sans-serif);
+    --mockup-font-mono: var(--ts-font-mono, 'JetBrains Mono', 'SFMono-Regular', monospace);
+    --mockup-radius-xs: 4px;
+    --mockup-radius-sm: 6px;
+    --mockup-radius-md: 6px;
+    --mockup-radius-lg: 12px;
+    --mockup-radius-xl: 16px;
+    --mockup-border-radius: var(--mockup-radius-md, 8px);
+    /* Palette (overridable in context, but by default depends on toolskin) */
+    --mockup-color-primary: var(--ts-accent, #3b82f6);
+    /* toolskin accent */
+    --mockup-color-secondary: var(--ts-success, #22c55e);
+    --mockup-color-tertiary: var(--ts-warning, #f59e42);
+    --mockup-color-red: var(--ts-error, #ef4444);
+    --mockup-color-green: var(--ts-success, #22c55e);
+    --mockup-color-blue: var(--ts-info, #3b82f6);
+    --mockup-color-yellow: var(--ts-warning, #facc15);
+    --mockup-color-orange: #ff6d1b;
+    --mockup-color-purple: #a259d9;
+    --mockup-color-pink: #e91e63;
+    --mockup-color-brown: #a8875d;
+    --mockup-color-gray: var(--ts-border-1, #9ca3af);
+    --mockup-color-black: #111215;
+    --mockup-color-white: #f8fafc;
+    /* Semantic tokens for preview context only */
+    --mockup-text-primary: var(--ts-text-primary, #fff);
+    --mockup-text-secondary: var(--ts-text-secondary, #bbc2cc);
+    --mockup-color-success: var(--mockup-color-green);
+    --mockup-color-error: var(--mockup-color-red);
+    --mockup-color-warning: var(--mockup-color-yellow);
+    --mockup-color-info: var(--mockup-color-blue);
+    --mockup-color-light: color-mix(in srgb, var(--mockup-color-white), var(--mockup-color-gray) 60%);
+    --mockup-color-dark: var(--mockup-color-black);
+    /* Mockup backgrounds, incremental transparencies and gradients */
+    --mockup-bg-1: color-mix(in srgb, var(--mockup-color-black) 80%, transparent 20%);
+    --mockup-bg-2: color-mix(in srgb, var(--mockup-bg-1) 80%, var(--mockup-color-primary) 10%);
+    --mockup-bg-3: color-mix(in srgb, var(--mockup-bg-2) 60%, var(--mockup-color-tertiary) 8%, transparent 32%);
+    --mockup-bg-grad-glass: linear-gradient(-23deg,
+        color-mix(in srgb, var(--mockup-bg-3) 80%, var(--mockup-bg-1) 60%),
+        color-mix(in srgb, var(--mockup-bg-2) 70%, var(--mockup-bg-1) 40%),
+        color-mix(in srgb, var(--mockup-bg-3) 60%, var(--mockup-bg-1) 70%));
+    --mockup-bg-primary: var(--mockup-bg-1);
+    --mockup-bg-secondary: var(--mockup-bg-2);
+    --mockup-bg-tertiary: var(--mockup-bg-3);
+    /* Smart accent gradients and transparencies from a base accent color */
+    --mockup-accent: var(--mockup-color-secondary);
+    --mockup-accent-lighter: color-mix(in srgb, var(--mockup-accent), #ffffff 8%);
+    --mockup-accent-lighter-2: color-mix(in srgb, var(--mockup-accent), #ffffff 20%);
+    --mockup-accent-darker: color-mix(in srgb, var(--mockup-accent), #000000 12%);
+    --mockup-accent-darker-2: color-mix(in srgb, var(--mockup-accent), #000000 28%);
+    --mockup-accent-bg: linear-gradient(-155deg, var(--mockup-accent-lighter-2), var(--mockup-accent-darker), var(--mockup-accent));
+    --mockup-accent-border: color-mix(in srgb, var(--mockup-accent), #ffffff 38%);
+    --mockup-accent-border-hover: color-mix(in srgb, var(--mockup-accent), #ffffff 68%);
+    /* Gaps, spacings and paddings inspired by toolskin spacing scale */
+    --mockup-gap-xs: var(--ts-sp-1, 4px);
+    --mockup-gap-sm: var(--ts-sp-2, 8px);
+    --mockup-gap-base: var(--ts-sp-3, 12px);
+    --mockup-gap-md: var(--ts-sp-4, 16px);
+    --mockup-gap-lg: var(--ts-sp-5, 20px);
+    --mockup-gap-xl: var(--ts-sp-6, 28px);
+    --mockup-gap-xxl: var(--ts-sp-8, 48px);
+    --mockup-padding-xs: var(--ts-sp-1, 4px);
+    --mockup-padding-sm: var(--ts-sp-2, 8px);
+    --mockup-padding-base: var(--ts-sp-3, 12px);
+    --mockup-padding-md: var(--ts-sp-4, 16px);
+    --mockup-padding-lg: var(--ts-sp-5, 20px);
+    --mockup-padding-xl: var(--ts-sp-6, 28px);
+    --mockup-margin-sm: var(--ts-sp-2, 8px);
+    --mockup-margin-md: var(--ts-sp-3, 12px);
+    --mockup-margin-lg: var(--ts-sp-5, 20px);
+    /* Default shadow, can be overridden if using Toolskin 2.1+ shadow tokens */
+    --mockup-shadow-1: 0 2px 16px 0 rgba(0, 0, 0, 0.16);
+    --mockup-shadow-2: 0 4px 32px -4px rgba(0, 0, 0, 0.24);
+    /* Usable surface accents for focus/active etc. */
+    --mockup-focus-ring: 0 0 0 2px var(--mockup-accent-lighter-2);
+    --mockup-outline: 0 0 0 3px color-mix(in srgb, var(--mockup-accent), #fff 40%, transparent 70%);
+    scrollbar-width: revert !important;
+    scrollbar-color: revert !important;
+    scrollbar-gutter: revert !important;
+    /* All values localized to mockup context only, NOT to override toolpanels! */
+}
+
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+font,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+menu,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+u,
+ul,
+var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+[class*="suno-"],
+[id*="suno-"],
+[class*="yss-"],
+[id*="yss-"],
+[class*="hf-"],
+[id*="hf-"],
+[class*="suno-"] {
+    box-sizing: border-box;
+    scrollbar-width: none !important;
+    scrollbar-color: unset !important;
+    scrollbar-gutter: unset !important;
+}
+
+/* START OF MOCKUPS SHARED HEADER GENERAL STYLES*/
+.container > header h1 > strong {
+    font-weight: 700;
+    color: var(--mockup-color-red);
+    margin-left: auto;
+    order: 0;
+}
+
+a {
+    text-decoration: none;
+    box-sizing: border-box !important;
+    font-weight: inherit;
+}
+
+#ts-header .suno-panel-header-right {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+    width: max-content;
+    justify-items: stretch;
+    flex: 0 1 auto !important;
+    position: relative;
+    margin-inline: 10px !important;
+}
+
+#main.container > #ts-header h1 .ts-btn.ts-btn-index,
+#main.container > #ts-header a[href="index.html"],
+#main.container > #ts-header button[id="switch-mode"],
+#hf-ui-root.container > #ts-header h1 .ts-btn.ts-btn-index,
+#hf-ui-root.container > #ts-header a[href="index.html"],
+.container > #ts-header button[id="switch-mode"] {
+    text-decoration: none;
+    box-sizing: border-box !important;
+    order: 1;
+    color: var(--mockup-text-primary);
+    flex: 0 1 !important;
+    min-width: fit-content !important;
+}
+
+.container:is(#main, #hf-ui-root, #ts-main, .ts-main) > header:is(#ts-header, #header, [id*="header"]) {
+
+    .hf-btn,
+    .ts-btn,
+    .yss-btn,
+    .suno-btn {
+        text-decoration: none;
+        margin-left: 0;
+        display: inline-flex;
+        flex-direction: row-reverse;
+        min-width: fit-content !important;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--ts-btn-radius, var(--mockup-radius-md));
+        background: var(--mockup-accent-bg);
+        outline-color: var(--mockup-accent-border);
+        border-color: var(--mockup-accent-border);
+        line-height: var(--ts-btn-lh, 1.2);
+        box-sizing: border-box !important;
+        font-weight: var(--ts-btn-fw, 600);
+        letter-spacing: var(--ts-letter-spacing-wide, 0.04em);
+        border: 1px solid var(--ts-this-bg-border-hover);
+        background: var(--ts-this-bg-grad-2);
+        --mockup-text-primary: var(--ts-on-accent);
+        --ts-this-bg: var(--ts-accent);
+        --ts-this-bg: var(--ts-accent);
+        --ts-this-bg-dark: color-mix(in srgb, var(--ts-this-bg), #000000 12%);
+        flex: 0 1 auto;
+    }
+}
+
+#main.container > #ts-header button[id="switch-mode"],
+.container > #ts-header button[id="switch-mode"] {
+    --ts-accent: var(--mockup-color-red);
+}
+
+#yss-icons-only-toggle-btn-clone {
+    flex: 0;
+}
+
+#ts-header .ts-btn.ts-btn-index,
+.container > header h1 .ts-btn.ts-btn-index {
+    --ts-accent: var(--yss-log-success);
+    order: -4 !important;
+    margin-left: calc(var(--mockup-padding-sm)*-1) !important;
+}
+
+/* ─── Theme Toggle Button (Always Visible) ───────────────────────────── */
+#ts-header .ts-theme-toggle,
+#ts-header .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--ts-btn-h);
+    max-width: var(--ts-btn-h);
+    max-height: var(--ts-btn-h);
+    height: var(--ts-btn-h);
+    /* margin-left: auto; */
+    margin-right: 0;
+    border: 1px solid var(--ts-this-bg-border) !important;
+    background: var(--ts-this-bg) !important;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0;
+    gap: 0;
+    font-size: calc(var(--ts-btn-h)*.4) !important;
+    --ts-btn-icon: calc(var(--ts-btn-h)*.4) !important;
+    color: var(--ts-navlink-color);
+    --ts-navlink-color: var(--ts-text-secondary);
+    --ts-this-bg: var(--ts-bg-2) !important;
+}
+
+#ts-header .theme-toggle:hover {
+    --ts-navlink-color: var(--ts-text-accent);
+}
+
+#ts-header .ts-theme-toggle:hover,
+#ts-header .theme-toggle:hover {
+    --ts-this-bg: var(--ts-accent) !important;
+    --ts-this-bg-border: var(--ts-this-bg-border-active) !important;
+    color: var(--ts-accent-bright-2) !important;
+    background: var(--ts-this-bg-dim-4) !important;
+    --ts-accent: var(--ts-orange);
+}
+
+#ts-header .ts-theme-toggle i.ts-theme-icon-light,
+#ts-header .ts-theme-toggle i.ts-theme-icon-dark,
+#ts-header .ts-theme-toggle i {
+    font-size: var(--ts-fs-base-val);
+    transition: transform 0.3s ease,
+        opacity 300ms ease;
+    position: absolute;
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+html:not([data-theme="light"]) .ts-theme-icon-dark {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    color: inherit;
+    transition: transform 0.3s ease,
+        opacity 300ms ease;
+}
+
+html:not([data-theme="light"]) .ts-theme-icon-light {
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+    color: inherit;
+    transition: transform 0.3s ease,
+        opacity 300ms ease;
+}
+
+/* Light mode icons */
+[data-theme="light"] .ts-theme-icon-dark {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0);
+    color: inherit;
+    transition: transform 0.3s ease,
+        opacity 300ms ease;
+}
+
+[data-theme="light"] #yss-panel h1 {
+    color: white;
+}
+
+[data-theme="light"] .ts-theme-icon-light {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    color: inherit;
+    transition: transform 0.3s ease,
+        opacity 300ms ease;
+}
+
+.container #ts-header h1 > strong,
+.container > header h1 > strong {
+    font-weight: 900 !important;
+    --ts-accent: var(--mockup-color-red);
+    margin-left: auto;
+    margin-right: var(--mockup-padding-sm);
+    order: 0;
+    font-size: var(--ts-fs-2xl);
+    background: var(--ts-accent-grad-comp);
+    text-transform: uppercase;
+    background-clip: text;
+    color: transparent;
+}
+
+.content > header,
+#ts-header {
+    background: var(--ts-this-bg);
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: calc(var(--mockup-radius-md)*1.5) !important;
+    overflow: hidden;
+    height: fit-content !important;
+    min-height: unset !important;
+    max-height: 70px !important;
+    transition: height 300ms,
+        min-height 300ms,
+        max-height 300ms,
+        background-color 300ms,
+        border-color 300ms;
+    border: 1px solid var(--ts-this-bg-border, var(--hf-header-border));
+    width: stretch;
+    position: fixed;
+    top: var(--mockup-padding-sm);
+    left: var(--mockup-padding-sm);
+    right: var(--mockup-padding-sm);
+    z-index: 99999;
+    padding: 0 !important;
+    width: auto;
+    --ts-this-bg: var(--ts-bg-1, #131415);
+    padding-right: var(--mockup-gap-sm) !important;
+    gap: var(--mockup-gap-sm);
+}
+
+.content > header > h1,
+#ts-header > h1 {
+    display: flex !important;
+    flex: 1 1 auto;
+    font-size: 1rem !important;
+    font-weight: 600;
+    pointer-events: all !important;
+    color: var(--mockup-text-primary);
+    background: transparent;
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 !important;
+    height: auto;
+    min-height: unset;
+    transition: height 300ms, min-height 300ms, max-height 300ms, background-color 300ms, border-color 300ms;
+    border: none;
+    /* width: 100vw; */
+    position: relative;
+    padding: 0px;
+    flex: 1;
+    flex-direction: row;
+    gap: var(--mockup-gap-sm);
+    padding: var(--mockup-gap-sm);
+    padding: 0;
+    padding: calc(var(--mockup-padding-sm)*1.15) calc(var(--mockup-padding-sm)*2.25);
+    border-right: 1px solid var(--ts-this-bg-border, var(--hf-header-border)) !important;
+}
+
+/* END OF HEADER GENERAL STYLES*/
+#yss-panel.yss-watch-mode:not(.collapsed, .yss-buttons-notext) {
+    max-width: 680px !important;
+    max-height: calc(100vh - 20px);
+    overflow-y: overlay;
+    overflow-x: hidden;
+    scrollbar-width: none !important;
+    height: auto;
+    width: 680px !important;
+    min-height: 150px;
+}
+
+#suno-panel:not(.collapsed, .suno-buttons-notext) {
+    max-height: round(calc(90vh - 10%)/2, 680px);
+    max-height: calc(100vh - 20px);
+    overflow-y: overlay;
+    overflow-x: hidden;
+    scrollbar-width: none !important;
+    height: auto;
+    min-height: 50px;
+    will-change: auto;
+    height: 100vh;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    translate: 0 0%;
+}
+
+#yss-panel.yss-watch-mode:not(.collapsed).yss-buttons-notext {
+    max-width: min-content !important;
+    max-height: calc(95vh - 20px);
+    width: 400px !important;
+    min-width: unset !important;
+}
+
+.yss-btn.yss-btn-clear:not(:disabled),
+.yss-btn.yss-btn-clear:not(:disabled):hover,
+.yss-button-with-dropdown:has(.yss-btn-clear):not(:disabled) {
+    --yss-accent-color: var(--yss-btn-stop-bg) !important;
+}
+
+.yth-row-selectable {
+    position: relative !important;
+}
+
+.yth-checkbox {
+    position: absolute !important;
+    left: 8px !important;
+    top: 8px !important;
+    z-index: 9999 !important;
+    width: 18px !important;
+    height: 18px !important;
+    cursor: pointer !important;
+}
+
+.yth-selected {
+    outline: 2px solid var(--yt-ui-btn-start-bg, #007bff) !important;
+    outline-offset: -2px !important;
+}
+
+.yss-topbar-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    max-width: calc(100% - 300px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.yss-topbar .yss-topbar-left,
+.yss-topbar .yss-topbar-right_2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: stretch;
+    flex: 1 1 46%;
+    gap: 0.2rem;
+    background: var(--yss-panel-bg-5);
+    border: 1px solid var(--yss-panel-border);
+    border-radius: var(--yss-border-radius);
+}
+
+.yss-topbar-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+    min-width: fit-content;
+    max-width: unset;
+    /* flex: revert!important; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: stretch;
+    flex: 0 1;
+    gap: 0.2rem;
+    background: var(--yss-panel-bg-5);
+    border: 1px solid var(--yss-panel-border);
+    border-radius: var(--yss-border-radius);
+    padding: 1.5%;
+    box-sizing: border-box;
+}
+
+.yss-videolist-container td.yss-status-cell > span i:only-child {
+    margin: 0;
+    font-size: 150% !important;
+    line-height: 1 !important;
+    flex: 1;
+}
+
+#yss-panel.yss-panel.flat-theme .yss-controls .yss-select,
+#yss-panel.yss-panel.flat-theme:not(.yss-buttons-notext) #yss-visibility-filter-select,
+#yss-panel.yss-panel.flat-theme .select-wrapper:has(#yss-visibility-filter-select)::after {
+    --yss-accent-color-lighter: color-mix(in srgb, var(--yss-accent-color), #ffffff 4%);
+    --yss-accent-color-darker: color-mix(in srgb, var(--yss-accent-color), #000000 4%);
+    --yss-accent-color-darker-2: color-mix(in srgb, var(--yss-accent-color), #000000 12%);
+    --yss-accent-color-bg: linear-gradient(126deg, var(--yss-accent-color-lighter), var(--yss-accent-color), var(--yss-accent-color-lighter));
+    --yss-accent-color: var(--yss-bg-secondary) !important;
+    background-color: var(--yss-accent-color);
+    background-image: var(--yss-accent-color-bg);
+}
+
+#yss-panel.flat-theme.yss-buttons-notext {
+    .button_group:has(.yss-button-with-dropdown + .yss-btn) .yss-button-with-dropdown:has(+ .yss-btn) > .yss-btn {
+        flex: 1 !important;
+        width: fit-content;
+        max-width: calc(var(--yss-btn-height) * 4) !important;
+        min-width: -webkit-fill-available;
+        aspect-ratio: 2 !important;
+        padding-right: 3px;
+        width: calc(var(--yss-btn-height) * 2) !important;
+        width: 100% !important;
+        aspect-ratio: 2;
+        flex: 1 1 100% !important;
+        min-width: fit-content !important;
+    }
+
+    .button_group:has(.yss-button-with-dropdown + .yss-btn) .yss-button-with-dropdown {
+        flex: 1 !important;
+        width: auto;
+        /* aspect-ratio: unset!important; */
+    }
+}
+
+#yss-panel.yss-panel.flat-theme,
+body:has(#yss-panel.flat-theme) {
+    .yss-controls-dock-row {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        flex: 1 1 auto;
+        padding: 0;
+        background: var(--yss-panel-shadow);
+        height: unset;
+        max-height: 100vh !important;
+        border: none;
+        transition: max-height 300ms;
+        overflow: clip;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: -webkit-fill-available;
+    }
+}
+
+.yss-header:has(.yss-header-wrapper) nav.yss-dropdown-menu.yss-header-nav .yss-btn i {
+    font-size: 1rem !important;
+    width: 20px;
+    padding-right: 8px;
+    padding-left: 8px;
+    flex: 0 1 20px !important;
+    height: -webkit-fill-available;
+    border-right: 1px solid var(--yss-panel-border);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    order: -1;
+}
+
+.yss-header .yss-btn-icon.yss-hamburger i {
+    font-size: 1.2rem !important;
+}
+
+html,
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100vh !important;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    margin: 0;
+    gap: 20px;
+    max-height: 100vh;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 90px;
+}
+
+.container div#yss-panel {
+    position: static !important;
+    inset: auto auto auto 50% !important;
+    margin: 0 auto 0px auto !important;
+    will-change: auto !important;
+    max-height: 1200px !important;
+    /* inset: 50% auto auto 50%; */
+    transform: translateY(-10%) !important;
+    transform: translateX(-50%) !important;
+    height: round(calc(90vh - 360px)*1.5, 80vh) !important;
+    position: fixed !important;
+}
+
+.container > header {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    width: 100dvw;
+    pointer-events: all !important;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    border: none;
+    z-index: 99999;
+    max-height: 75px !important;
+    min-height: fit-content !important;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+div#yss-log-area {
+    max-height: unset;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+div#yss-log-area .yss-log-entry {
+    flex: 1 1 auto;
+    border-top: 1px solid #ffffff0f !important;
+    border-bottom: none;
+}
+
+/*.yss-modal-content.yss-batch .yss-form-block input[type="range"]#yt-batch-download-delay-slider {
+    margin: 0 0!important; 
+    padding: 0!important;
+    cursor: pointer;
+    height: auto;
+    appearance: none;
+    border-radius: 20px;
+    flex: 1 1 100%!important;
+    box-sizing: content-box;
+    color-scheme: dark;
+    width: 100%;
+    font-size: 35px;
+    width: 100%;
+    height: 20px;
+    cursor: pointer!important;
+      background-color: var(--yss-log-bg)!important;
+    border: 1px solid var(--yss-panel-border);
+    accent-color: var(--yss-accent-color);
+    --yss-accent-color: var(--yss-btn-start-bg);
+}*/
+#yss-panel.yss-panel.flat-theme,
+body:has(#yss-panel.flat-theme) {
+    .yss-modal-content.yss-batch.docked .yss-modal-actions {
+        margin: 0 0 0 0 !important;
+        border-style: solid;
+        border-width: 1px;
+        border-bottom-width: 0;
+        border-top-width: 0 !important;
+        border-inline-width: 0 !important;
+        border-color: var(--yss-panel-border-2);
+    }
+
+    #yss-transcript-dock .yss-batch.docked {
+        --yss-accent-color: var(--yss-btn-start-bg);
+    }
+
+    #yss-summarizer-dock .yss-batch.docked {
+        --yss-accent-color: var(--yss-btn-green-bg);
+    }
+}
+
+/* --- jQuery UI Datepicker Theme ---------------------------------------- */
+#ui-datepicker-div {
+    display: none;
+    background: var(--yss-bg-primary);
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+    margin-left: -1px;
+    border-radius: var(--yss-border-radius);
+    padding: 1.5rem;
+    z-index: 100001 !important;
+    font-family: inherit;
+    font-family: var(--yss-font-family);
+    border: 1px solid var(--yss-border-default);
+    font-size: 1rem;
+    accent-color: var(--yss-accent-color);
+}
+
+#ui-datepicker-div table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#ui-datepicker-div table.ui-tpicker-grid-label,
+#ui-datepicker-div .ui-timepicker-div table {
+    width: 110% !important;
+    margin-left: -5% !important;
+    margin-right: -5% !important;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 9px;
+    margin-top: 5px;
+    font-weight: 300;
+    color: var(--yss-text-secondary);
+}
+
+.ui-datepicker-calendar thead th {
+    padding: 0.5rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--yss-text-secondary);
+}
+
+.ui-datepicker-calendar tbody td {
+    width: 2.5rem;
+    text-align: center;
+    padding: 0;
+}
+
+.ui-datepicker-calendar tbody td a {
+    display: block;
+    border-radius: var(--yss-border-radius);
+    /* border-radius: 5px; */
+    border: 1px solid var(--yss-border-default);
+    line-height: 2rem;
+    transition: 0.3s all;
+    color: var(--yss-text-secondary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    outline-offset: -1px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 1px;
+    margin-inline-end: 1px;
+    width: var(--yss-btn-icon-minsize-2);
+    background: var(--yss-bg-secondary);
+}
+
+.ui-datepicker-calendar tbody td a:hover {
+    background: var(--yss-bg-primary);
+}
+
+#ui-datepicker-div select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    cursor: pointer;
+    background-color: #191a1c !important;
+    outline: 1px solid var(--yss-panel-border);
+    border: 0px solid var(--yss-panel-border);
+    color: var(--yss-panel-color);
+    height: var(--yss-btn-height);
+    background-image: var(--yss-svg-chevron-down) !important;
+    background-position: right 10px center !important;
+    background-size: var(--yss-btn-icon-size) !important;
+    background-repeat: no-repeat !important;
+    width: auto;
+    padding: 0 var(--yss-btn-icon-size) 0 var(--yss-btn-icon-size);
+    padding-right: var(--yss-form-input-pad-btn);
+    border-radius: var(--yss-border-radius);
+    font-size: var(--yss-font-size-xs);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    hyphens: auto;
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+    --yss-btn-icon-size: 12px;
+    --yss-btn-height: 30px;
+    --yss-form-input-pad-btn: 30px;
+    scrollbar-width: unset !important;
+    color-scheme: dark;
+    /*scrollbar-color: var(--yss-bg-secondary) transparent!important;*/
+    flex: 1;
+}
+
+#ui-datepicker-div select option {
+    scrollbar-width: unset !important;
+    color-scheme: dark;
+    /*scrollbar-color: var(--yss-bg-secondary) transparent!important;*/
+}
+
+body:has(.yss-panel.flat-theme) #ui-datepicker-div tbody td a {
+    margin-block-end: -1px !important;
+    margin-inline-end: -1px !important;
+}
+
+.ui-datepicker-calendar tbody td a.ui-state-active {
+    background: var(--yss-accent-color-bg);
+    color: var(--yss-text-primary);
+    outline: 1px solid var(--yss-accent-color);
+}
+
+.ui-datepicker-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3px;
+}
+
+.ui-datepicker-header a.ui-corner-all {
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    /* margin: 0.5rem; */
+    border-radius: var(--yss-border-radius, 0.25rem);
+    transition: 0.3s all;
+    background: transparent;
+    border: 1px solid var(--yss-border-default);
+    box-sizing: border-box;
+}
+
+/* CSS-only chevron arrows â€” theme-adaptive, no base64 SVGs */
+.ui-datepicker-header a.ui-corner-all::after {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid var(--yss-text-secondary, #9ca3af);
+    border-bottom: 2px solid var(--yss-text-secondary, #9ca3af);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: border-color 0.3s;
+}
+
+.ui-datepicker-header a.ui-corner-all:hover {
+    background: var(--yss-bg-secondary);
+    border-color: var(--yss-accent-color, #3b82f6);
+}
+
+.ui-datepicker-header a.ui-corner-all:hover::after {
+    border-color: var(--yss-text-primary, #e4e4e7);
+}
+
+.ui-datepicker-header a.ui-datepicker-prev {
+    left: 0;
+    order: -1;
+}
+
+.ui-datepicker-header a.ui-datepicker-prev::after {
+    transform: translate(-30%, -50%) rotate(135deg);
+}
+
+.ui-datepicker-header a.ui-datepicker-next {
+    right: 0;
+    order: 1;
+}
+
+.ui-datepicker-header a.ui-datepicker-next::after {
+    transform: translate(-70%, -50%) rotate(-45deg);
+}
+
+.ui-datepicker-header a > span {
+    display: none;
+}
+
+.ui-datepicker-title {
+    text-align: center;
+    line-height: 2rem;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding-bottom: 0;
+    color: var(--yss-text-primary);
+    display: flex;
+    /* padding-inline: 35px; */
+    flex: 1;
+    gap: 6px;
+}
+
+.ui-datepicker-week-col {
+    color: var(--yss-text-secondary);
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+/* Month-picker: hide day grid when in month-only mode */
+.ui-datepicker-calendar.ui-monthpicker-hide {
+    display: none;
+}
+
+/* --- Suppress native HTML5 picker dropdowns when jQuery UI handles them --- */
+/* Targets any .yss-form-group whose child is a .yss-datepicker or .yss-monthpicker */
+.yss-form-group:has(> .yss-datepicker),
+.yss-form-group:has(> .yss-monthpicker) {
+    input {
+        cursor: pointer;
+    }
+}
+
+/* Disable native picker indicator click; the jQuery UI widget opens instead.
+   Using a flat selector list so it applies to all date/time input types.     */
+input.yss-datepicker::-webkit-calendar-picker-indicator,
+input.yss-monthpicker::-webkit-calendar-picker-indicator,
+input[type="datetime-local"].yss-datepicker::-webkit-calendar-picker-indicator,
+input[type="month"].yss-monthpicker::-webkit-calendar-picker-indicator,
+input[type="week"].yss-datepicker::-webkit-calendar-picker-indicator,
+input[type="date"].yss-datepicker::-webkit-calendar-picker-indicator,
+input[type="time"].yss-datepicker::-webkit-calendar-picker-indicator {
+    pointer-events: none !important;
+    opacity: 0.4;
+}
+
+/* --- Timepicker Addon Theme ------------------------------------------- */
+/* Override the addon's default styles to match our dark theme */
+#ui-datepicker-div .ui-timepicker-div {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--yss-border-default);
+    margin-top: 0.5rem;
+    flex: 1;
+}
+
+#ui-datepicker-div .ui-timepicker-div dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 15px 18px;
+    align-items: center;
+    font-size: 0.78rem;
+    justify-items: stretch;
+    justify-content: stretch;
+    align-content: stretch;
+    grid-auto-flow: row dense;
+}
+
+#ui-datepicker-div .ui-timepicker-div dl dt {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--yss-text-secondary);
+    text-align: right;
+    white-space: nowrap;
+}
+
+#ui-datepicker-div .ui-timepicker-div dl dd {
+    margin: 0;
+}
+
+/* Slider track */
+#ui-datepicker-div .ui-timepicker-div .ui-slider {
+    position: relative;
+    height: 6px;
+    background: var(--yss-bg-secondary);
+    border: 1px solid var(--yss-border-default);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Slider handle */
+#ui-datepicker-div .ui-timepicker-div .ui-slider .ui-slider-handle {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+    background: var(--yss-accent-color, #3b82f6);
+    border: 2px solid var(--yss-bg-primary);
+    border-radius: 50%;
+    cursor: grab;
+    outline: none;
+    transition: box-shadow 0.2s;
+    z-index: 2;
+}
+
+#ui-datepicker-div .ui-timepicker-div .ui-slider .ui-slider-handle:hover,
+#ui-datepicker-div .ui-timepicker-div .ui-slider .ui-slider-handle:focus {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--yss-accent-color, #3b82f6) 30%, transparent);
+}
+
+/* Time display text (the HH:MM labels inside the sliders area) */
+#ui-datepicker-div .ui_tpicker_time_label,
+#ui-datepicker-div .ui_tpicker_time {
+    font-size: 0.8rem;
+    color: var(--yss-text-secondary);
+}
+
+#ui-datepicker-div .ui_tpicker_time input {
+    background: var(--yss-bg-secondary);
+    border: 1px solid var(--yss-border-default);
+    border-radius: var(--yss-border-radius);
+    color: var(--yss-text-primary);
+    padding: 6px 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    width: fit-content;
+    min-width: unset;
+    max-width: fit-content;
+    appearance: none;
+}
+
+/* Hour / Minute grid (when hourGrid / minuteGrid is set) */
+#ui-datepicker-div .ui-timepicker-div .ui-timepicker-table td {
+    padding: 2px;
+}
+
+#ui-datepicker-div .ui-timepicker-div .ui-timepicker-table td a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--yss-border-default);
+    border-radius: var(--yss-border-radius);
+    color: var(--yss-text-secondary);
+    background: var(--yss-bg-secondary);
+    text-decoration: none;
+    transition: 0.2s all;
+    cursor: pointer;
+}
+
+#ui-datepicker-div .ui-timepicker-div .ui-timepicker-table td a:hover {
+    background: var(--yss-bg-primary);
+    color: var(--yss-text-primary);
+}
+
+#ui-datepicker-div .ui-timepicker-div .ui-timepicker-table td a.ui-state-active {
+    background: var(--yss-accent-color-bg);
+    color: var(--yss-text-primary);
+    outline: 1px solid var(--yss-accent-color);
+}
+
+/* Button panel ("Now", "Done") */
+#ui-datepicker-div .ui-datepicker-buttonpane {
+    display: flex;
+    gap: 8px;
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--yss-border-default);
+}
+
+#ui-datepicker-div .ui-datepicker-buttonpane button {
+    flex: 1;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: var(--mockup-font-base);
+    font-family: inherit;
+    border: 1px solid var(--yss-border-default);
+    border-radius: var(--yss-border-radius);
+    background: var(--yss-bg-secondary);
+    color: var(--yss-text-secondary);
+    transition: 0.2s all;
+}
+
+#ui-datepicker-div .ui-datepicker-buttonpane button:hover {
+    background: var(--yss-accent-color-bg, var(--yss-bg-primary));
+    color: var(--yss-text-primary);
+    border-color: var(--yss-accent-color, #3b82f6);
+}
+
+#ui-datepicker-div .ui-datepicker-buttonpane button.ui-datepicker-current {
+    background: var(--yss-accent-color, #3b82f6);
+    color: #fff;
+    border-color: var(--yss-accent-color, #3b82f6);
+}
+
+#ui-datepicker-div .ui-datepicker-buttonpane button.ui-datepicker-current:hover {
+    filter: brightness(1.15);
+}
+
+/* ═════════ Two-Column Datepicker Layout ═════════════════════════════════════════════════════════════════════════════════════════════════════════ */
+/* Wraps the calendar (left) and simple time picker (right) side-by-side */
+.yss-dp-two-col {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.yss-dp-cal-col {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.yss-dp-time-col {
+    display: flex;
+    flex-direction: column;
+    min-width: 110px;
+    border-left: 1px solid var(--yss-border-default);
+    padding-left: 12px;
+}
+
+/* -- Advanced / Simple toggle row -- */
+.yss-dp-adv-row {
+    padding-top: 8px;
+    margin-top: 4px;
+    border-top: 1px solid var(--yss-border-default);
+    text-align: center;
+}
+
+.yss-dp-adv-toggle {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--yss-border-default);
+    border-radius: var(--yss-border-radius);
+    color: var(--yss-text-secondary);
+    font-size: 0.7rem;
+    padding: 3px 12px;
+    transition: 0.2s all;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.yss-dp-adv-toggle:hover {
+    background: var(--yss-bg-secondary);
+    color: var(--yss-text-primary);
+    border-color: var(--yss-accent-color, #3b82f6);
+}
+
+.yss-dp-adv-toggle i {
+    font-size: 0.65rem;
+}
+
+/* Hidden / visible states for the addon's timepicker div */
+.yss-dp-adv-hidden {
+    display: none !important;
+}
+
+.yss-dp-adv-visible {
+    display: block !important;
+}
+
+/* ═════════ Simple Scrollable Time Picker (.yss-stp) ═════════════════════════════════════════════════════════════════════ */
+.yss-stp {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 100%;
+}
+
+/* -- Current-time display -- */
+.yss-stp-display {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--yss-text-primary);
+    padding: 6px 0;
+    background: var(--yss-bg-secondary);
+    border-radius: var(--yss-border-radius);
+    border: 1px solid var(--yss-border-default);
+    letter-spacing: 0.05em;
+}
+
+.yss-stp-sep {
+    color: var(--yss-accent-color, #3b82f6);
+    animation: yss-stp-blink 1s step-end infinite;
+}
+
+@keyframes yss-stp-blink {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* -- Columns wrapper -- */
+.yss-stp-cols {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+    min-height: 0;
+    /* allow flex children to shrink / scroll */
+}
+
+.yss-stp-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+/* -- Column label -- */
+.yss-stp-lbl {
+    text-align: center;
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: var(--yss-text-secondary);
+    padding-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* -- Scrollable list -- */
+.yss-stp-list {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /*scrollbar-width: thin;
+    scrollbar-color: var(--yss-bg-tertiary, #333) transparent;*/
+    border: 1px solid var(--yss-border-default);
+    border-radius: var(--yss-border-radius);
+    background: var(--yss-bg-secondary);
+}
+
+/* -- Individual time item -- */
+.yss-stp-item {
+    padding: 3px 6px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--yss-text-secondary);
+    transition: background 0.15s, color 0.15s;
+    user-select: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--yss-border-default) 40%, transparent);
+}
+
+.yss-stp-item:last-child {
+    border-bottom: none;
+}
+
+.yss-stp-item:hover {
+    background: var(--yss-bg-primary);
+    color: var(--yss-text-primary);
+}
+
+.yss-stp-item.yss-stp-active {
+    background: var(--yss-accent-color-bg, rgba(59, 130, 246, 0.15));
+    color: var(--yss-text-primary);
+    outline: 1px solid var(--yss-accent-color, #3b82f6);
+    outline-offset: -1px;
+    font-weight: 600;
+}
+
+/* -- Time-only pickers: wider columns when no calendar is shown -- */
+#ui-datepicker-div:has(.yss-dp-cal-col[style*="display: none"]) .yss-dp-time-col {
+    border-left: none;
+    padding-left: 0;
+}
+
+#ui-datepicker-div:has(.yss-dp-cal-col[style*="display: none"]) .yss-stp-list {
+    max-height: 220px;
+}
+
+.yss-number-input-controls {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    min-width: var(--yss-form-input-padding-btn);
+    outline: 1px solid var(--yss-form-input-border);
+    /* background: rgba(0, 0, 0, 0.2); */
+    border-radius: 0 calc(var(--yss-border-radius) - 1px) calc(var(--yss-border-radius) - 1px) 0;
+    overflow: hidden;
+    outline-offset: 0px;
+    box-sizing: content-box;
+    height: -webkit-fill-available;
+}
+
+#ui-datepicker-div select {
+    --yss-sb-thumb: var(--yss-bg-tertiary, #333333);
+    --yss-sb-thumb-hover: var(--yss-accent-color);
+    --yss-sb-border: #2f2f2f;
+    --yss-sb-border-hover: color-mix(in srgb, var(--yss-accent-color), var(--yss-sb-border) 75%);
+    --yss-sb-track: color-mix(in srgb, var(--yss-bg-secondary), transparent 85%);
+    --yss-accent-color: var(--yss-btn-start-bg);
+}
+
+#ui-datepicker-div table.ui-tpicker-grid-label,
+#ui-datepicker-div .ui-timepicker-div table {
+    width: 110% !important;
+    margin-left: -5% !important;
+    margin-right: -5% !important;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 9px;
+    margin-top: 5px;
+    font-weight: 300;
+    color: var(--yss-text-secondary);
+}
+
+#ui-datepicker-div select *,
+#ui-datepicker-div select,
+#ui-datepicker-div select::picker,
+[popover],
+select slot#select-popover-options,
+select:-internal-list-box {
+    scrollbar-width: unset !important;
+    color-scheme: dark;
+    scrollbar-color: unset !important;
+    font-size: 10px;
+    border-color: #80808040 !important;
+    outline-color: #80808040 !important;
+    position: relative;
+    cursor: pointer !important;
+}
+
+#ui-datepicker-div select:focus,
+#ui-datepicker-div select:focus-within,
+#ui-datepicker-div select:focus-visible,
+#ui-datepicker-div select:active {
+    scrollbar-width: unset !important;
+    color-scheme: dark;
+    scrollbar-color: unset !important;
+    outline: 1px solid var(--yss-accent-color) !important;
+    background-color: var(--yss-bg-secondary) !important;
+    z-index: 999;
+}
+
+/* Width */
+select::-webkit-scrollbar {
+    width: calc(var(--yss-sb-size)/2);
+    height: calc(var(--yss-sb-size)/2);
+}
+
+/* Track */
+select::-webkit-scrollbar-track {
+    background: #24242466 !important;
+    background: var(--yss-sb-track) !important;
+    cursor: pointer !important;
+    border-left: 1px solid var(--yss-sb-border);
+}
+
+/* Handle */
+select::-webkit-scrollbar-thumb {
+    background: var(--yss-sb-thumb) !important;
+    cursor: pointer !important;
+    border-radius: calc(var(--yss-border-radius)*4);
+}
+
+/* Handle on hover */
+select::-webkit-scrollbar-thumb:hover {
+    background: var(--yss-sb-thumb-hover) !important;
+    cursor: pointer !important;
+}
+
+#suno-panel.layout_two .suno-bulk-content .suno-button-row:not(.title) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1 1 100%;
+    width: -webkit-fill-available;
+    align-items: center;
+    max-height: fit-content;
+    /* padding: 0!important; */
+}
+
+.suno-log-entry {
+    user-select: text;
+    white-space: nowrap;
+    max-inline-size: 480px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.suno-log-entry::before {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    align-self: center;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.yss-stp-col {
+    min-width: 80px;
+    --yss-sb-size: 4px;
+    gap: 5px;
+    padding-top: 5px;
+}
+
+.yss-dp-adv-toggle {
+    cursor: pointer;
+    background: var(--yss-bg-secondary);
+    border: 1px solid var(--yss-border-default);
+    border-radius: var(--yss-border-radius);
+    color: var(--yss-text-secondary);
+    font-size: 0.88rem;
+    padding: 8px 12px;
+    transition: 0.2s all;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: -webkit-fill-available;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+#ui-datepicker-div .ui-datepicker-buttonpane button {
+    flex: 1;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    border: 1px solid var(--yss-border-default);
+    border-radius: var(--yss-border-radius);
+    background: var(--yss-bg-secondary);
+    color: var(--yss-text-secondary);
+    transition: 0.2s all;
+}
+
+#ui-datepicker-div .ui-datepicker-buttonpane button.ui-datepicker-current {
+    background: var(--yss-accent-color, #3b82f6);
+    color: #fff;
+    border-color: var(--yss-accent-color-border, #3b82f6);
+}
+
+.yss-stp-item {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--yss-text-secondary);
+    transition: background 0.15s, color 0.15s;
+    user-select: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--yss-border-default) 40%, transparent);
+}
+
+.yss-stp-display {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: var(--yss-text-primary);
+    padding: 10px;
+    background: var(--yss-bg-secondary);
+    border-radius: var(--yss-border-radius);
+    border: 1px solid var(--yss-border-default);
+    letter-spacing: 0.05em;
+}
+
+#ui-datepicker-div .ui-timepicker-div dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+    gap: 18px 12px;
+    align-items: center;
+    font-size: 0.78rem;
+    justify-items: stretch;
+    justify-content: stretch;
+    align-content: stretch;
+    grid-auto-flow: row dense;
+}
+
+div#ui-datepicker-div:has(.ui-timepicker-div.yss-dp-adv-visible) > .yss-dp-two-col {
+    display: none;
+}
+
+#ui-datepicker-div {
+    display: none;
+    background: var(--yss-header-border-transp);
+    box-shadow: 0em 1em 2rem 2px rgba(0, 0, 0, 0.45);
+    margin-top: 0;
+    margin-left: -1px;
+    border-radius: var(--yss-border-radius);
+    padding: 1.15rem;
+    z-index: 100001 !important;
+    font-family: inherit;
+    font-family: var(--yss-font-family);
+    border: 1px solid var(--yss-border-default);
+    font-size: 1rem;
+    accent-color: var(--mockup-accent-color);
+    backdrop-filter: brightness(0.8) saturate(2) contrast(1.19) blur(32px);
+}
+
+.ui-datepicker-calendar tbody td a {
+    display: block;
+    border-radius: calc(var(--yss-border-radius)/1.2);
+    /* border-radius: 5px; */
+    border: 1px solid color-mix(in srgb, var(--yss-panel-border) 80%, black);
+    /* border: none; */
+    line-height: 2rem;
+    transition: 0.3s all;
+    color: var(--yss-text-secondary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    outline-offset: -1px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 1px;
+    margin-inline-end: 1px;
+    width: var(--yss-btn-icon-minsize-2);
+    background: color-mix(in srgb, var(--yss-bg-primary) 30%, transparent);
+    --yss-accent-bg-grad: linear-gradient(to top left, color-mix(in srgb, var(--yss-accent-color), #FFFFFF 16%), color-mix(in srgb, var(--yss-accent-color), #000000 16%), var(--yss-accent-color));
+    --yss-accent-color-border: color-mix(in srgb, var(--yss-accent-color), #ffffff 34%);
+    outline-offset: -2px;
+}
+
+.ts-range-row {
+    display: flex;
+    align-items: center;
+    gap: var(--ts-sp-3);
+    flex-wrap: wrap;
+}
+
+.ts-range {
+    flex: 1;
+    appearance: none;
+    -webkit-appearance: none;
+    height: 6px;
+    background: var(--ts-border-1);
+    border-radius: var(--ts-radius-full);
+    cursor: pointer;
+    accent-color: var(--ts-accent);
+    min-width: 80px;
+}
+
+.ts-range::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--ts-accent);
+    cursor: pointer;
+    box-shadow: 0 0 0 3px var(--ts-accent-dim);
+    transition: box-shadow var(--ts-dur-fast);
+}
+
+.ts-range::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 5px var(--ts-accent-dim);
+}
+
+.ts-range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 50%;
+    background: var(--ts-accent);
+    cursor: pointer;
+}
+
+/* ══════ §6f.1  ADVANCED RANGE SLIDER (with gradient fill) ════════════════════════════ */
+/* CSS Property for value tracking */
+@property --ts-range-val {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0;
+}
+
+input[type="range"].ts-range {
+    /* Reset default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--ts-slider-bg) !important;
+    cursor: pointer;
+    /* Layout */
+    flex: 1 1 100%;
+    min-width: 80px;
+    box-sizing: border-box;
+    /* Sizing variables */
+    --ts-slider-height: 12px;
+    --ts-slider-thumb-size: calc(var(--ts-slider-height) * 1.5);
+    --ts-slider-radius: calc(var(--ts-slider-height) / 2);
+    --ts-slider-thumb-offset: calc((var(--ts-slider-height) - var(--ts-slider-thumb-size)) / 2);
+    /* Colors */
+    --ts-slider-accent: var(--ts-accent);
+    --ts-slider-accent-darker: color-mix(in srgb, var(--ts-slider-accent), #000000 25%);
+    --ts-slider-bg: var(--ts-border-0);
+    --ts-slider-border: var(--ts-input-border);
+    --ts-slider-grad: linear-gradient(-135deg, var(--ts-slider-accent-darker), var(--ts-slider-accent));
+    --ts-accent: var(--yss-accent);
+    /* Value tracking for gradient fill */
+    --ts-range-val: 50;
+    --ts-range-min: 0;
+    --ts-range-max: 100;
+    --ts-range-percent: calc((var(--ts-range-val) - var(--ts-range-min)) / (var(--ts-range-max) - var(--ts-range-min)) * 100%);
+    height: var(--ts-slider-height);
+    border: 1px solid var(--ts-slider-border);
+    border-radius: var(--ts-slider-radius);
+}
+
+.fa-solid,
+.fas {
+    line-height: normal;
+}
+
+/* Remove default focus outline */
+input[type="range"].ts-range:focus {
+    outline: none;
+}
+
+/* Webkit (Chrome, Safari, Edge) track styling */
+input[type="range"].ts-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--ts-slider-height);
+    /* border-radius: var(--ts-slider-radius); */
+    background:
+        linear-gradient(to right, var(--ts-slider-accent), var(--ts-slider-accent-darker)) 0 0 / var(--ts-range-percent) 100% no-repeat,
+        var(--ts-slider-bg);
+    border: 0;
+}
+
+/* Firefox track styling */
+input[type="range"].ts-range::-moz-range-track {
+    width: 100%;
+    height: var(--ts-slider-height);
+    border-radius: var(--ts-slider-radius);
+    border: 0;
+}
+
+input[type="range"].ts-range::-moz-range-progress {
+    height: var(--ts-slider-height);
+    border-radius: var(--ts-slider-radius) 0 0 var(--ts-slider-radius);
+    background: linear-gradient(to right, var(--ts-slider-accent), var(--ts-slider-accent-darker));
+}
+
+/* Webkit thumb styling */
+input[type="range"].ts-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--ts-slider-thumb-size);
+    height: var(--ts-slider-thumb-size);
+    margin-top: var(--ts-slider-thumb-offset);
+    border-radius: 100px;
+    background: var(--ts-slider-grad) !important;
+    outline: 1px solid var(--ts-this-bg-hover) !important;
+    outline: none;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: all var(--ts-dur-fast) var(--ts-ease-out);
+}
+
+input[type="range"].ts-range::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 0 4px color-mix(in srgb, var(--ts-slider-accent), transparent 80%);
+}
+
+input[type="range"].ts-range:focus::-webkit-slider-thumb {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 0 4px color-mix(in srgb, var(--ts-slider-accent), transparent 70%);
+}
+
+/* Firefox thumb styling */
+input[type="range"].ts-range::-moz-range-thumb {
+    width: var(--ts-slider-thumb-size);
+    height: var(--ts-slider-thumb-size);
+    border-radius: 100px;
+    background: var(--ts-slider-grad);
+    border: 0px solid var(--ts-bg-0);
+    cursor: pointer;
+    transition: all var(--ts-dur-fast) var(--ts-ease-out);
+}
+
+input[type="range"].ts-range::-moz-range-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 0 4px color-mix(in srgb, var(--ts-slider-accent), transparent 80%);
+}
+
+input[type="range"].ts-range:focus::-moz-range-thumb {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 0 4px color-mix(in srgb, var(--ts-slider-accent), transparent 70%);
+}
+
+/* Range value display */
+.ts-range-val {
+    font-size: var(--ts-fs-sm);
+    font-weight: 700;
+    color: var(--ts-accent);
+    min-width: 32px;
+    text-align: right;
+    flex-shrink: 0;
+    font-family: var(--ts-font-mono);
+}
+
+/* Size variants */
+input[type="range"].ts-range--sm {
+    --ts-slider-height: 8px;
+}
+
+input[type="range"].ts-range--lg {
+    --ts-slider-height: 16px;
+}
+
+.yss-modal-content.yss-batch .yss-form-block input[type="range"].ts-range {
+    /*-webkit-appearance: none!important;
+    appearance: none!important;
+    background: transparent!important;
+    cursor: pointer!important;
+    flex: 1 1 !important;
+    min-width: 80px!important;
+    box-sizing: border-box!important;
+    --ts-slider-height: 18px!important;
+    --ts-slider-thumb-size: calc(var(--ts-slider-height) * 1.1);
+    --ts-slider-radius: calc(var(--ts-slider-height) * 2);
+    --ts-slider-thumb-offset: calc((var(--ts-slider-height) - var(--ts-slider-thumb-size)*1)/ 2 - 1px);
+    --ts-slider-accent: var(--ts-accent);
+    --ts-slider-accent-darker: color-mix(in srgb, var(--ts-slider-accent), #000000 5%);*/
+    --ts-slider-accent-darker: color-mix(in srgb, var(--ts-slider-accent), #000000 25%);
+    --ts-slider-bg: var(--ts-border-0);
+    --ts-slider-border: var(--ts-slider-accent-darker);
+    --ts-slider-grad: linear-gradient(-135deg, var(--ts-slider-accent-darker), var(--ts-slider-accent));
+    --ts-range-val: 50;
+    --ts-range-min: 0;
+    --ts-range-max: 100;
+    --ts-range-percent: calc((var(--ts-range-val) - var(--ts-range-min)) / (var(--ts-range-max) - var(--ts-range-min)) * 100%);
+    height: var(--ts-slider-height);
+    border: 1px solid var(--ts-slider-border);
+    border-radius: var(--ts-slider-radius);
+    outline: 0px solid var(--ts-slider-border);
+    outline-offset: -1px;
+    --ts-slider-accent: var(--ts-accent);
+    --ts-accent: var(--yss-accent);
+}
+
+.yss-modal-content.yss-batch .yss-form-block input[type="range"].ts-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--ts-slider-height);
+    border-radius: var(--ts-slider-radius);
+    border: 0px solid var(--ts-slider-border);
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--yss-log-bg);
+}
+
+.yss-modal-content.yss-batch .yss-form-block input[type="range"].ts-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--ts-slider-thumb-size) !important;
+    height: var(--ts-slider-thumb-size) !important;
+    margin-top: var(--ts-slider-thumb-offset) !important;
+    border-radius: 50% !important;
+    background: var(--ts-slider-grad) !important;
+    /* border: 2px solid var(--ts-slider-accent-darker); */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23);
+    border: 1px solid var(--ts-slider-accent-darker) !important;
+    transform: translatex(calc(var(--ts-slider-thumb-size)*.1 + .5dvw));
+    cursor: pointer !important;
+    transition: all var(--ts-dur-fast) var(--ts-ease-out);
+    --ts-slider-accent-darker: color-mix(in srgb, var(--ts-slider-accent), #000000 5%);
+    --ts-slider-accent: var(--ts-accent);
+    --ts-accent: var(--yss-accent);
+}
+
+#yt-batch-download-delay-slider-container.yss-form-block {
+    font-size: var(--yss-font-size);
+    color: var(--yt-spec-text-secondary);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    gap: 5px !important;
+}
+
+.yss-modal-content.yss-batch .yss-form-block:has(input[type="range"].ts-range) > label {
+    display: flex;
+    flex: 0 1;
+    order: 1;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.yss-modal-content.yss-batch .yss-form-block:has(input[type="range"].ts-range) > span {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex: 0;
+    text-align: center !important;
+    height: -webkit-fill-available;
+    min-width: 55px !important;
+    order: 1;
+}
+
+.yss-modal-content.yss-batch .yss-form-block:has(input[type="range"].ts-range) > span:after {
+    display: none;
+}
+
+:root:has(div[id*="-panel"], div[id*="yss-"], div[id*="suno-"], div[id*="hf-"], #main, .ts-sandbox-isolate),
+:root:has(div[id*="-panel"], div[id*="yss-"], div[id*="suno-"], div[id*="hf-"], #main, .ts-sandbox-isolate) * {
+    --ts-backdrop-blur: 1px;
+    --ts-bg-alpha: 12%;
+    --ts-overlay-bg: color-mix(in srgb,
+        var(--ts-bg-body), transparent var(--ts-bg-alpha));
+    --ts-accent: var(--yss-accent);
+    --ts-image-yss-panel-bg-watch: url(/assets/img/bg_yt.jpg);
+    --ts-image-yss-panel-bg-studio: url(/assets/img/bg_yt_s.jpg);
+}
+
+body:has(div[id*="-panel"], div[id*="yss-"], div[id*="suno-"], div[id*="hf-"], #main, .ts-sandbox-isolate):after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--ts-overlay-bg);
+    z-index: 0;
+    backdrop-filter:
+        blur(var(--ts-backdrop-blur)) saturate(1.4);
+}
+
+html:has(div[id*="-panel"], div[id*="yss-"], div[id*="suno-"], div[id*="hf-"], #main, .ts-sandbox-isolate) {
+    body:has(#yss-panel: not(.yss-watch-mode)) {
+        background-image: var(--ts-image-yss-panel-bg-studio) !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left center;
+    }
+
+    body:has(#yss-panel.yss-watch-mode) {
+        background-image: var(--ts-image-yss-panel-bg-watch) !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left center;
+    }
+}
+
+[data-theme="light"] body:has(div[id*="-panel"], div[id*="yss-"], div[id*="suno-"], div[id*="hf-"], #main, .ts-sandbox-isolate):after {
+    --ts-backdrop-blur: 0px;
+    --ts-bg-alpha: 95%;
+    --ts-overlay-bg: color-mix(in srgb, var(--ts-bg-body), transparent var(--ts-bg-alpha));
+    background: var(--ts-overlay-bg);
+    scrollbar-width: none !important;
+    scrollbar-color: revert-layer !important;
+    scrollbar-gutter: revert-layer !important;
+}
+
+.suno-modal-instructions summary:has(ion-icon) {
+    padding-left: calc(var(--suno-btn-icon-minsize) + 0px) !important;
+}
+
+.suno-modal-content,
+.suno-modal-view {
+    scrollbar-width: none !important;
+    scrollbar-color: unset !important;
+    scrollbar-gutter: unset !important;
+}
+
+.suno-track-search input {
+    flex: 0 1 var(--suno-btn-height);
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    color: var(--suno-text-primary) !important;
+    padding: 0 var(--suno-spacing-md) !important;
+    box-shadow: none !important;
+    height: var(--suno-btn-height);
+    font-size: var(--suno-btn-icon-size) !important;
+    min-width: var(--suno-btn-size);
+    height: var(--suno-btn-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    background-color: var(--suno-accent-color) !important;
+    --suno-accent-color-bg: linear-gradient(136deg, color-mix(in srgb, var(--suno-accent-color), #ffffff 9%), color-mix(in srgb, var(--suno-accent-color), #000000 18%), color-mix(in srgb, var(--suno-accent-color), #ffffff 7%));
+    border-radius: var(--suno-border-radius-lg) !important;
+    --suno-icon-size: 18px;
+
+    &:focus {
+        field-sizing: contents;
+        flex: 1 1 calc(var(--suno-btn-height)*4);
+        max-width: calc(var(--suno-btn-height)*4);
+        min-width: calc(var(--suno-btn-height)*4);
+    }
+}
+
+.suno-track-search input::placeholder {
+    color: var(--suno-text-tertiary);
+    font-size: 12px;
+}
+
+.suno-track-search input:not(:focus)::placeholder {
+    color: transparent;
+}
